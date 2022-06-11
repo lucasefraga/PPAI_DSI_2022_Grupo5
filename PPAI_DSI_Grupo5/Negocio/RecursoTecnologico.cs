@@ -45,7 +45,7 @@ namespace PPAI_DSI_Grupo5.Negocio
         }
 
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
-            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos)
+            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, TipoRecursoTecnologico tipoRecursoTecnologico)
         {
             this.numeroRT = numeroRT;
             this.fechaAlta = fechaAlta;
@@ -53,21 +53,16 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.periodicidadManPrev = periodicidadManPrev;
             this.duracionManPrev = duracionManPrev;
             this.fraccionHorarioTurnos = fraccionHorarioTurnos;
+            this.tipoRecurso = tipoRecursoTecnologico;
         }
 
-        public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
-            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, 
-            TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<HorarioRT> disponibilidad, 
-            List<CambioEstadoRT> cambioEstadoRT) : this(numeroRT, fechaAlta, imagenes, periodicidadManPrev, 
-                duracionManPrev, fraccionHorarioTurnos)
+
+
+        public bool esTipoRecursoSeleccinado(TipoRecursoTecnologico tipoRecurso)
         {
-
-            this.tipoRecurso = tipoRecurso;
-            this.modeloDelRT = modeloDelRT;
-            this.disponibilidad = disponibilidad;
-            this.cambioEstadoRT = cambioEstadoRT;
+            bool a = this.tipoRecurso.Equals(tipoRecurso);
+            return a;
         }
-
 
     }
 }

@@ -1,0 +1,11 @@
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe.config
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.pdb
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.AssemblyReference.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.SuggestedBindingRedirects.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Form1.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Properties.Resources.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.GenerateResource.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CoreCompileInputs.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb
