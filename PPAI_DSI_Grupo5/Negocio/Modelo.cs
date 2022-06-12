@@ -17,6 +17,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void getMarca()
         {
+            marcas = Datos.MainDeDatos.crearMarca();
             foreach (Marca marca in marcas)
             {
                 if (marca.esDeEstaMarca(this) != null)
@@ -27,6 +28,7 @@ namespace PPAI_DSI_Grupo5.Negocio
         }
         public string getNombreMarca()
         {
+            getMarca();
             return marcaCorrespondiente.getNombre();
         }
 

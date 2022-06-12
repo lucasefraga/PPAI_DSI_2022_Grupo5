@@ -15,11 +15,7 @@ namespace PPAI_DSI_Grupo5.Datos
         public static readonly TipoRecursoTecnologico tr4 = new TipoRecursoTecnologico("TipoRecurso4", "Descripcion4");
         public static readonly TipoRecursoTecnologico tr5 = new TipoRecursoTecnologico("TipoRecurso5", "Descripcion5");
 
-        public static readonly RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n", tr1,mod1,crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt2 = new RecursoTecnologico(2, DateTime.Now, "N", 30, 10, "n", tr2,mod2, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3,mod3, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4,mod4, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5,mod1, crearCambioEstadoRTs());
+
 
         public static readonly DateTime fechaFin = new DateTime(2023, 5, 10, 10, 10, 10);
         public static readonly DateTime fechaInicio = new DateTime(2022, 5, 10, 10, 10, 10);
@@ -58,6 +54,12 @@ namespace PPAI_DSI_Grupo5.Datos
 
         public static readonly Marca mar1 = new Marca("Marca1", crearModelos());
 
+
+        public static readonly RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n", tr1, mod1, crearCambioEstadoRTs());
+        public static readonly RecursoTecnologico rt2 = new RecursoTecnologico(2, DateTime.Now, "N", 30, 10, "n", tr2, mod2, crearCambioEstadoRTs());
+        public static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3, mod3, crearCambioEstadoRTs());
+        public static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4, mod4, crearCambioEstadoRTs());
+        public static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5, mod1, crearCambioEstadoRTs());
 
 
         public static readonly CentroDeInvestigacion ci1 = new CentroDeInvestigacion("Centro 1","AAA","Direccion1",
@@ -148,6 +150,12 @@ namespace PPAI_DSI_Grupo5.Datos
 
         }
 
+        public static List<Marca> crearMarca()
+        {
+            List<Marca> marcas = new List<Marca>();
+            marcas.Add(mar1);
+            return marcas;
+        }
 
 
 

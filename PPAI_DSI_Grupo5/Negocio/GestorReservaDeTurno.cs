@@ -61,6 +61,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void buscarDatosRecursosTecnologicosValidos()
         {
+            listaRecursosMuestra = new List<RecursoTecnologicoMuestra>();
             foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos)
             {
                 listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
