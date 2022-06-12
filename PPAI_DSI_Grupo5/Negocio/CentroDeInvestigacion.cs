@@ -28,6 +28,8 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<AsignacionCientificoCI> cientificos { get; set; }
         private List<AsignacionDirectorCI> directorCI { get; set; }
 
+
+
         public CentroDeInvestigacion(string nombre, string sigla, string direccion, string edificio, 
             int piso, string coordenadas, List<double> telefonoContacto, string correoElectronico, 
             string numResCreacion, DateTime fechaResCreacion, string reglamento, string caracteristicasGenerales, 
@@ -42,6 +44,28 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.piso = piso;
             this.coordenadas = coordenadas;
             this.telefonoContacto = telefonoContacto;
+            this.correoElectronico = correoElectronico;
+            this.numResCreacion = numResCreacion;
+            this.fechaResCreacion = fechaResCreacion;
+            this.reglamento = reglamento;
+            this.caracteristicasGenerales = caracteristicasGenerales;
+            this.fechaAlta = fechaAlta;
+            this.tiempoAntelacionReserva = tiempoAntelacionReserva;
+            this.fechaBaja = fechaBaja;
+            this.motivoBaja = motivoBaja;
+            this.recursosTecnologicos = recursosTecnologicos;
+            this.cientificos = cientificos;
+            this.directorCI = directorCI;
+        }
+
+        public CentroDeInvestigacion(string nombre, string sigla, string direccion, string edificio, int piso, string coordenadas, string correoElectronico, string numResCreacion, DateTime fechaResCreacion, string reglamento, string caracteristicasGenerales, DateTime fechaAlta, int tiempoAntelacionReserva, DateTime fechaBaja, string motivoBaja, List<RecursoTecnologico> recursosTecnologicos, List<AsignacionCientificoCI> cientificos, List<AsignacionDirectorCI> directorCI)
+        {
+            this.nombre = nombre;
+            this.sigla = sigla;
+            this.direccion = direccion;
+            this.edificio = edificio;
+            this.piso = piso;
+            this.coordenadas = coordenadas;
             this.correoElectronico = correoElectronico;
             this.numResCreacion = numResCreacion;
             this.fechaResCreacion = fechaResCreacion;

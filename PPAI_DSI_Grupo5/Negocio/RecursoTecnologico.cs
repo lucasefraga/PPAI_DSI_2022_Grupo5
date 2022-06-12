@@ -27,6 +27,8 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         CentroDeInvestigacion centroInvestigacionCorrespondiente = null;
 
+        
+
 
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
             int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, 
@@ -49,8 +51,18 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.turnos = turnos;
         }
 
+        public RecursoTecnologico(int numeroRT, TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<HorarioRT> disponibilidad, List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
+        {
+            this.numeroRT = numeroRT;
+            this.tipoRecurso = tipoRecurso;
+            this.modeloDelRT = modeloDelRT;
+            this.disponibilidad = disponibilidad;
+            this.cambioEstadoRT = cambioEstadoRT;
+            this.turnos = turnos;
+        }
+
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
-            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, TipoRecursoTecnologico tipoRecursoTecnologico)
+            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, TipoRecursoTecnologico tipoRecursoTecnologico, Modelo modelo,List<CambioEstadoRT>cambioEstadoRT)
         {
             this.numeroRT = numeroRT;
             this.fechaAlta = fechaAlta;
@@ -59,9 +71,11 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.duracionManPrev = duracionManPrev;
             this.fraccionHorarioTurnos = fraccionHorarioTurnos;
             this.tipoRecurso = tipoRecursoTecnologico;
+            this.modeloDelRT = modelo;
+            this.cambioEstadoRT = cambioEstadoRT;
         }
 
-
+        
 
         public bool esTipoRecursoSeleccinado(TipoRecursoTecnologico tipoRecurso)
         {
@@ -70,12 +84,14 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public bool esReservable()
         {
+            cambioEstadoRT = Datos.MainDeDatos.crearCambioEstadoRTs();//hay q acomodar esto, no va aca creo
             //Creo q busca el ultimo, que supongo que es el actual?
             return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable(); 
         }
 
         public void conocerCentroInvestigacion()
         {
+            centros = Datos.MainDeDatos.crearCentros();//hay q acomodar esto, no va aca creo
             foreach (CentroDeInvestigacion centro in centros)
             {
                 if (centro.obtenerCIdeRecursoTecnologico(this) != null)

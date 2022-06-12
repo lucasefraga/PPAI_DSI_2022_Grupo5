@@ -36,6 +36,9 @@ namespace PPAI_DSI_Grupo5
             gestor.tomarSeleccionTipoRecursoTecnologico();
             gestor.obtenerRecursoTecnologico();
             gestor.buscarRTPorTipoRTValido();
+            gestor.buscarDatosRecursosTecnologicosValidos();
+            gestor.tomarSeleccionRTAUtilizar();
+            gestor.verificarCIDelUsuario();
         }
     }
 }

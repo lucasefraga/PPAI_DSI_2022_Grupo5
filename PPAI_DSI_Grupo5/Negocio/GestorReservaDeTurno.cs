@@ -45,6 +45,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void buscarRTPorTipoRTValido()
         {
+            listaRecursosTecnologicosValidos = new List<RecursoTecnologico>();
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
             {
                 if (recurso.esTipoRecursoSeleccinado(tipoRecursoTecnologicoSeleccionado))
@@ -68,6 +69,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void tomarSeleccionRTAUtilizar()
         {
+            recursoTecnologicoSeleccionado = listaRecursosTecnologicosValidos[0];
             //falta implementar
         }
 
