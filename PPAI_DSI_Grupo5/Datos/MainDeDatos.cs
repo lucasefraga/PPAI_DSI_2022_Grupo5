@@ -21,6 +21,11 @@ namespace PPAI_DSI_Grupo5.Datos
         static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3);
         static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4);
         static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5);
+        
+        static readonly DateTime fechaFin = new DateTime(2023, 5, 10, 10, 10, 10);
+        static readonly DateTime fechaInicio = new DateTime(2022, 5, 10, 10, 10, 10);
+        static readonly Usuario us1 = new Usuario("1234","Cientifico1",true);
+        static readonly Sesion ses1 = new Sesion(fechaFin,fechaInicio,us1);
 
 
         public static List<TipoRecursoTecnologico> crearTipoRecursoTecnologico()
@@ -50,7 +55,10 @@ namespace PPAI_DSI_Grupo5.Datos
             return listaRecursos;
         }
 
-
+        public static Sesion getSesionActual()
+        {
+            return ses1;
+        }
 
 
 

@@ -14,6 +14,10 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; }
         private List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; }
 
+        private RecursoTecnologico recursoTecnologicoSeleccionado { get; set;}
+
+        private Sesion sesionActual = Datos.MainDeDatos.getSesionActual();
+        private PersonalCientifico cientificoLogueado { get; set; }
 
 
 
@@ -60,6 +64,18 @@ namespace PPAI_DSI_Grupo5.Negocio
             {
                 listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
             }
+        }
+
+        public void tomarSeleccionRTAUtilizar()
+        {
+            //falta implementar
+        }
+
+        public void verificarCIDelUsuario()
+        {
+            cientificoLogueado = sesionActual.obtenerCientificoLogueado();
+
+            bool esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
         }
 
 

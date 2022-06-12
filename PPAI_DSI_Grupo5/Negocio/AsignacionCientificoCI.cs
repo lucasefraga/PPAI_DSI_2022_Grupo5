@@ -24,5 +24,30 @@ namespace PPAI_DSI_Grupo5.Negocio
         {
             this.turnos = turnos;
         }
+
+        public bool esActivo(PersonalCientifico cientifico)
+        {
+            if (personalCientifico.Equals(cientifico))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        public PersonalCientifico getPersonalCientifico()
+        {
+            return personalCientifico;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is AsignacionCientificoCI cI &&
+                   fechaDesde == cI.fechaDesde &&
+                   fechaHasta == cI.fechaHasta &&
+                   EqualityComparer<PersonalCientifico>.Default.Equals(personalCientifico, cI.personalCientifico) &&
+                   EqualityComparer<List<Turno>>.Default.Equals(turnos, cI.turnos);
+        }
     }
 }

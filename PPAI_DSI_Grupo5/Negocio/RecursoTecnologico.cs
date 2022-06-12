@@ -25,7 +25,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         List<CentroDeInvestigacion> centros = new List<CentroDeInvestigacion>();
 
-        CentroDeInvestigacion CentroInvestigacionCorrespondiente = null;
+        CentroDeInvestigacion centroInvestigacionCorrespondiente = null;
 
 
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
@@ -80,9 +80,14 @@ namespace PPAI_DSI_Grupo5.Negocio
             {
                 if (centro.obtenerCIdeRecursoTecnologico(this) != null)
                 {
-                    CentroInvestigacionCorrespondiente = centro.obtenerCIdeRecursoTecnologico(this);
+                    centroInvestigacionCorrespondiente = centro.obtenerCIdeRecursoTecnologico(this);
                 }
             }
+        }
+
+        public bool esCientificoDeMiCentro(PersonalCientifico cientifico)
+        {
+            return centroInvestigacionCorrespondiente.esCientificoActivo(cientifico);
         }
 
 
@@ -96,7 +101,7 @@ namespace PPAI_DSI_Grupo5.Negocio
             string nombreEstado = this.cambioEstadoRT.Last().getNombreEstado();
             
 
-            return new RecursoTecnologicoMuestra(CentroInvestigacionCorrespondiente,numeroRT,marca,modelo,nombreEstado);
+            return new RecursoTecnologicoMuestra(centroInvestigacionCorrespondiente,numeroRT,marca,modelo,nombreEstado);
         }
 
     }

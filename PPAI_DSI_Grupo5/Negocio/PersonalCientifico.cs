@@ -29,5 +29,10 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.telefono = telefono;
             this.usuario = usuario;
         }
+
+        public Usuario getUsuario()
+        {
+            return usuario;
+        }
     }
 }

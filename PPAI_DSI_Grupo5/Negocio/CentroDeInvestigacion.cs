@@ -64,5 +64,18 @@ namespace PPAI_DSI_Grupo5.Negocio
             }
             return null;
         }
+
+        public bool esCientificoActivo(PersonalCientifico cientifico)
+        {
+            foreach (AsignacionCientificoCI asignado in cientificos)
+            {
+                if (asignado.esActivo(cientifico))
+                {
+                    return true;
+                    break;
+                } 
+            }
+            return false;
+        }
     }
 }

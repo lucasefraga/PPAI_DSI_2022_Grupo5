@@ -26,7 +26,7 @@ namespace PPAI_DSI_Grupo5.Negocio
             return null;
         }
 
-        internal string getNombre()
+        public string getNombre()
         {
             return nombre;
         }

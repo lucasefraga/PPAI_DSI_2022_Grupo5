@@ -18,5 +18,15 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.fechaInicio = fechaInicio;
             this.usuarioActual = usuarioActual;
         }
+
+        public Usuario getNombreUsuario()
+        {
+            return this.usuarioActual.getUsuario();
+        }
+
+        public PersonalCientifico obtenerCientificoLogueado()
+        {
+            return usuarioActual.GetPersonalCientifico();
+        }
     }
 }
