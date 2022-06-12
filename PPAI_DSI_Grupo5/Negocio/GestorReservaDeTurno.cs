@@ -11,7 +11,8 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; }
         private TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; }
         private List<RecursoTecnologico> listaRecursoTecnologicosDisponibles { get; set; }
-
+        private List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; }
+        private List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; }
 
 
 
@@ -44,9 +45,20 @@ namespace PPAI_DSI_Grupo5.Negocio
             {
                 if (recurso.esTipoRecursoSeleccinado(tipoRecursoTecnologicoSeleccionado))
                 {
-
+                    if (recurso.esReservable())
+                    {
+                        listaRecursosTecnologicosValidos.Add(recurso);
+                    }
                 }
                 
+            }
+        }
+
+        public void buscarDatosRecursosTecnologicosValidos()
+        {
+            foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos)
+            {
+                listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
             }
         }
 

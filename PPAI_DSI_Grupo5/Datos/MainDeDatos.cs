@@ -14,9 +14,13 @@ namespace PPAI_DSI_Grupo5.Datos
         static readonly TipoRecursoTecnologico tr3 = new TipoRecursoTecnologico("TipoRecurso3", "Descripcion3");
         static readonly TipoRecursoTecnologico tr4 = new TipoRecursoTecnologico("TipoRecurso4", "Descripcion4");
         static readonly TipoRecursoTecnologico tr5 = new TipoRecursoTecnologico("TipoRecurso5", "Descripcion5");
+        
+
         static readonly RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n", tr1);
-
-
+        static readonly RecursoTecnologico rt2 = new RecursoTecnologico(2, DateTime.Now, "N", 30, 10, "n", tr2);
+        static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3);
+        static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4);
+        static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5);
 
 
         public static List<TipoRecursoTecnologico> crearTipoRecursoTecnologico()
@@ -35,11 +39,13 @@ namespace PPAI_DSI_Grupo5.Datos
 
         public static List<RecursoTecnologico> crearRecursoTecnologico()
         {
-            RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n",tr1);
-
 
             List<RecursoTecnologico> listaRecursos = new List<RecursoTecnologico>();
             listaRecursos.Add(rt1);
+            listaRecursos.Add(rt2);
+            listaRecursos.Add(rt3);
+            listaRecursos.Add(rt4);
+            listaRecursos.Add(rt5);
 
             return listaRecursos;
         }

@@ -22,5 +22,17 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.esReservable = esReservable;
             this.esCancelable = esCancelable;
         }
+
+        public bool getEsReservable()
+        {
+            return esReservable;
+        }
+
+        public string getNombre()
+        {
+            return nombre;
+        }
+        
+
     }
 }

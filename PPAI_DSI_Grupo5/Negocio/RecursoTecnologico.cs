@@ -23,6 +23,11 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<CambioEstadoRT> cambioEstadoRT { get; set; }
         private List<Turno> turnos { get; set; }
 
+        List<CentroDeInvestigacion> centros = new List<CentroDeInvestigacion>();
+
+        CentroDeInvestigacion CentroInvestigacionCorrespondiente = null;
+
+
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
             int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, 
             List<CaracteristicaRecurso> caracteristicaRecurso, TipoRecursoTecnologico tipoRecurso, 
@@ -60,8 +65,38 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public bool esTipoRecursoSeleccinado(TipoRecursoTecnologico tipoRecurso)
         {
-            bool a = this.tipoRecurso.Equals(tipoRecurso);
-            return a;
+            return this.tipoRecurso.Equals(tipoRecurso); ;
+        }
+
+        public bool esReservable()
+        {
+            //Creo q busca el ultimo, que supongo que es el actual?
+            return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable(); 
+        }
+
+        public void conocerCentroInvestigacion()
+        {
+            foreach (CentroDeInvestigacion centro in centros)
+            {
+                if (centro.obtenerCIdeRecursoTecnologico(this) != null)
+                {
+                    CentroInvestigacionCorrespondiente = centro.obtenerCIdeRecursoTecnologico(this);
+                }
+            }
+        }
+
+
+        public RecursoTecnologicoMuestra buscarDatosAMostrar()
+        {
+            conocerCentroInvestigacion();
+            //Explicacion de como obtengo cada cosa, se puede borrar despues
+            int nroInventario = numeroRT;
+            string marca = this.modeloDelRT.getNombreMarca();
+            string modelo = this.modeloDelRT.getNombre();
+            string nombreEstado = this.cambioEstadoRT.Last().getNombreEstado();
+            
+
+            return new RecursoTecnologicoMuestra(CentroInvestigacionCorrespondiente,numeroRT,marca,modelo,nombreEstado);
         }
 
     }

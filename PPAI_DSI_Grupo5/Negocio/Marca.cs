@@ -16,5 +16,24 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.nombre = nombre;
             this.modelos = modelos;
         }
+
+        public Marca esDeEstaMarca(Modelo modelo)
+        {
+            if (modelos.Contains(modelo))
+            {
+                return this;
+            }
+            return null;
+        }
+
+        internal string getNombre()
+        {
+            return nombre;
+        }
+
+        public Marca devolverMarca()
+        {
+            return this;
+        }
     }
 }

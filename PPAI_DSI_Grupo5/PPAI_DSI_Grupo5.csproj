@@ -63,6 +63,7 @@
     <Compile Include="Negocio\Modelo.cs" />
     <Compile Include="Negocio\PersonalCientifico.cs" />
     <Compile Include="Negocio\RecursoTecnologico.cs" />
+    <Compile Include="Negocio\RecursoTecnologicoMuestra.cs" />
     <Compile Include="Negocio\Sesion.cs" />
     <Compile Include="Negocio\TipoRecursoTecnologico.cs" />
     <Compile Include="Negocio\Turno.cs" />
