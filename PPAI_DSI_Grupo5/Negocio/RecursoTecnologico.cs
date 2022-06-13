@@ -110,9 +110,10 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void obtenerTurnos()
         {
+            //La idea es sacar una lista de los turnos que son posteriores a esta fecha
             turnos_disponibles = new List<Turno>();
             foreach (Turno turno in turnos)
-                if (turno.fechaInicio > DateTime.Now)
+                if (DateTime.Compare(turno.FechaHoraInicio, DateTime.Now) > 0)
                     turnos_disponibles.Add(turno);
         }
         public RecursoTecnologicoMuestra buscarDatosAMostrar()
