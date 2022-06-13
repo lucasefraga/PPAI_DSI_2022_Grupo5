@@ -11,6 +11,9 @@ namespace PPAI_DSI_Grupo5.Negocio
         private DateTime fechaHoraInicio { get; set; }
 
         private DateTime fechaHoraFin { get; set;}
+
+
+        public DateTime fechaInicio { get; set; }
     }
 
 }
