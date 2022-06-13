@@ -46,38 +46,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datos\MainDeDatos.cs" />
-    <Compile Include="Negocio\AsignacionCientificoCI.cs" />
-    <Compile Include="Negocio\AsignacionDirectorCI.cs" />
-    <Compile Include="Negocio\CambioEstadoRT.cs" />
-    <Compile Include="Negocio\CambioEstadoTurno.cs" />
-    <Compile Include="Negocio\Caracteristica.cs" />
-    <Compile Include="Negocio\CaracteristicaRecurso.cs" />
-    <Compile Include="Negocio\CentroDeInvestigacion.cs" />
-    <Compile Include="Negocio\Estado.cs" />
-    <Compile Include="Negocio\Facultad.cs" />
-    <Compile Include="Negocio\GestorReservaDeTurno.cs" />
-    <Compile Include="Negocio\HorarioRT.cs" />
-    <Compile Include="Negocio\Mantenimiento.cs" />
-    <Compile Include="Negocio\Marca.cs" />
-    <Compile Include="Negocio\Modelo.cs" />
-    <Compile Include="Negocio\PersonalCientifico.cs" />
-    <Compile Include="Negocio\RecursoTecnologico.cs" />
-    <Compile Include="Negocio\RecursoTecnologicoMuestra.cs" />
-    <Compile Include="Negocio\Sesion.cs" />
-    <Compile Include="Negocio\TipoRecursoTecnologico.cs" />
-    <Compile Include="Negocio\Turno.cs" />
-    <Compile Include="Negocio\Usuario.cs" />
+    <Compile Include="Entidades\Datos\MainDeDatos.cs" />
+    <Compile Include="Entidades\Negocio\AsignacionCientificoCI.cs" />
+    <Compile Include="Entidades\Negocio\AsignacionDirectorCI.cs" />
+    <Compile Include="Entidades\Negocio\CambioEstadoRT.cs" />
+    <Compile Include="Entidades\Negocio\CambioEstadoTurno.cs" />
+    <Compile Include="Entidades\Negocio\Caracteristica.cs" />
+    <Compile Include="Entidades\Negocio\CaracteristicaRecurso.cs" />
+    <Compile Include="Entidades\Negocio\CentroDeInvestigacion.cs" />
+    <Compile Include="Entidades\Negocio\Estado.cs" />
+    <Compile Include="Entidades\Negocio\Facultad.cs" />
+    <Compile Include="Entidades\Negocio\GestorReservaDeTurno.cs" />
+    <Compile Include="Entidades\Negocio\HorarioRT.cs" />
+    <Compile Include="Entidades\Negocio\Mantenimiento.cs" />
+    <Compile Include="Entidades\Negocio\Marca.cs" />
+    <Compile Include="Entidades\Negocio\Modelo.cs" />
+    <Compile Include="Entidades\Negocio\PersonalCientifico.cs" />
+    <Compile Include="Entidades\Negocio\RecursoTecnologico.cs" />
+    <Compile Include="Entidades\Negocio\RecursoTecnologicoMuestra.cs" />
+    <Compile Include="Entidades\Negocio\Sesion.cs" />
+    <Compile Include="Entidades\Negocio\TipoRecursoTecnologico.cs" />
+    <Compile Include="Entidades\Negocio\Turno.cs" />
+    <Compile Include="Entidades\Negocio\Usuario.cs" />
+    <Compile Include="Presentacion\ABM Turno\ABMTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Turno\ABMTurno.Designer.cs">
+      <DependentUpon>ABMTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Turno\AltaTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Turno\AltaTurno.Designer.cs">
+      <DependentUpon>AltaTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Menú\MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Menú\MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Transacciones\RegistrarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Transacciones\RegistrarTurno.Designer.cs">
+      <DependentUpon>RegistrarTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\ABM Turno\ABMTurno.resx">
+      <DependentUpon>ABMTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Turno\AltaTurno.resx">
+      <DependentUpon>AltaTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Menú\MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Transacciones\RegistrarTurno.resx">
+      <DependentUpon>RegistrarTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
