@@ -22,7 +22,6 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<HorarioRT> disponibilidad { get; set; }
         private List<CambioEstadoRT> cambioEstadoRT { get; set; }
         private List<Turno> turnos { get; set; }
-        private List<Turno> turnos_disponibles { get; set; }
 
         List<CentroDeInvestigacion> centros = new List<CentroDeInvestigacion>();
 
@@ -35,7 +34,7 @@ namespace PPAI_DSI_Grupo5.Negocio
             int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, 
             List<CaracteristicaRecurso> caracteristicaRecurso, TipoRecursoTecnologico tipoRecurso, 
             Modelo modeloDelRT, List<Mantenimiento> mantenimientos, List<HorarioRT> disponibilidad, 
-            List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos, List<Turno> turnos_disponibles)
+            List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
         {
             this.numeroRT = numeroRT;
             this.fechaAlta = fechaAlta;
@@ -50,7 +49,6 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.disponibilidad = disponibilidad;
             this.cambioEstadoRT = cambioEstadoRT;
             this.turnos = turnos;
-            this.turnos_disponibles = turnos_disponibles;
         }
 
         public RecursoTecnologico(int numeroRT, TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<HorarioRT> disponibilidad, List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
@@ -108,16 +106,19 @@ namespace PPAI_DSI_Grupo5.Negocio
             return centroInvestigacionCorrespondiente.esCientificoActivo(cientifico);
         }
 
-        public void obtenerTurnos()
+        public List<(DateTime, DateTime, string)> obtenerTurnos()
         {
-            //La idea es sacar una lista de los turnos que son posteriores a esta fecha
-            //Probablemente requiera cambios despues
-            //Puesto que ademas de los datos de cada turno tambien es necesario el nombre del estado...
-            //Entonces necesitaria obtener una lista de pares ordenados (turno, nombre_estado)
-            turnos_disponibles = new List<Turno>();
+            //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...
+            //fechaFin y el estado en el que esta. De ahi que esto retorna una lista con esos tipos
+            List<Turno> turnos_disponibles = new List<Turno>();
+            List<(DateTime, DateTime, string)> mostrar_turnos = new List<(DateTime, DateTime, string)>();
             foreach (Turno turno in turnos)
                 if (turno.validarFechaHoraInicio())
                     turnos_disponibles.Add(turno);
+            foreach (Turno turno1 in turnos_disponibles)
+                mostrar_turnos.Add(turno1.mostrarTurnos());
+            return mostrar_turnos;
+                
         }
         public RecursoTecnologicoMuestra buscarDatosAMostrar()
         {

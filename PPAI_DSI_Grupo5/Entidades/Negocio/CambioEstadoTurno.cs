@@ -36,8 +36,10 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public bool esActual()
         {
-            // Sin completar, no estoy seguro de como saber si es actual o no
-            return true;
+            if (fechaHoraHasta == null)
+                return true;
+            else
+                return false;
         }
         public string mostrarNombreEstado()
         {

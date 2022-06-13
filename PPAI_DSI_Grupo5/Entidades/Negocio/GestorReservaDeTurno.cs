@@ -83,7 +83,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void obtenerTurnos()
         {
-            //Sin implementar, tiene q pedirle al RT seleccionado q lo haga
+            //Falta implementar 'rtseleccionado.obtenerTurnos()'
         }
     }
 }
