@@ -53,8 +53,8 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
@@ -65,7 +65,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             this.lblTurno.AutoSize = true;
             this.lblTurno.Font = new System.Drawing.Font("Microsoft YaHei Light", 20F, System.Drawing.FontStyle.Italic);
-            this.lblTurno.Location = new System.Drawing.Point(95, 43);
+            this.lblTurno.Location = new System.Drawing.Point(90, 43);
             this.lblTurno.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTurno.Name = "lblTurno";
             this.lblTurno.Size = new System.Drawing.Size(225, 45);
@@ -285,16 +285,6 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel2.Size = new System.Drawing.Size(389, 33);
             this.panel2.TabIndex = 31;
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(181, 5);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(97, 24);
-            this.checkBox2.TabIndex = 30;
-            this.checkBox2.Text = "Whatsapp ";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -304,6 +294,16 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.checkBox1.TabIndex = 29;
             this.checkBox1.Text = "Email";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(181, 5);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(97, 24);
+            this.checkBox2.TabIndex = 30;
+            this.checkBox2.Text = "Whatsapp ";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -343,7 +343,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel1.Controls.Add(this.lblLegajo);
             this.panel1.Controls.Add(this.txtEmpLegajo);
             this.panel1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(103, 104);
+            this.panel1.Location = new System.Drawing.Point(98, 104);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(871, 688);
@@ -360,7 +360,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.Controls.Add(this.lblTurno);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AltaTurno";
             this.Text = "Secretaría de Ciencia y Técnica - Registrar turno";
             this.panel2.ResumeLayout(false);

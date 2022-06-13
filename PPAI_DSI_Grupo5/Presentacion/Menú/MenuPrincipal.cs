@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.Presentacion.Transacciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,10 @@ namespace PPAI_DSI_Grupo5.Presentacion.Menú
             InitializeComponent();
         }
 
-       // private void reservarTurnoToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    RegistrarTurno ventana = new RegistrarTurno();
-         //   ventana.ShowDialog();
-        //}
+        private void reservarTurnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarTurno ventana = new RegistrarTurno();
+           ventana.ShowDialog();
+        }
     }
 }

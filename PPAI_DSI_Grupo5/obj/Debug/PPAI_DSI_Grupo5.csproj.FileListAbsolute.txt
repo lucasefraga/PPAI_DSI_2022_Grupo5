@@ -23,3 +23,14 @@ C:\Users\Marina Constanza\source\repos\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\
 C:\Users\Marina Constanza\source\repos\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.AltaTurno.resources
 C:\Users\Marina Constanza\source\repos\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Menú.MenuPrincipal.resources
 C:\Users\Marina Constanza\source\repos\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Transacciones.RegistrarTurno.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.AssemblyReference.cache
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.ABMTurno.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.AltaTurno.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Form1.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Menú.MenuPrincipal.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Transacciones.RegistrarTurno.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Properties.Resources.resources
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.GenerateResource.cache
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CoreCompileInputs.cache
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb
