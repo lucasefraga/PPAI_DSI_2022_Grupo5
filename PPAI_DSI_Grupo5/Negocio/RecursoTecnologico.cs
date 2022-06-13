@@ -111,9 +111,12 @@ namespace PPAI_DSI_Grupo5.Negocio
         public void obtenerTurnos()
         {
             //La idea es sacar una lista de los turnos que son posteriores a esta fecha
+            //Probablemente requiera cambios despues
+            //Puesto que ademas de los datos de cada turno tambien es necesario el nombre del estado...
+            //Entonces necesitaria obtener una lista de pares ordenados (turno, nombre_estado)
             turnos_disponibles = new List<Turno>();
             foreach (Turno turno in turnos)
-                if (DateTime.Compare(turno.FechaHoraInicio, DateTime.Now) > 0)
+                if (turno.validarFechaHoraInicio())
                     turnos_disponibles.Add(turno);
         }
         public RecursoTecnologicoMuestra buscarDatosAMostrar()

@@ -81,6 +81,9 @@ namespace PPAI_DSI_Grupo5.Negocio
             bool esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
         }
 
-
+        public void obtenerTurnos()
+        {
+            //Sin implementar, tiene q pedirle al RT seleccionado q lo haga
+        }
     }
 }

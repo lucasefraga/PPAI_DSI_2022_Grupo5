@@ -12,11 +12,36 @@ namespace PPAI_DSI_Grupo5.Negocio
         private DateTime fechaHoraHasta { get; set; }
         private Estado estado { get; set; }
 
+        public DateTime FechaHoraDesde
+        {
+            get { return fechaHoraDesde; }
+            set { fechaHoraDesde = value; }
+        }
+        public DateTime FechaHoraHasta
+        {
+            get { return fechaHoraHasta; }
+            set { fechaHoraHasta = value; }
+        }
+        public Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
         public CambioEstadoTurno(DateTime fechaHoraDesde, DateTime fechaHoraHasta, Estado estado)
         {
             this.fechaHoraDesde = fechaHoraDesde;
             this.fechaHoraHasta = fechaHoraHasta;
             this.estado = estado;
+        }
+
+        public bool esActual()
+        {
+            // Sin completar, no estoy seguro de como saber si es actual o no
+            return true;
+        }
+        public string mostrarNombreEstado()
+        {
+            return estado.Nombre;
         }
     }
 }

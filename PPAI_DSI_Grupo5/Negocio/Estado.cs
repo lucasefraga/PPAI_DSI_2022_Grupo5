@@ -14,6 +14,33 @@ namespace PPAI_DSI_Grupo5.Negocio
         private bool esReservable { get; set; }
         private bool esCancelable { get; set; }
 
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+        public string Ambito
+        {
+            get { return ambito; }
+            set { ambito = value; }
+        }
+        public bool EsReservable
+        {
+            get { return esReservable; }
+            set { esReservable = value; }
+        }
+        public bool EsCancelable
+        {
+            get { return esCancelable; }
+            set { esCancelable = value; }
+        }
+
         public Estado(string nombre, string descripcion, string ambito, bool esReservable, bool esCancelable)
         {
             this.nombre = nombre;
