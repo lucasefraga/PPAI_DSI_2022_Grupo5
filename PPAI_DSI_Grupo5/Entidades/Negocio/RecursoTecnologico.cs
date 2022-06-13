@@ -22,7 +22,6 @@ namespace PPAI_DSI_Grupo5.Negocio
         private List<HorarioRT> disponibilidad { get; set; }
         private List<CambioEstadoRT> cambioEstadoRT { get; set; }
         private List<Turno> turnos { get; set; }
-        private List<Turno> turnos_disponibles { get; set; }
 
         List<CentroDeInvestigacion> centros = new List<CentroDeInvestigacion>();
 
@@ -35,7 +34,7 @@ namespace PPAI_DSI_Grupo5.Negocio
             int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, 
             List<CaracteristicaRecurso> caracteristicaRecurso, TipoRecursoTecnologico tipoRecurso, 
             Modelo modeloDelRT, List<Mantenimiento> mantenimientos, List<HorarioRT> disponibilidad, 
-            List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos, List<Turno> turnos_disponibles)
+            List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
         {
             this.numeroRT = numeroRT;
             this.fechaAlta = fechaAlta;
@@ -50,7 +49,6 @@ namespace PPAI_DSI_Grupo5.Negocio
             this.disponibilidad = disponibilidad;
             this.cambioEstadoRT = cambioEstadoRT;
             this.turnos = turnos;
-            this.turnos_disponibles = turnos_disponibles;
         }
 
         public RecursoTecnologico(int numeroRT, TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<HorarioRT> disponibilidad, List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
@@ -108,14 +106,7 @@ namespace PPAI_DSI_Grupo5.Negocio
             return centroInvestigacionCorrespondiente.esCientificoActivo(cientifico);
         }
 
-        public void obtenerTurnos()
-        {
-            //La idea es sacar una lista de los turnos que son posteriores a esta fecha
-            turnos_disponibles = new List<Turno>();
-            foreach (Turno turno in turnos)
-                if (DateTime.Compare(turno.FechaHoraInicio, DateTime.Now) > 0)
-                    turnos_disponibles.Add(turno);
-        }
+
         public RecursoTecnologicoMuestra buscarDatosAMostrar()
         {
             conocerCentroInvestigacion();
