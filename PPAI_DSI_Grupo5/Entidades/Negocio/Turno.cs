@@ -30,10 +30,10 @@ namespace PPAI_DSI_Grupo5.Negocio
             get { return fechaHoraFin; }
             set { fechaHoraFin = value; }
         }
-        public CambioEstadoTurno CambioEstadoTurno
-        {
+        //public CambioEstadoTurno CambioEstadoTurno
+        //{
             // Sin implementar
-        }
+        //}
 
         public Turno(DateTime fechaGeneracion, DayOfWeek diaSemana, DateTime fechaHoraInicio, DateTime fechaHoraFin, List<CambioEstadoTurno> cambioEstadoTurno)
         {

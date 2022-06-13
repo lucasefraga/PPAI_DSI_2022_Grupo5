@@ -40,6 +40,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ABMTurno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Secretaría de Ciencia y Técnica";
             this.ResumeLayout(false);
 

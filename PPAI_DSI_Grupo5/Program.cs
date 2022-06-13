@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.Presentacion.Menú;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace PPAI_DSI_Grupo5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MenuPrincipal());
         }
     }
 }

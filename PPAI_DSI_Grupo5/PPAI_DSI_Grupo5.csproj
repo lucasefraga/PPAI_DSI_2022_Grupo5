@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Datos\MainDeDatos.cs" />
+    <Compile Include="Entidades\Datos de Prueba\MainDeDatos.cs" />
     <Compile Include="Entidades\Negocio\AsignacionCientificoCI.cs" />
     <Compile Include="Entidades\Negocio\AsignacionDirectorCI.cs" />
     <Compile Include="Entidades\Negocio\CambioEstadoRT.cs" />
@@ -68,51 +68,51 @@
     <Compile Include="Entidades\Negocio\TipoRecursoTecnologico.cs" />
     <Compile Include="Entidades\Negocio\Turno.cs" />
     <Compile Include="Entidades\Negocio\Usuario.cs" />
-    <Compile Include="Presentacion\ABM Turno\ABMTurno.cs">
+    <Compile Include="Boundary\ABM Turno\ABMTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\ABM Turno\ABMTurno.Designer.cs">
+    <Compile Include="Boundary\ABM Turno\ABMTurno.Designer.cs">
       <DependentUpon>ABMTurno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ABM Turno\AltaTurno.cs">
+    <Compile Include="Boundary\ABM Turno\AltaTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\ABM Turno\AltaTurno.Designer.cs">
+    <Compile Include="Boundary\ABM Turno\AltaTurno.Designer.cs">
       <DependentUpon>AltaTurno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Form1.cs">
+    <Compile Include="Boundary\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Form1.Designer.cs">
+    <Compile Include="Boundary\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Menú\MenuPrincipal.cs">
+    <Compile Include="Boundary\Menú\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Menú\MenuPrincipal.Designer.cs">
+    <Compile Include="Boundary\Menú\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Transacciones\RegistrarTurno.cs">
+    <Compile Include="Boundary\Transacciones\RegistrarTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Transacciones\RegistrarTurno.Designer.cs">
+    <Compile Include="Boundary\Transacciones\RegistrarTurno.Designer.cs">
       <DependentUpon>RegistrarTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentacion\ABM Turno\ABMTurno.resx">
+    <EmbeddedResource Include="Boundary\ABM Turno\ABMTurno.resx">
       <DependentUpon>ABMTurno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\ABM Turno\AltaTurno.resx">
+    <EmbeddedResource Include="Boundary\ABM Turno\AltaTurno.resx">
       <DependentUpon>AltaTurno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Form1.resx">
+    <EmbeddedResource Include="Boundary\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Menú\MenuPrincipal.resx">
+    <EmbeddedResource Include="Boundary\Menú\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Transacciones\RegistrarTurno.resx">
+    <EmbeddedResource Include="Boundary\Transacciones\RegistrarTurno.resx">
       <DependentUpon>RegistrarTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
