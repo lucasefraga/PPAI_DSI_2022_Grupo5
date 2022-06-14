@@ -151,5 +151,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return new RecursoTecnologicoMuestra(centroInvestigacionCorrespondiente,numeroRT,marca,modelo,nombreEstado);
         }
 
+        public void reservarTurno(Turno turnoSelecc, Estado est, PersonalCientifico cientifico)
+        {
+            turnoSelecc.reservar(est);
+            centroInvestigacionCorrespondiente.reservarTurnoCientifico(turnoSelecc, cientifico);
+        }
+
     }
 }

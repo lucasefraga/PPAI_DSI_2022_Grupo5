@@ -16,22 +16,23 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
     internal class GestorReservaDeTurno
     {
         
-        private List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; } //Todos los TipoRecurso Disponibles
-        private TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; } //TipoRecurso Seleccionado por Cientifico   
-        private List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; } //Lista de RecursosTecnologicos correspondientes al TipoRecurso seleccionado
-        private List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; } //Lista con datos necesarios a mostrar de los RecursosTecnologicos
-        private RecursoTecnologico recursoTecnologicoSeleccionado { get; set;} //RecursoTecnologico seleccionado por el Cientifico
+        public List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; } //Todos los TipoRecurso Disponibles
+        public TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; } //TipoRecurso Seleccionado por Cientifico   
+        public List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; } //Lista de RecursosTecnologicos correspondientes al TipoRecurso seleccionado
+        public List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; } //Lista con datos necesarios a mostrar de los RecursosTecnologicos
+        public RecursoTecnologico recursoTecnologicoSeleccionado { get; set;} //RecursoTecnologico seleccionado por el Cientifico
 
-        private Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual(); // Sesion del Cientifico actual
-        private PersonalCientifico cientificoLogueado { get; set; } //Personal Cientifico Logeado
+        public Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual(); // Sesion del Cientifico actual
+        public PersonalCientifico cientificoLogueado { get; set; } //Personal Cientifico Logeado
+        public Turno turnoSeleccionado { get; set; }
 
-        private bool esCientificodelCentro = false;
+        public bool esCientificodelCentro = false;
 
 
 
         List<RecursoTecnologico> listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico(); //Busca Los RecursosTecnologicos
 
-
+        
 
 
 
@@ -86,20 +87,19 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 switch (recurso.getEstado())
                 {
                     case "Disponible":
-                        recurso.setColor(1);
+                        recurso.setColor(1);//Azul
                         break;
                     case "En mantenimiento":
-                        recurso.setColor(2);
+                        recurso.setColor(2);//Verde
                         break;
-                    case "Mantenimiento correctivo":
+                    case "Mantenimiento correctivo"://Gris
                         recurso.setColor(3);
                         break;
                     default:
-                        recurso.setColor(0);
+                        recurso.setColor(0);//No color Blanco
                         break;
                 }
             }
-            
         }
 
         public void tomarSeleccionRTAUtilizar(RecursoTecnologicoMuestra recursoTecnologicoSelecc)
@@ -137,9 +137,35 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             //Falta implementar 'rtseleccionado.obtenerTurnos()'
         }
         
-        
-        
-        
+        public void ordenarYAgruparTurnos()
+        {
+
+        }
+
+        public void determinarDisponibilidadTurnos()
+        {
+
+        }
+
+        public void tomasSeleccionTurno(Turno turnoSelecc)
+        {
+            turnoSeleccionado = turnoSelecc;
+        }
+
+        public void registrarReserva()
+        {
+            List<Estado> listaEstadosDisponibles = CapaDatos.MainDeDatos.crearEstados();
+            
+            foreach  (Estado estado in listaEstadosDisponibles)
+            {
+                if (estado.Ambito == "Turno" && estado.Nombre == "Reservado")
+                {
+                    recursoTecnologicoSeleccionado.reservarTurno(turnoSeleccionado,estado,cientificoLogueado);
+                }
+                break;
+            }
+        }
+
         // ver si  va el static
         //No, no va el static, despues hay q corregir un par de cosas de los metodos de los Form, porque al ser statc estos metodos de afectaron ahi
         public static string obtenerMailCientifico()

@@ -38,6 +38,14 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.estado = estado;
         }
 
+        public CambioEstadoTurno(DateTime fechaHoraDesde, Estado estado)
+        {
+            this.fechaHoraDesde = fechaHoraDesde;
+            this.estado = estado;
+        }
+
+
+
         //Si no tiene fecha de fin el estado es actual
         public bool esActual()
         {

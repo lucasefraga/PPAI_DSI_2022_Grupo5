@@ -36,10 +36,19 @@ namespace PPAI_DSI_Grupo5.CapaDatos
 
         public static readonly AsignacionDirectorCI adci1 = new AsignacionDirectorCI(fechaInicio,fechaFin,pc5);
 
-        public static readonly Estado e1 = new Estado("Estado1","n","Estado",true,true);
-        public static readonly Estado e2 = new Estado("Estado2","n","Estado",true,false);
-        public static readonly Estado e3 = new Estado("Estado3","n","Estado",false,true);
-        public static readonly Estado e4 = new Estado("Estado4","n","Estado",false,false);
+        public static readonly Estado e1 = new Estado("En mantenimiento", "n","Recurso",true,true);
+        public static readonly Estado e2 = new Estado("Disponible","n","Recurso",true,false);
+        public static readonly Estado e3 = new Estado("Mantenimiento correctivo", "n", "Recurso", false,true);
+        public static readonly Estado e4 = new Estado("Estado4","n", "Recurso", false,false);
+
+        public static readonly Estado e5 = new Estado("Disponible", "n", "Turno", true, true);
+        public static readonly Estado e6 = new Estado("Pendiente", "n", "Turno", true, true);
+        public static readonly Estado e7 = new Estado("Reservado", "n", "Turno", true, true);
+
+        public static readonly CambioEstadoTurno cet1 = new CambioEstadoTurno(fechaInicio, e5);
+        public static readonly CambioEstadoTurno cet2 = new CambioEstadoTurno(fechaInicio, e6);
+        public static readonly CambioEstadoTurno cet3 = new CambioEstadoTurno(fechaInicio, e7);
+
 
         public static readonly CambioEstadoRT cert1 = new CambioEstadoRT(fechaInicio, fechaFin, e1);
         public static readonly CambioEstadoRT cert2 = new CambioEstadoRT(fechaInicio, fechaFin, e2);
@@ -150,6 +159,16 @@ namespace PPAI_DSI_Grupo5.CapaDatos
 
         }
 
+        public static List<CambioEstadoTurno> crearCambioEstadoTurnos()
+        {
+            List<CambioEstadoTurno> listaCambioEstados = new List<CambioEstadoTurno>();
+            listaCambioEstados.Add(cet1);
+            listaCambioEstados.Add(cet2);
+            listaCambioEstados.Add(cet3);
+
+            return listaCambioEstados;
+        }
+
         public static List<Marca> crearMarca()
         {
             List<Marca> marcas = new List<Marca>();
@@ -157,6 +176,19 @@ namespace PPAI_DSI_Grupo5.CapaDatos
             return marcas;
         }
 
+        public static List<Estado> crearEstados()
+        {
+            List<Estado> listaEstados = new List<Estado>();
+            listaEstados.Add(e1);
+            listaEstados.Add(e2);
+            listaEstados.Add(e3);
+            listaEstados.Add(e4);
+            listaEstados.Add(e5);
+            listaEstados.Add(e6);
+            listaEstados.Add(e7);
+
+            return listaEstados;
+        }
 
 
     }

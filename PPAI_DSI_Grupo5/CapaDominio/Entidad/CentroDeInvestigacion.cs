@@ -101,5 +101,17 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             }
             return false;
         }
+
+
+        public void reservarTurnoCientifico(Turno turnocorrespondiente, PersonalCientifico cientifico)
+        {
+            foreach (AsignacionCientificoCI item in cientificos)
+            {
+                if (item.getPersonalCientifico().Equals(cientifico))
+                {
+                    item.addTurno(turnocorrespondiente);
+                }
+            }
+        }
     }
 }

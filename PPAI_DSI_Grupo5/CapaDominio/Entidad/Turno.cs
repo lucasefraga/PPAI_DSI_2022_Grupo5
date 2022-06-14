@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
+
+
 {
     internal class Turno
     {
@@ -44,6 +49,16 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cambioEstadoTurno = cambioEstadoTurno;
         }
 
+        public Turno(DateTime fechaGeneracion, DayOfWeek diaSemana, DateTime fechaHoraInicio, List<CambioEstadoTurno> cambioEstadoTurno)
+        {
+            this.fechaGeneracion = fechaGeneracion;
+            this.diaSemana = diaSemana;
+            this.fechaHoraInicio = fechaHoraInicio;
+            this.cambioEstadoTurno = cambioEstadoTurno;
+        }
+
+
+
         //Simple validacion si la fechaInicio del turno es posterior a la fecha actual
         public bool validarFechaHoraInicio()
         {
@@ -51,6 +66,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 return true;
             else
                 return false;
+
+            
         }
 
         //Turno x Estado
@@ -65,6 +82,20 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             throw new Exception("Error");
 
         }
+
+        public void reservar(Estado est)
+        {
+            cambioEstadoTurno = CapaDatos.MainDeDatos.crearCambioEstadoTurnos();
+            
+            cambioEstadoTurno.Last().FechaHoraHasta = DateTime.Now;
+
+            var nuevoCambioEstado = new CambioEstadoTurno(this.fechaHoraInicio, est);
+
+            cambioEstadoTurno.Add(nuevoCambioEstado);
+
+        }
+
+
 
     }
 

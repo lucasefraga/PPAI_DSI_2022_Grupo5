@@ -54,5 +54,14 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return "nada";
             // return PersonalCientifico.GetCorreoPersonal().ToString();
         }
+
+
+        public void addTurno(Turno turnoCorrespondiente)
+        {
+            turnos.Add(turnoCorrespondiente);
+        }
+
+
+
     }
 }
