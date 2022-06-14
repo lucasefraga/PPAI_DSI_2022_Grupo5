@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class CentroDeInvestigacion
     {
@@ -96,7 +96,9 @@ namespace PPAI_DSI_Grupo5.Negocio
                 if (asignado.esActivo(cientifico))
                 {
                     return true;
+#pragma warning disable CS0162 // Se detectó código inaccesible
                     break;
+#pragma warning restore CS0162 // Se detectó código inaccesible
                 } 
             }
             return false;

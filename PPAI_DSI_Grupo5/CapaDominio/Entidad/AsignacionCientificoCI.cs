@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class AsignacionCientificoCI
     {
@@ -51,7 +51,8 @@ namespace PPAI_DSI_Grupo5.Negocio
         }
         public string ObtenerMail()
         {
-           // return PersonalCientifico.GetCorreoPersonal().ToString();
+            return "nada";
+            // return PersonalCientifico.GetCorreoPersonal().ToString();
         }
     }
 }

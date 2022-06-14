@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class Modelo
     {
@@ -17,7 +17,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void getMarca()
         {
-            marcas = Datos.MainDeDatos.crearMarca();
+            marcas = CapaDatos.MainDeDatos.crearMarca();
             foreach (Marca marca in marcas)
             {
                 if (marca.esDeEstaMarca(this) != null)

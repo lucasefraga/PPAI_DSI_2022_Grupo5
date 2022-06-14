@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
+#pragma warning disable CS0659 // 'Usuario' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
     internal class Usuario
+#pragma warning restore CS0659 // 'Usuario' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
     {
         private string clave { get; set; }
         private string nombreUsuario { get; set; }

@@ -62,73 +62,74 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Datos de Prueba\MainDeDatos.cs" />
-    <Compile Include="Entidades\Negocio\AsignacionCientificoCI.cs" />
-    <Compile Include="Entidades\Negocio\AsignacionDirectorCI.cs" />
-    <Compile Include="Entidades\Negocio\CambioEstadoRT.cs" />
-    <Compile Include="Entidades\Negocio\CambioEstadoTurno.cs" />
-    <Compile Include="Entidades\Negocio\Caracteristica.cs" />
-    <Compile Include="Entidades\Negocio\CaracteristicaRecurso.cs" />
-    <Compile Include="Entidades\Negocio\CentroDeInvestigacion.cs" />
-    <Compile Include="Entidades\Negocio\Estado.cs" />
-    <Compile Include="Entidades\Negocio\Facultad.cs" />
-    <Compile Include="Entidades\Negocio\GestorReservaDeTurno.cs" />
-    <Compile Include="Entidades\Negocio\HorarioRT.cs" />
-    <Compile Include="Entidades\Negocio\Mantenimiento.cs" />
-    <Compile Include="Entidades\Negocio\Marca.cs" />
-    <Compile Include="Entidades\Negocio\Modelo.cs" />
-    <Compile Include="Entidades\Negocio\PersonalCientifico.cs" />
-    <Compile Include="Entidades\Negocio\RecursoTecnologico.cs" />
-    <Compile Include="Entidades\Negocio\RecursoTecnologicoMuestra.cs" />
-    <Compile Include="Entidades\Negocio\Sesion.cs" />
-    <Compile Include="Entidades\Negocio\TipoRecursoTecnologico.cs" />
-    <Compile Include="Entidades\Negocio\Turno.cs" />
-    <Compile Include="Entidades\Negocio\Usuario.cs" />
-    <Compile Include="Boundary\ABM Turno\ABMTurno.cs">
+    <Compile Include="CapaDatos\MainDeDatos.cs" />
+    <Compile Include="CapaDominio\Entidad\AsignacionCientificoCI.cs" />
+    <Compile Include="CapaDominio\Entidad\AsignacionDirectorCI.cs" />
+    <Compile Include="CapaDominio\Entidad\CambioEstadoRT.cs" />
+    <Compile Include="CapaDominio\Entidad\CambioEstadoTurno.cs" />
+    <Compile Include="CapaDominio\Entidad\Caracteristica.cs" />
+    <Compile Include="CapaDominio\Entidad\CaracteristicaRecurso.cs" />
+    <Compile Include="CapaDominio\Entidad\CentroDeInvestigacion.cs" />
+    <Compile Include="CapaDominio\Entidad\Estado.cs" />
+    <Compile Include="CapaDominio\Entidad\Facultad.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\GestorReservaDeTurno.cs" />
+    <Compile Include="CapaDominio\Entidad\HorarioRT.cs" />
+    <Compile Include="CapaDominio\Entidad\Mantenimiento.cs" />
+    <Compile Include="CapaDominio\Entidad\Marca.cs" />
+    <Compile Include="CapaDominio\Entidad\Modelo.cs" />
+    <Compile Include="CapaDominio\Entidad\PersonalCientifico.cs" />
+    <Compile Include="CapaDominio\Entidad\RecursoTecnologico.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\PantallaReservaDeTurno.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\RecursoTecnologicoMuestra.cs" />
+    <Compile Include="CapaDominio\Entidad\Sesion.cs" />
+    <Compile Include="CapaDominio\Entidad\TipoRecursoTecnologico.cs" />
+    <Compile Include="CapaDominio\Entidad\Turno.cs" />
+    <Compile Include="CapaDominio\Entidad\Usuario.cs" />
+    <Compile Include="CapaPresentacion\ABM Turno\ABMTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\ABM Turno\ABMTurno.Designer.cs">
+    <Compile Include="CapaPresentacion\ABM Turno\ABMTurno.Designer.cs">
       <DependentUpon>ABMTurno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Boundary\ABM Turno\AltaTurno.cs">
+    <Compile Include="CapaPresentacion\ABM Turno\AltaTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\ABM Turno\AltaTurno.Designer.cs">
+    <Compile Include="CapaPresentacion\ABM Turno\AltaTurno.Designer.cs">
       <DependentUpon>AltaTurno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Boundary\Form1.cs">
+    <Compile Include="CapaPresentacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\Form1.Designer.cs">
+    <Compile Include="CapaPresentacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Boundary\Menú\MenuPrincipal.cs">
+    <Compile Include="CapaPresentacion\Menú\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\Menú\MenuPrincipal.Designer.cs">
+    <Compile Include="CapaPresentacion\Menú\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Boundary\Transacciones\RegistrarTurno.cs">
+    <Compile Include="CapaPresentacion\Transacciones\RegistrarTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\Transacciones\RegistrarTurno.Designer.cs">
+    <Compile Include="CapaPresentacion\Transacciones\RegistrarTurno.Designer.cs">
       <DependentUpon>RegistrarTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Boundary\ABM Turno\ABMTurno.resx">
+    <EmbeddedResource Include="CapaPresentacion\ABM Turno\ABMTurno.resx">
       <DependentUpon>ABMTurno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\ABM Turno\AltaTurno.resx">
+    <EmbeddedResource Include="CapaPresentacion\ABM Turno\AltaTurno.resx">
       <DependentUpon>AltaTurno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\Form1.resx">
+    <EmbeddedResource Include="CapaPresentacion\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\Menú\MenuPrincipal.resx">
+    <EmbeddedResource Include="CapaPresentacion\Menú\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\Transacciones\RegistrarTurno.resx">
+    <EmbeddedResource Include="CapaPresentacion\Transacciones\RegistrarTurno.resx">
       <DependentUpon>RegistrarTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -154,6 +155,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CapaDatosw\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

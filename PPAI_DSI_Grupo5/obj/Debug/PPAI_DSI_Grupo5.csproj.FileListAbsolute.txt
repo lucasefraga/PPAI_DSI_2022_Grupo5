@@ -47,3 +47,7 @@ C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.xml
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CopyComplete
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.ABMTurno.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.AltaTurno.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Menú.MenuPrincipal.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Transacciones.RegistrarTurno.resources

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
+#pragma warning disable CS0659 // 'CambioEstadoRT' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
     internal class CambioEstadoRT
+#pragma warning restore CS0659 // 'CambioEstadoRT' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
     {
 
         private DateTime fechaHoraDesde { get; set; }

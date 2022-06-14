@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class RecursoTecnologico
     {
@@ -84,14 +85,14 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public bool esReservable()
         {
-            cambioEstadoRT = Datos.MainDeDatos.crearCambioEstadoRTs();//hay q acomodar esto, no va aca creo
+            cambioEstadoRT = CapaDatos.MainDeDatos.crearCambioEstadoRTs();//hay q acomodar esto, no va aca creo
             //Creo q busca el ultimo, que supongo que es el actual?
             return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable(); 
         }
 
         public void conocerCentroInvestigacion()
         {
-            centros = Datos.MainDeDatos.crearCentros();//hay q acomodar esto, no va aca creo
+            centros = CapaDatos.MainDeDatos.crearCentros();//hay q acomodar esto, no va aca creo
             foreach (CentroDeInvestigacion centro in centros)
             {
                 if (centro.obtenerCIdeRecursoTecnologico(this) != null)

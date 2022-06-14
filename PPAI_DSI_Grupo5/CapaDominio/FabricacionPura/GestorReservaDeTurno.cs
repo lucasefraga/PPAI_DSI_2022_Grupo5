@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.CapaDominio.Entidad;
+using PPAI_DSI_Grupo5.CapaDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -9,7 +11,7 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-namespace PPAI_DSI_Grupo5.Negocio
+namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
     internal class GestorReservaDeTurno
     {
@@ -21,7 +23,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         private RecursoTecnologico recursoTecnologicoSeleccionado { get; set;}
 
-        private Sesion sesionActual = Datos.MainDeDatos.getSesionActual();
+        private Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual();
         private PersonalCientifico cientificoLogueado { get; set; }
 
 
@@ -29,11 +31,12 @@ namespace PPAI_DSI_Grupo5.Negocio
 
 
 
-
+        //Busca Los Recursos Tecnologicos Disponibles
         public void obtenerTipoRecursoTecnologico()
         {
-
-            listaTipoRTDisponibles = Datos.MainDeDatos.crearTipoRecursoTecnologico();
+#pragma warning disable CS0103 // El nombre 'CapaDatos' no existe en el contexto actual
+            listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico();
+#pragma warning restore CS0103 // El nombre 'CapaDatos' no existe en el contexto actual
         }
 
         public void tomarSeleccionTipoRecursoTecnologico()
@@ -44,8 +47,7 @@ namespace PPAI_DSI_Grupo5.Negocio
 
         public void obtenerRecursoTecnologico()
         {
-
-            listaRecursoTecnologicosDisponibles = Datos.MainDeDatos.crearRecursoTecnologico();
+            listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico();
         }
 
         public void buscarRTPorTipoRTValido()
