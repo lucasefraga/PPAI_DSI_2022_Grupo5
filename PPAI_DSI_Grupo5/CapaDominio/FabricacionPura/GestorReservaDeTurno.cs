@@ -15,44 +15,40 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
     internal class GestorReservaDeTurno
     {
-        private List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; }
-        private TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; }
-        private List<RecursoTecnologico> listaRecursoTecnologicosDisponibles { get; set; }
-        private List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; }
-        private List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; }
+        
+        private List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; } //Todos los TipoRecurso Disponibles
+        private TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; } //TipoRecurso Seleccionado por Cientifico   
+        private List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; } //Lista de RecursosTecnologicos correspondientes al TipoRecurso seleccionado
+        private List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; } //Lista con datos necesarios a mostrar de los RecursosTecnologicos
+        private RecursoTecnologico recursoTecnologicoSeleccionado { get; set;} //RecursoTecnologico seleccionado por el Cientifico
 
-        private RecursoTecnologico recursoTecnologicoSeleccionado { get; set;}
+        private Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual(); // Sesion del Cientifico actual
+        private PersonalCientifico cientificoLogueado { get; set; } //Personal Cientifico Logeado
 
-        private Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual();
-        private PersonalCientifico cientificoLogueado { get; set; }
-
-
-
+        private bool esCientificodelCentro = false;
 
 
 
-        //Busca Los Recursos Tecnologicos Disponibles
+        List<RecursoTecnologico> listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico(); //Busca Los RecursosTecnologicos
+
+
         public void obtenerTipoRecursoTecnologico()
         {
-#pragma warning disable CS0103 // El nombre 'CapaDatos' no existe en el contexto actual
-            listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico();
-#pragma warning restore CS0103 // El nombre 'CapaDatos' no existe en el contexto actual
+            listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico(); //Busca Los Recursos Tecnologicos Disponibles
         }
 
-        public void tomarSeleccionTipoRecursoTecnologico()
+        public void tomarSeleccionTipoRecursoTecnologico(TipoRecursoTecnologico tipoRecursoSeleccionado)
         {
             //falta la implamentacion de este metodo
             tipoRecursoTecnologicoSeleccionado = listaTipoRTDisponibles[0]; //simplemente para testear
         }
 
-        public void obtenerRecursoTecnologico()
-        {
-            listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico();
-        }
-
         public void buscarRTPorTipoRTValido()
         {
+            
+            
             listaRecursosTecnologicosValidos = new List<RecursoTecnologico>();
+            
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
             {
                 if (recurso.esTipoRecursoSeleccinado(tipoRecursoTecnologicoSeleccionado))
@@ -69,23 +65,32 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public void buscarDatosRecursosTecnologicosValidos()
         {
             listaRecursosMuestra = new List<RecursoTecnologicoMuestra>();
-            foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos)
+
+            foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos) //Crea objetos con los datos a mostrar
             {
                 listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
             }
         }
 
-        public void tomarSeleccionRTAUtilizar()
+        public void tomarSeleccionRTAUtilizar(RecursoTecnologicoMuestra recursoTecnologicoSelecc)
         {
-            recursoTecnologicoSeleccionado = listaRecursosTecnologicosValidos[0];
-            //falta implementar
+
+            foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
+            {
+                if (recurso.getNumeroRT() == recursoTecnologicoSelecc.getNumetoInventario())
+                {
+                    recursoTecnologicoSeleccionado = recurso;
+                }
+            }
+            //recursoTecnologicoSeleccionado = listaRecursosTecnologicosValidos[0];
+            
         }
 
         public void verificarCIDelUsuario()
         {
             cientificoLogueado = sesionActual.obtenerCientificoLogueado();
 
-            bool esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
+            esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
         }
 
         public void obtenerTurnos()
@@ -93,6 +98,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             //Falta implementar 'rtseleccionado.obtenerTurnos()'
         }
         // ver si  va el static
+
+
+
+
+
         public static string obtenerMailCientifico()
         {
             string mailCient = "";

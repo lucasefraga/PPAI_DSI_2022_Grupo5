@@ -76,7 +76,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cambioEstadoRT = cambioEstadoRT;
         }
 
-        
+        public int getNumeroRT()
+        {
+            return numeroRT;
+        }
 
         public bool esTipoRecursoSeleccinado(TipoRecursoTecnologico tipoRecurso)
         {
@@ -85,8 +88,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         public bool esReservable()
         {
-            cambioEstadoRT = CapaDatos.MainDeDatos.crearCambioEstadoRTs();//hay q acomodar esto, no va aca creo
-            //Creo q busca el ultimo, que supongo que es el actual?
+            //Crea los cambio de estados
+            cambioEstadoRT = CapaDatos.MainDeDatos.crearCambioEstadoRTs();
+            
+            //Verifica que sea actual (si la fecha actual esta comprendida entre las del CambioEstadoRT)
+            //Y valida si el estado es reservable
             return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable(); 
         }
 
@@ -107,6 +113,15 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return centroInvestigacionCorrespondiente.esCientificoActivo(cientifico);
         }
 
+        
+
+        // Le dejo este comentario al q hizo este metodo. 
+        // Si bien la logica esta bien, seria ideal q en vez de devolver una lista con esos datos nomas
+        // puedas hacer que devuelva una lista de objetos. En este caso, ademas tenes que traer el 
+        // estado, para saber despues el color q se le asigna supongo. Asi q podes crear una clase de fabricacion pura
+        // con todos los datos que necesitas mostrar. Fijate el ejemplo de la clase RecursoTecnologicoMuestra, que no es
+        // una clase del dominio, sino q es una clase q uso para juntar datos, y que sea mas sensillo poder mostrarlas despues
+        // Si no entendes, hablame por wup y despues te explico. Lucas
         public List<(DateTime, DateTime, string)> obtenerTurnos()
         {
             //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...

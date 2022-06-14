@@ -24,5 +24,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             this.modelo = modelo;
             this.estado = estado;
         }
+
+        public int getNumetoInventario()
+        {
+            return numeroInventario;
+        }
     }
 }

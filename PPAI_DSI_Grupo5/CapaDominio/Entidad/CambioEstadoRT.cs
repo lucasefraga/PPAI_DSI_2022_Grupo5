@@ -29,7 +29,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         public bool esActual()
         {
-            return true;//falta hacer, porque no entiendo que hacer realmente
+            if (this.fechaHoraDesde < DateTime.Now && DateTime.Now < this.fechaHoraHasta)
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool esReservable()

@@ -96,10 +96,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 if (asignado.esActivo(cientifico))
                 {
                     return true;
-#pragma warning disable CS0162 // Se detectó código inaccesible
-                    break;
-#pragma warning restore CS0162 // Se detectó código inaccesible
-                } 
+                }
+                break;
             }
             return false;
         }
