@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class Turno
     {
+        //Atributos privados
         private DateTime fechaGeneracion { get; set; }
         private DayOfWeek diaSemana { get; set; }
         private DateTime fechaHoraInicio { get; set; }
         private DateTime fechaHoraFin { get; set; }
         private List<CambioEstadoTurno> cambioEstadoTurno { get; set; }
 
+        //Set and Get publicos
         public DateTime FechaGeneracion
         {
             get { return fechaGeneracion; }
@@ -30,11 +33,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             get { return fechaHoraFin; }
             set { fechaHoraFin = value; }
         }
-        //public CambioEstadoTurno CambioEstadoTurno
-        //{
-            // Sin implementar
-        //}
 
+        //Generador
         public Turno(DateTime fechaGeneracion, DayOfWeek diaSemana, DateTime fechaHoraInicio, DateTime fechaHoraFin, List<CambioEstadoTurno> cambioEstadoTurno)
         {
             this.fechaGeneracion = fechaGeneracion;
@@ -44,22 +44,24 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cambioEstadoTurno = cambioEstadoTurno;
         }
 
+        //Simple validacion si la fechaInicio del turno es posterior a la fecha actual
         public bool validarFechaHoraInicio()
         {
-            //Simple validacion si la fechaInicio del turno es posterior a la fecha actual
             if (DateTime.Compare(this.fechaHoraInicio, DateTime.Now) > 0)
                 return true;
             else
                 return false;
-
         }
-        public (DateTime, DateTime, string) mostrarTurnos()
+
+        //Turno x Estado
+        public TurnoEstado mostrarTurnos()
         {
             //Busca el actual, retorna lo pedido
             foreach (CambioEstadoTurno cambioEstadoTurno in this.cambioEstadoTurno)
                 if (cambioEstadoTurno.esActual())
-                    return (fechaHoraInicio, fechaHoraFin, cambioEstadoTurno.mostrarNombreEstado());
+                    return (new TurnoEstado(this, cambioEstadoTurno.Estado)) ;
 
+            //A incluir en el frontend un mensaje de error
             throw new Exception("Error");
 
         }

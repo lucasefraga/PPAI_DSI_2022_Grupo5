@@ -114,7 +114,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         
-
+        // CORREGIDO, A LA ESPERA DE SER BORRADO LUEGO DE CORROBORAR QUE ANDE
         // Le dejo este comentario al q hizo este metodo. 
         // Si bien la logica esta bien, seria ideal q en vez de devolver una lista con esos datos nomas
         // puedas hacer que devuelva una lista de objetos. En este caso, ademas tenes que traer el 
@@ -122,15 +122,17 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         // con todos los datos que necesitas mostrar. Fijate el ejemplo de la clase RecursoTecnologicoMuestra, que no es
         // una clase del dominio, sino q es una clase q uso para juntar datos, y que sea mas sensillo poder mostrarlas despues
         // Si no entendes, hablame por wup y despues te explico. Lucas
-        public List<(DateTime, DateTime, string)> obtenerTurnos()
+        public List<TurnoEstado> obtenerTurnos()
         {
             //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...
             //fechaFin y el estado en el que esta. De ahi que esto retorna una lista con esos tipos
             List<Turno> turnos_disponibles = new List<Turno>();
-            List<(DateTime, DateTime, string)> mostrar_turnos = new List<(DateTime, DateTime, string)>();
+            List<TurnoEstado> mostrar_turnos = new List<TurnoEstado>();
+
             foreach (Turno turno in turnos)
                 if (turno.validarFechaHoraInicio())
                     turnos_disponibles.Add(turno);
+
             foreach (Turno turno1 in turnos_disponibles)
                 mostrar_turnos.Add(turno1.mostrarTurnos());
             return mostrar_turnos;

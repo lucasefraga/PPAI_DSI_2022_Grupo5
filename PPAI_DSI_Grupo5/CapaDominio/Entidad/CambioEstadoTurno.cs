@@ -8,10 +8,12 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class CambioEstadoTurno
     {
+        //Atributos privados
         private DateTime fechaHoraDesde { get; set; }
         private DateTime fechaHoraHasta { get; set; }
         private Estado estado { get; set; }
 
+        //Get and Set publicos
         public DateTime FechaHoraDesde
         {
             get { return fechaHoraDesde; }
@@ -27,6 +29,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             get { return estado; }
             set { estado = value; }
         }
+
+        //Generador
         public CambioEstadoTurno(DateTime fechaHoraDesde, DateTime fechaHoraHasta, Estado estado)
         {
             this.fechaHoraDesde = fechaHoraDesde;
@@ -34,16 +38,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.estado = estado;
         }
 
+        //Si no tiene fecha de fin el estado es actual
         public bool esActual()
         {
             if (fechaHoraHasta == null)
                 return true;
             else
                 return false;
-        }
-        public string mostrarNombreEstado()
-        {
-            return estado.Nombre;
         }
     }
 }

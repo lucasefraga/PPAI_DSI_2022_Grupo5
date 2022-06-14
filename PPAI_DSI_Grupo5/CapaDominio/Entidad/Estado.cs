@@ -8,13 +8,14 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class Estado
     {
+        //Atributos privados
         private string nombre { get; set; }
         private string descripcion { get; set; }
         private string ambito { get; set; }
         private bool esReservable { get; set; }
         private bool esCancelable { get; set; }
 
-
+        //Get and set publicos
         public string Nombre
         {
             get { return nombre; }
@@ -41,6 +42,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             set { esCancelable = value; }
         }
 
+        // Generador
         public Estado(string nombre, string descripcion, string ambito, bool esReservable, bool esCancelable)
         {
             this.nombre = nombre;
@@ -50,6 +52,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.esCancelable = esCancelable;
         }
 
+        //Estos metodos de get hacen lo mismo que los get de arriba, a la espera de decidir con cual
+        //quedarse (los de arriba los saque de la documentacion de C#)
         public bool getEsReservable()
         {
             return esReservable;
