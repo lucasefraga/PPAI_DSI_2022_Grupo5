@@ -37,3 +37,13 @@ C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe.config
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.pdb
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.dll
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.xml
+C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CopyComplete

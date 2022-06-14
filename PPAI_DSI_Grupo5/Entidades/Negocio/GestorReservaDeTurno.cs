@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace PPAI_DSI_Grupo5.Negocio
 {
@@ -84,6 +89,79 @@ namespace PPAI_DSI_Grupo5.Negocio
         public void obtenerTurnos()
         {
             //Falta implementar 'rtseleccionado.obtenerTurnos()'
+        }
+        // ver si  va el static
+        public static string obtenerMailCientifico()
+        {
+            string mailCient = "";
+            //falta implementar
+            return mailCient;
+        }
+
+        public static void EnviarMail(StringBuilder Mensaje, string Recurso, string Fecha, out string Error)
+        {
+            Error = "";
+            try
+            {
+                Mensaje.Append(Environment.NewLine);
+                Mensaje.Append(string.Format("Recurso reservado: ", Recurso, "Fecha Reserva: {0:dd/MM/yyyy}", Fecha, "Horario: {0:HH:mm:ss} Hrs", Fecha));
+                Mensaje.Append(Environment.NewLine);
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("SecretariaCienciaYTecnica@gmail.com");
+                string para = obtenerMailCientifico();
+                mail.To.Add(para);
+                mail.Subject = "Confirmación de Reserva de Turno";
+                mail.Body = Mensaje.ToString();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("SecretariaCienciaYTecnica@gmail.com", "DSI2022TPI");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                Error = "Éxito";
+                MessageBox.Show(Error);
+
+
+            }
+            catch (Exception ex)
+            {
+                Error = "Error: " + ex.Message;
+                MessageBox.Show(Error);
+                return;
+            }
+        }
+
+            // cada 24hs se inhabilita whatsapp
+        public static void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
+        {
+            InfoError = "";
+            try
+            {
+                MensajeWP.Append(Environment.NewLine);
+                MensajeWP.Append(string.Format("Recurso reservado: ", NomRecurso, "Fecha Reserva: {0:dd/MM/yyyy}", FechaTurno, "Horario: {0:HH:mm:ss} Hrs", FechaTurno));
+                MensajeWP.Append(Environment.NewLine);
+                var accountSid = "AC8418c64ec3f6446ede7c9a33fb0cd6ba";
+                var authToken = "[AuthToken]";
+                TwilioClient.Init(accountSid, authToken);
+
+                var messageOptions = new CreateMessageOptions(
+                    new PhoneNumber("whatsapp:+5493516216060"));
+                messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
+                messageOptions.Body = MensajeWP.ToString();
+                //messageOptions.Body = "Recurso reservado: "+ NomRecurso+ "Fecha Reserva: {0:dd/MM/yyyy}" + FechaTurno + "Horario: {0:HH:mm:ss} Hrs" + FechaTurno;
+
+                var message = MessageResource.Create(messageOptions);
+                Console.WriteLine(message.Body);
+                InfoError = "Éxito";
+                MessageBox.Show(InfoError);
+            }
+            catch (Exception ex)
+            {
+                InfoError = "Error: " + ex.Message;
+                MessageBox.Show(InfoError);
+                return;
+            }
+            
         }
     }
 }

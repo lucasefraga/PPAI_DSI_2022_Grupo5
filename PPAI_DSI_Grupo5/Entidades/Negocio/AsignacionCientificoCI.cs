@@ -49,5 +49,9 @@ namespace PPAI_DSI_Grupo5.Negocio
                    EqualityComparer<PersonalCientifico>.Default.Equals(personalCientifico, cI.personalCientifico) &&
                    EqualityComparer<List<Turno>>.Default.Equals(turnos, cI.turnos);
         }
+        public string ObtenerMail()
+        {
+           // return PersonalCientifico.GetCorreoPersonal().ToString();
+        }
     }
 }

@@ -31,27 +31,27 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaTurno));
             this.lblTurno = new System.Windows.Forms.Label();
-            this.txtEmpLegajo = new System.Windows.Forms.TextBox();
+            this.txtTipoRecurso = new System.Windows.Forms.TextBox();
             this.lblTipoRecurso = new System.Windows.Forms.Label();
             this.btnAlta = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtEmpNombre = new System.Windows.Forms.TextBox();
+            this.txtRecurso = new System.Windows.Forms.TextBox();
             this.lblRecurso = new System.Windows.Forms.Label();
-            this.txtEmpApellido = new System.Windows.Forms.TextBox();
+            this.txtCentro = new System.Windows.Forms.TextBox();
             this.lblCentroPertenencia = new System.Windows.Forms.Label();
-            this.txtEmpNumDoc = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.lblNroDoc = new System.Windows.Forms.Label();
-            this.txtIngreso = new System.Windows.Forms.MaskedTextBox();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.lblFechaIngresoEmp = new System.Windows.Forms.Label();
             this.lblNumInventario = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNumInv = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textEstado = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEmail = new System.Windows.Forms.CheckBox();
+            this.checkBoxWP = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
@@ -69,14 +69,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblTurno.TabIndex = 19;
             this.lblTurno.Text = "Nuevo Turno";
             // 
-            // txtEmpLegajo
+            // txtTipoRecurso
             // 
-            this.txtEmpLegajo.Enabled = false;
-            this.txtEmpLegajo.Location = new System.Drawing.Point(330, 30);
-            this.txtEmpLegajo.Margin = new System.Windows.Forms.Padding(6);
-            this.txtEmpLegajo.Name = "txtEmpLegajo";
-            this.txtEmpLegajo.Size = new System.Drawing.Size(397, 25);
-            this.txtEmpLegajo.TabIndex = 1;
+            this.txtTipoRecurso.Enabled = false;
+            this.txtTipoRecurso.Location = new System.Drawing.Point(330, 30);
+            this.txtTipoRecurso.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTipoRecurso.Name = "txtTipoRecurso";
+            this.txtTipoRecurso.Size = new System.Drawing.Size(397, 25);
+            this.txtTipoRecurso.TabIndex = 1;
             // 
             // lblTipoRecurso
             // 
@@ -99,6 +99,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.btnAlta.TabIndex = 8;
             this.btnAlta.Text = "Confirmar";
             this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // btnCancelar
             // 
@@ -111,14 +112,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtEmpNombre
+            // txtRecurso
             // 
-            this.txtEmpNombre.Enabled = false;
-            this.txtEmpNombre.Location = new System.Drawing.Point(330, 85);
-            this.txtEmpNombre.Margin = new System.Windows.Forms.Padding(6);
-            this.txtEmpNombre.Name = "txtEmpNombre";
-            this.txtEmpNombre.Size = new System.Drawing.Size(397, 25);
-            this.txtEmpNombre.TabIndex = 2;
+            this.txtRecurso.Enabled = false;
+            this.txtRecurso.Location = new System.Drawing.Point(330, 85);
+            this.txtRecurso.Margin = new System.Windows.Forms.Padding(6);
+            this.txtRecurso.Name = "txtRecurso";
+            this.txtRecurso.Size = new System.Drawing.Size(397, 25);
+            this.txtRecurso.TabIndex = 2;
             // 
             // lblRecurso
             // 
@@ -131,14 +132,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblRecurso.TabIndex = 11;
             this.lblRecurso.Text = "Recurso:";
             // 
-            // txtEmpApellido
+            // txtCentro
             // 
-            this.txtEmpApellido.Enabled = false;
-            this.txtEmpApellido.Location = new System.Drawing.Point(330, 140);
-            this.txtEmpApellido.Margin = new System.Windows.Forms.Padding(6);
-            this.txtEmpApellido.Name = "txtEmpApellido";
-            this.txtEmpApellido.Size = new System.Drawing.Size(397, 25);
-            this.txtEmpApellido.TabIndex = 3;
+            this.txtCentro.Enabled = false;
+            this.txtCentro.Location = new System.Drawing.Point(330, 140);
+            this.txtCentro.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCentro.Name = "txtCentro";
+            this.txtCentro.Size = new System.Drawing.Size(397, 25);
+            this.txtCentro.TabIndex = 3;
             // 
             // lblCentroPertenencia
             // 
@@ -151,14 +152,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblCentroPertenencia.TabIndex = 13;
             this.lblCentroPertenencia.Text = "Centro de Pertenencia:";
             // 
-            // txtEmpNumDoc
+            // txtMarca
             // 
-            this.txtEmpNumDoc.Enabled = false;
-            this.txtEmpNumDoc.Location = new System.Drawing.Point(332, 248);
-            this.txtEmpNumDoc.Margin = new System.Windows.Forms.Padding(6);
-            this.txtEmpNumDoc.Name = "txtEmpNumDoc";
-            this.txtEmpNumDoc.Size = new System.Drawing.Size(397, 25);
-            this.txtEmpNumDoc.TabIndex = 6;
+            this.txtMarca.Enabled = false;
+            this.txtMarca.Location = new System.Drawing.Point(332, 248);
+            this.txtMarca.Margin = new System.Windows.Forms.Padding(6);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(397, 25);
+            this.txtMarca.TabIndex = 6;
             // 
             // lblNroDoc
             // 
@@ -171,16 +172,16 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblNroDoc.TabIndex = 15;
             this.lblNroDoc.Text = "Marca:";
             // 
-            // txtIngreso
+            // txtFecha
             // 
-            this.txtIngreso.Enabled = false;
-            this.txtIngreso.Location = new System.Drawing.Point(332, 418);
-            this.txtIngreso.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txtIngreso.Mask = "00/00/0000";
-            this.txtIngreso.Name = "txtIngreso";
-            this.txtIngreso.Size = new System.Drawing.Size(120, 25);
-            this.txtIngreso.TabIndex = 7;
-            this.txtIngreso.ValidatingType = typeof(System.DateTime);
+            this.txtFecha.Enabled = false;
+            this.txtFecha.Location = new System.Drawing.Point(332, 418);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(120, 25);
+            this.txtFecha.TabIndex = 7;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // lblFechaIngresoEmp
             // 
@@ -204,23 +205,23 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblNumInventario.TabIndex = 20;
             this.lblNumInventario.Text = "Número de Inventario:";
             // 
-            // textBox2
+            // txtNumInv
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(330, 195);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(397, 25);
-            this.textBox2.TabIndex = 24;
+            this.txtNumInv.Enabled = false;
+            this.txtNumInv.Location = new System.Drawing.Point(330, 195);
+            this.txtNumInv.Margin = new System.Windows.Forms.Padding(6);
+            this.txtNumInv.Name = "txtNumInv";
+            this.txtNumInv.Size = new System.Drawing.Size(397, 25);
+            this.txtNumInv.TabIndex = 24;
             // 
-            // textBox3
+            // txtModelo
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(332, 304);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(397, 25);
-            this.textBox3.TabIndex = 25;
+            this.txtModelo.Enabled = false;
+            this.txtModelo.Location = new System.Drawing.Point(332, 304);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(6);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(397, 25);
+            this.txtModelo.TabIndex = 25;
             // 
             // label1
             // 
@@ -233,14 +234,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.label1.TabIndex = 26;
             this.label1.Text = "Modelo:";
             // 
-            // textBox4
+            // textEstado
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(332, 357);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(397, 25);
-            this.textBox4.TabIndex = 27;
+            this.textEstado.Enabled = false;
+            this.textEstado.Location = new System.Drawing.Point(332, 357);
+            this.textEstado.Margin = new System.Windows.Forms.Padding(6);
+            this.textEstado.Name = "textEstado";
+            this.textEstado.Size = new System.Drawing.Size(397, 25);
+            this.textEstado.TabIndex = 27;
             // 
             // label2
             // 
@@ -255,32 +256,32 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.checkBoxEmail);
+            this.panel2.Controls.Add(this.checkBoxWP);
             this.panel2.Location = new System.Drawing.Point(332, 464);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(389, 33);
             this.panel2.TabIndex = 31;
             // 
-            // checkBox1
+            // checkBoxEmail
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 24);
-            this.checkBox1.TabIndex = 29;
-            this.checkBox1.Text = "Email";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxEmail.AutoSize = true;
+            this.checkBoxEmail.Location = new System.Drawing.Point(15, 6);
+            this.checkBoxEmail.Name = "checkBoxEmail";
+            this.checkBoxEmail.Size = new System.Drawing.Size(64, 24);
+            this.checkBoxEmail.TabIndex = 29;
+            this.checkBoxEmail.Text = "Email";
+            this.checkBoxEmail.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxWP
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(181, 5);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(97, 24);
-            this.checkBox2.TabIndex = 30;
-            this.checkBox2.Text = "Whatsapp ";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxWP.AutoSize = true;
+            this.checkBoxWP.Location = new System.Drawing.Point(181, 5);
+            this.checkBoxWP.Name = "checkBoxWP";
+            this.checkBoxWP.Size = new System.Drawing.Size(97, 24);
+            this.checkBoxWP.TabIndex = 30;
+            this.checkBoxWP.Text = "Whatsapp ";
+            this.checkBoxWP.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -299,23 +300,23 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.textEstado);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtModelo);
+            this.panel1.Controls.Add(this.txtNumInv);
             this.panel1.Controls.Add(this.lblNumInventario);
             this.panel1.Controls.Add(this.lblFechaIngresoEmp);
-            this.panel1.Controls.Add(this.txtIngreso);
+            this.panel1.Controls.Add(this.txtFecha);
             this.panel1.Controls.Add(this.lblNroDoc);
-            this.panel1.Controls.Add(this.txtEmpNumDoc);
+            this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.lblCentroPertenencia);
-            this.panel1.Controls.Add(this.txtEmpApellido);
+            this.panel1.Controls.Add(this.txtCentro);
             this.panel1.Controls.Add(this.lblRecurso);
-            this.panel1.Controls.Add(this.txtEmpNombre);
+            this.panel1.Controls.Add(this.txtRecurso);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Controls.Add(this.lblTipoRecurso);
-            this.panel1.Controls.Add(this.txtEmpLegajo);
+            this.panel1.Controls.Add(this.txtTipoRecurso);
             this.panel1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(108, 103);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
@@ -337,7 +338,6 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.MaximizeBox = false;
             this.Name = "AltaTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Secretaría de Ciencia y Técnica - Registrar turno";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -349,27 +349,27 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 
         #endregion
         private System.Windows.Forms.Label lblTurno;
-        private System.Windows.Forms.TextBox txtEmpLegajo;
+        private System.Windows.Forms.TextBox txtTipoRecurso;
         private System.Windows.Forms.Label lblTipoRecurso;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtEmpNombre;
+        private System.Windows.Forms.TextBox txtRecurso;
         private System.Windows.Forms.Label lblRecurso;
-        private System.Windows.Forms.TextBox txtEmpApellido;
+        private System.Windows.Forms.TextBox txtCentro;
         private System.Windows.Forms.Label lblCentroPertenencia;
-        private System.Windows.Forms.TextBox txtEmpNumDoc;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label lblNroDoc;
-        private System.Windows.Forms.MaskedTextBox txtIngreso;
+        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Label lblFechaIngresoEmp;
         private System.Windows.Forms.Label lblNumInventario;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNumInv;
+        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBoxEmail;
+        private System.Windows.Forms.CheckBox checkBoxWP;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
     }

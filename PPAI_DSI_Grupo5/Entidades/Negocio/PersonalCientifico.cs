@@ -34,5 +34,9 @@ namespace PPAI_DSI_Grupo5.Negocio
         {
             return usuario;
         }
+        public String GetCorreoPersonal()
+        {
+            return this.correoPersonal;
+        }
     }
 }
