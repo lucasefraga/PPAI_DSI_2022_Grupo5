@@ -32,6 +32,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         List<RecursoTecnologico> listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico(); //Busca Los RecursosTecnologicos
 
 
+
+
+
+
+
         public void obtenerTipoRecursoTecnologico()
         {
             listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico(); //Busca Los Recursos Tecnologicos Disponibles
@@ -45,8 +50,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
         public void buscarRTPorTipoRTValido()
         {
-            
-            
+
             listaRecursosTecnologicosValidos = new List<RecursoTecnologico>();
             
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
@@ -60,16 +64,42 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 }
                 
             }
-        }
 
-        public void buscarDatosRecursosTecnologicosValidos()
-        {
             listaRecursosMuestra = new List<RecursoTecnologicoMuestra>();
 
             foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos) //Crea objetos con los datos a mostrar
             {
                 listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
             }
+        }
+
+        public void agruparRTPorCentroInvestigacion()
+        {
+           listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   //Maybe funciona, no estoy seguro. Lo q hace es ordenarlos por CI, en la lista.
+                                                                            //Supongo que a la hora de mostrarlos va a servir 
+        }
+
+        public void asignarColorPorEstadoDeRT() //Hay que ver si esta es la mejor forma, lo dudo
+        {
+            foreach (RecursoTecnologicoMuestra recurso in listaRecursosMuestra)
+            {
+                switch (recurso.getEstado())
+                {
+                    case "Disponible":
+                        recurso.setColor(1);
+                        break;
+                    case "En mantenimiento":
+                        recurso.setColor(2);
+                        break;
+                    case "Mantenimiento correctivo":
+                        recurso.setColor(3);
+                        break;
+                    default:
+                        recurso.setColor(0);
+                        break;
+                }
+            }
+            
         }
 
         public void tomarSeleccionRTAUtilizar(RecursoTecnologicoMuestra recursoTecnologicoSelecc)

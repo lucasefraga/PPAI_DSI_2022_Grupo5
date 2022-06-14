@@ -10,19 +10,35 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
     internal class RecursoTecnologicoMuestra
     {
-        private CentroDeInvestigacion CentroDeInvestigacion { get; set; }
-        public int numeroInventario { get; set; }
-        public string marca { get; set; }
-        public string modelo { get; set; }
-        public string estado { get; set; }
+        private CentroDeInvestigacion centroDeInvestigacion { get; set; }
+        private int numeroInventario { get; set; }
+        private string marca { get; set; }
+        private string modelo { get; set; }
+        private string estado { get; set; }
+        private int color { get; set; } //No esta programado, pero puede ser util
 
-        public RecursoTecnologicoMuestra(CentroDeInvestigacion centroDeInvestigacion, int numeroInventario, string marca, string modelo, string estado)
+        public RecursoTecnologicoMuestra(CentroDeInvestigacion centroDeInv, int numeroInventario, string marca, string modelo, string estado)
         {
-            CentroDeInvestigacion = centroDeInvestigacion;
+            centroDeInvestigacion = centroDeInv;
             this.numeroInventario = numeroInventario;
             this.marca = marca;
             this.modelo = modelo;
             this.estado = estado;
+        }
+
+        public void setColor(int nroColor)
+        {
+            this.color = nroColor;
+        }
+
+        public CentroDeInvestigacion getCentroInvestigacion()
+        {
+            return centroDeInvestigacion;
+        }
+
+        public string getEstado()
+        {
+            return estado;
         }
 
         public int getNumetoInventario()
