@@ -93,16 +93,25 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
         }
 
-        public void obtenerTurnos()
+        public void obtenerTurnos() //Ver observacion 3 y resolver lo q pide
         {
+            if (esCientificodelCentro)
+            {
+                //Obtiene todos los turnos dede la fecha atual
+                
+            }
+            else
+            {
+                //Obtiene todos los turnos a partir del plazo definido como tiempo de antelacion para reserva del centro
+            }
             //Falta implementar 'rtseleccionado.obtenerTurnos()'
         }
+        
+        
+        
+        
         // ver si  va el static
-
-
-
-
-
+        //No, no va el static, despues hay q corregir un par de cosas de los metodos de los Form, porque al ser statc estos metodos de afectaron ahi
         public static string obtenerMailCientifico()
         {
             string mailCient = "";

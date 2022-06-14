@@ -85,6 +85,7 @@
     <Compile Include="CapaDominio\Entidad\TipoRecursoTecnologico.cs" />
     <Compile Include="CapaDominio\Entidad\Turno.cs" />
     <Compile Include="CapaDominio\Entidad\Usuario.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\TurnoEstado.cs" />
     <Compile Include="CapaPresentacion\ABM Turno\ABMTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +97,6 @@
     </Compile>
     <Compile Include="CapaPresentacion\ABM Turno\AltaTurno.Designer.cs">
       <DependentUpon>AltaTurno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Menú\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -122,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\ABM Turno\AltaTurno.resx">
       <DependentUpon>AltaTurno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\Menú\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

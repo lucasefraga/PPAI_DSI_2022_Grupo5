@@ -39,9 +39,9 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             string Message = "Su turno ha sido correctamente reservado";
             MensajeBuilder.Append(Message);
             if (checkBoxEmail.Checked)
-                Negocio.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
             if (checkBoxWP.Checked)
-                Negocio.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
         }
     }
 }
