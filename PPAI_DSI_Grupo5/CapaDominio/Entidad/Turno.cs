@@ -32,11 +32,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         //--> Devuelve un modelo del turno para mostrar por pantalla
         public TurnoModel mostrarTurno()
         {
-            foreach (var cambioEstado in cambioEstadoTurno)
-                if (cambioEstado.esActual())
-                    return new TurnoModel(fechaHoraInicio, fechaHoraFin, cambioEstado.Estado.getNombre());
-
-            return null;
+            return new TurnoModel(fechaHoraInicio, fechaHoraFin, cambioEstadoTurno.Last<CambioEstadoTurno>().Estado.getNombre());
         }
 
         //--> Se encarga de efectuar la reserva del turno

@@ -46,6 +46,8 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                 CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
 
             MessageBox.Show("Reserva efectuada exitosamente!", "Notificacion enviada.", MessageBoxButtons.OK);
+
+            gestor.finCU();
         }
 
         internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar)

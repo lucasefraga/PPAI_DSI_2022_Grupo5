@@ -62,6 +62,12 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return lista;
         }
 
+        internal void finCU()
+        {
+            ventanaAltaTurno.Close();
+            ventanaRegistrarTurno.Close();
+        }
+
         public void tomarSeleccionTipoRecursoTecnologico(string tipoRecursoSeleccionado)
         {
             buscarRTPorTipoRTValido(tipoRecursoSeleccionado);
@@ -182,17 +188,15 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
             foreach (var entry in turnosOrdenados.Keys)
             {
+                disponibilidad.Add(entry, false);
                 foreach (var turno in turnosOrdenados[entry])
                 {
                     if (turno.getEstado() == "Disponible")
                     {
-                        disponibilidad.Add(entry, true);
+                        disponibilidad[entry] = true;
                         break;
                     }
-
-                    disponibilidad.Add(entry, false);
                 }
-
             }
             return disponibilidad;
         }

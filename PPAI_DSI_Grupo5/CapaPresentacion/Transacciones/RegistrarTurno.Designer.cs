@@ -198,7 +198,6 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.Name = "RegistrarTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Secretaría de Ciencia y Técnica - Registrar nuevo turno";
-            this.Load += new System.EventHandler(this.RegistrarTurno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrRecursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
