@@ -9,11 +9,11 @@ namespace PPAI_DSI_Grupo5.CapaDatos
 {
     internal static class MainDeDatos
     {
-        public static readonly TipoRecursoTecnologico tr1 = new TipoRecursoTecnologico("TipoRecurso1", "Descripcion1");
-        public static readonly TipoRecursoTecnologico tr2 = new TipoRecursoTecnologico("TipoRecurso2", "Descripcion2");
-        public static readonly TipoRecursoTecnologico tr3 = new TipoRecursoTecnologico("TipoRecurso3", "Descripcion3");
-        public static readonly TipoRecursoTecnologico tr4 = new TipoRecursoTecnologico("TipoRecurso4", "Descripcion4");
-        public static readonly TipoRecursoTecnologico tr5 = new TipoRecursoTecnologico("TipoRecurso5", "Descripcion5");
+        public static readonly TipoRecursoTecnologico tr1 = new TipoRecursoTecnologico("TipoRecurso1", "Todos");
+        public static readonly TipoRecursoTecnologico tr2 = new TipoRecursoTecnologico("TipoRecurso2", "Microscopios");
+        public static readonly TipoRecursoTecnologico tr3 = new TipoRecursoTecnologico("TipoRecurso3", "Balanzas de precisión");
+        public static readonly TipoRecursoTecnologico tr4 = new TipoRecursoTecnologico("TipoRecurso4", "Resonadores magnéticos");
+        public static readonly TipoRecursoTecnologico tr5 = new TipoRecursoTecnologico("TipoRecurso5", "Equip. de Cómputo de alto rendimiento");
 
 
 
