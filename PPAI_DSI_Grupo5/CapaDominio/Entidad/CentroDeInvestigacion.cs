@@ -28,7 +28,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         private List<AsignacionCientificoCI> cientificos { get; set; }
         private List<AsignacionDirectorCI> directorCI { get; set; }
 
-
+        public int TiempoAntelacionReserva
+        {
+            get { return tiempoAntelacionReserva; }
+            set { tiempoAntelacionReserva = value; }
+        }
 
         public CentroDeInvestigacion(string nombre, string sigla, string direccion, string edificio, 
             int piso, string coordenadas, List<double> telefonoContacto, string correoElectronico, 

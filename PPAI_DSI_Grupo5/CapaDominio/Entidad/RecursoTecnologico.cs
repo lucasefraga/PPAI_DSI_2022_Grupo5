@@ -112,32 +112,31 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         {
             return centroInvestigacionCorrespondiente.esCientificoActivo(cientifico);
         }
-
-        
-        // CORREGIDO, A LA ESPERA DE SER BORRADO LUEGO DE CORROBORAR QUE ANDE
-        // Le dejo este comentario al q hizo este metodo. 
-        // Si bien la logica esta bien, seria ideal q en vez de devolver una lista con esos datos nomas
-        // puedas hacer que devuelva una lista de objetos. En este caso, ademas tenes que traer el 
-        // estado, para saber despues el color q se le asigna supongo. Asi q podes crear una clase de fabricacion pura
-        // con todos los datos que necesitas mostrar. Fijate el ejemplo de la clase RecursoTecnologicoMuestra, que no es
-        // una clase del dominio, sino q es una clase q uso para juntar datos, y que sea mas sensillo poder mostrarlas despues
-        // Si no entendes, hablame por wup y despues te explico. Lucas
-        public List<TurnoEstado> obtenerTurnos()
+       
+        public List<TurnoEstado> obtenerTurnos(bool esCientifico)
         {
-            //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...
-            //fechaFin y el estado en el que esta. De ahi que esto retorna una lista con esos tipos
             List<Turno> turnos_disponibles = new List<Turno>();
             List<TurnoEstado> mostrar_turnos = new List<TurnoEstado>();
 
-            foreach (Turno turno in turnos)
-                if (turno.validarFechaHoraInicio())
-                    turnos_disponibles.Add(turno);
+            if (esCientifico)
+                foreach (Turno turno in turnos)
+                    if (turno.validarFechaHoraInicio(0))
+                        turnos_disponibles.Add(turno);
+                    else
+                        ;
+            else
+                //Conozco el CI para poder sacar el tiempo
+                conocerCentroInvestigacion();
+                foreach (Turno turno in turnos)
+                    if (turno.validarFechaHoraInicio(centroInvestigacionCorrespondiente.TiempoAntelacionReserva))
+                        turnos_disponibles.Add(turno);
+
 
             foreach (Turno turno1 in turnos_disponibles)
                 mostrar_turnos.Add(turno1.mostrarTurnos());
             return mostrar_turnos;
-                
         }
+
         public RecursoTecnologicoMuestra buscarDatosAMostrar()
         {
             conocerCentroInvestigacion();

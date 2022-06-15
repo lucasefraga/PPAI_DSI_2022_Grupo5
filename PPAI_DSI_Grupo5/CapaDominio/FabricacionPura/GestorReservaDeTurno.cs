@@ -25,6 +25,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual(); // Sesion del Cientifico actual
         public PersonalCientifico cientificoLogueado { get; set; } //Personal Cientifico Logeado
         public Turno turnoSeleccionado { get; set; }
+        public List<TurnoEstado> listaTurnosEstados { get; set; } //Lista con los turnos y sus estados para poder seleccionar
 
         public bool esCientificodelCentro = false;
 
@@ -125,26 +126,24 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
         public void obtenerTurnos() //Ver observacion 3 y resolver lo q pide
         {
-            if (esCientificodelCentro)
-            {
-                //Obtiene todos los turnos dede la fecha atual
+            //Retorna una lista con todos los turnos y sus estados para mostrar
+
+            listaTurnosEstados = new List<TurnoEstado>();
+
+            listaTurnosEstados = recursoTecnologicoSeleccionado.obtenerTurnos(esCientificodelCentro);
                 
-            }
-            else
-            {
-                //Obtiene todos los turnos a partir del plazo definido como tiempo de antelacion para reserva del centro
-            }
-            //Falta implementar 'rtseleccionado.obtenerTurnos()'
         }
         
         public void ordenarYAgruparTurnos()
         {
-
+            //Hay que agrupar listaTurnosEstados por fecha y ordenarlos de la mas cercana a la mas tardia
         }
 
         public void determinarDisponibilidadTurnos()
         {
-
+            //Falta ponerle color segun la Observacion 2, NO TENGO IDEA DE COMO HACERLO
+            //Se tienen q mostrar en un calendario
+            //TurnoEstado.Estado da el estadao de cada turno
         }
 
         public void tomasSeleccionTurno(Turno turnoSelecc)

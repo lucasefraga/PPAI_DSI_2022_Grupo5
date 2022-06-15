@@ -59,10 +59,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
 
 
-        //Simple validacion si la fechaInicio del turno es posterior a la fecha actual
-        public bool validarFechaHoraInicio()
+        //Simple validacion si la fechaInicio del turno es posterior a la fecha actual + los dias de antelacion
+        public bool validarFechaHoraInicio(int dias_anticip)
         {
-            if (DateTime.Compare(this.fechaHoraInicio, DateTime.Now) > 0)
+            if (DateTime.Compare(this.fechaHoraInicio, DateTime.Now.AddDays(dias_anticip)) > 0)
                 return true;
             else
                 return false;
