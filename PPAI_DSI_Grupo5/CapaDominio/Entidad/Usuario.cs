@@ -7,49 +7,35 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-#pragma warning disable CS0659 // 'Usuario' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
-    internal class Usuario
-#pragma warning restore CS0659 // 'Usuario' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
+    public class Usuario
     {
-        private string clave { get; set; }
-        private string nombreUsuario { get; set; }
-        private bool habilitado { get; set; }
+        //ATRIBUTOS
+        private string nombreUsuario;
+        private string clave;
+        private bool habilitado;
+        PersonalCientifico cientifico;
 
-        List<PersonalCientifico> cientificos = new List<PersonalCientifico>(); 
-
-        public Usuario(string clave, string nombreUsuario, bool habilitado)
+        //METODOS
+        
+        // --> Metodo Constructor
+        public Usuario(string nombreUsuario, string clave, bool habilitado, PersonalCientifico cientifico)
         {
-            this.clave = clave;
             this.nombreUsuario = nombreUsuario;
+            this.clave = clave;
+            this.habilitado = habilitado;
+            this.cientifico = cientifico;
+        }
+
+        // --> Metodo Constructor
+        public Usuario(string nombreUsuario, string clave, bool habilitado)
+        {
+            this.nombreUsuario = nombreUsuario;
+            this.clave = clave;
             this.habilitado = habilitado;
         }
 
-        public Usuario getUsuario()
-        {
-            return this;
-        }
-
-        public PersonalCientifico GetPersonalCientifico()
-        {
-            this.cientificos = MainDeDatos.crearPersonalCientifico();
-
-            foreach (PersonalCientifico cientifico in cientificos)
-            {
-                if (cientifico.getUsuario().Equals(this))
-                {
-                    return cientifico;
-                }
-            }
-            return null;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Usuario usuario &&
-                   clave == usuario.clave &&
-                   nombreUsuario == usuario.nombreUsuario &&
-                   habilitado == usuario.habilitado &&
-                   EqualityComparer<List<PersonalCientifico>>.Default.Equals(cientificos, usuario.cientificos);
-        }
+        //Getters&Setters
+        public Usuario getUsuario() { return this; }
+        public PersonalCientifico getPersonalCientifico() { return cientifico; }
     }
 }

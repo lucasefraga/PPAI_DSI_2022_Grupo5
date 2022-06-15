@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class AsignacionDirectorCI
+    public class AsignacionDirectorCI
     {
-        private DateTime fechaDesde { get; set; }
-        private DateTime fechaHasta { get; set; }
-        private PersonalCientifico personalCientifico { get; set; }
+        //ATRIBUTOS
+        private DateTime fechaDesde;
+        private DateTime fechaHasta;
+        private PersonalCientifico personalCientifico;
 
+        //METODOS
+
+        // --> Metodo Constructor
         public AsignacionDirectorCI(DateTime fechaDesde, DateTime fechaHasta, PersonalCientifico personalCientifico)
         {
             this.fechaDesde = fechaDesde;

@@ -1,88 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class CentroDeInvestigacion
+    public class CentroDeInvestigacion
     {
-        private string nombre { get; set; }
-        private string sigla { get; set; }
-        private string direccion { get; set; }
-        private string edificio { get; set; }
-        private int piso { get; set; }
-        private string coordenadas { get; set; }
-        private List<double> telefonoContacto { get; set; }
-        private string correoElectronico { get; set; }
-        private string numResCreacion { get; set; }
-        private DateTime fechaResCreacion { get; set; }
-        private string reglamento { get; set; }
-        private string caracteristicasGenerales { get; set; }
-        private DateTime fechaAlta { get; set; }
-        private int tiempoAntelacionReserva { get; set; }
-        private DateTime fechaBaja { get; set; }
-        private string motivoBaja { get; set; }
-        private List<RecursoTecnologico> recursosTecnologicos { get; set; }
-        private List<AsignacionCientificoCI> cientificos { get; set; }
-        private List<AsignacionDirectorCI> directorCI { get; set; }
+        //ATRIBUTOS
+        private string nombre;
+        private string sigla;
+        private string direccion;
+        private string edificio;
+        private int piso;
+        private string coordenadas;
+        private List<double> telefonoContacto;
+        private string correoElectronico;
+        private string numResCreacion;
+        private DateTime fechaResCreacion;
+        private string reglamento;
+        private string caracteristicasGenerales;
+        private DateTime fechaAlta;
+        private int tiempoAntelacionReserva;
+        private DateTime fechaBaja;
+        private string motivoBaja;
+        private List<RecursoTecnologico> recursosTecnologicos;
+        private List<AsignacionCientificoCI> cientificos;
+        private List<AsignacionDirectorCI> directorCI;
 
 
+        //METODOS
 
-        public CentroDeInvestigacion(string nombre, string sigla, string direccion, string edificio, 
-            int piso, string coordenadas, List<double> telefonoContacto, string correoElectronico, 
-            string numResCreacion, DateTime fechaResCreacion, string reglamento, string caracteristicasGenerales, 
-            DateTime fechaAlta, int tiempoAntelacionReserva, DateTime fechaBaja, string motivoBaja, 
-            List<RecursoTecnologico> recursosTecnologicos, List<AsignacionCientificoCI> cientificos, 
-            List<AsignacionDirectorCI> directorCI)
+        // --> Metodo Constructor
+        public CentroDeInvestigacion(string nombre, string sigla, string direccion, int tiempoAntelacionReserva, List<RecursoTecnologico> recursosTecnologicos, List<AsignacionCientificoCI> cientificos)
         {
             this.nombre = nombre;
             this.sigla = sigla;
             this.direccion = direccion;
-            this.edificio = edificio;
-            this.piso = piso;
-            this.coordenadas = coordenadas;
-            this.telefonoContacto = telefonoContacto;
-            this.correoElectronico = correoElectronico;
-            this.numResCreacion = numResCreacion;
-            this.fechaResCreacion = fechaResCreacion;
-            this.reglamento = reglamento;
-            this.caracteristicasGenerales = caracteristicasGenerales;
-            this.fechaAlta = fechaAlta;
             this.tiempoAntelacionReserva = tiempoAntelacionReserva;
-            this.fechaBaja = fechaBaja;
-            this.motivoBaja = motivoBaja;
             this.recursosTecnologicos = recursosTecnologicos;
             this.cientificos = cientificos;
-            this.directorCI = directorCI;
-        }
-
-        public CentroDeInvestigacion(string nombre, string sigla, string direccion, string edificio, int piso, string coordenadas, string correoElectronico, string numResCreacion, DateTime fechaResCreacion, string reglamento, string caracteristicasGenerales, DateTime fechaAlta, int tiempoAntelacionReserva, DateTime fechaBaja, string motivoBaja, List<RecursoTecnologico> recursosTecnologicos, List<AsignacionCientificoCI> cientificos, List<AsignacionDirectorCI> directorCI)
-        {
-            this.nombre = nombre;
-            this.sigla = sigla;
-            this.direccion = direccion;
-            this.edificio = edificio;
-            this.piso = piso;
-            this.coordenadas = coordenadas;
-            this.correoElectronico = correoElectronico;
-            this.numResCreacion = numResCreacion;
-            this.fechaResCreacion = fechaResCreacion;
-            this.reglamento = reglamento;
-            this.caracteristicasGenerales = caracteristicasGenerales;
-            this.fechaAlta = fechaAlta;
-            this.tiempoAntelacionReserva = tiempoAntelacionReserva;
-            this.fechaBaja = fechaBaja;
-            this.motivoBaja = motivoBaja;
-            this.recursosTecnologicos = recursosTecnologicos;
-            this.cientificos = cientificos;
-            this.directorCI = directorCI;
-        }
-
-        public string getNombre()
-        {
-            return nombre;
         }
 
         public CentroDeInvestigacion obtenerCIdeRecursoTecnologico(RecursoTecnologico recurso)
@@ -118,5 +73,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 }
             }
         }
+
+        //Getters&Setters
+        public string getNombre() { return nombre; }
     }
 }

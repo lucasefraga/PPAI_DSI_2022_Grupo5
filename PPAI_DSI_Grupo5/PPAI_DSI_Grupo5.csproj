@@ -66,7 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapaDatos\MainDeDatos.cs" />
+    <Compile Include="CapaDatos\LoadData.cs" />
     <Compile Include="CapaDominio\Entidad\AsignacionCientificoCI.cs" />
     <Compile Include="CapaDominio\Entidad\AsignacionDirectorCI.cs" />
     <Compile Include="CapaDominio\Entidad\CambioEstadoRT.cs" />

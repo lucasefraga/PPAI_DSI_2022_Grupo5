@@ -6,31 +6,16 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class CambioEstadoTurno
+    public class CambioEstadoTurno
     {
-        //Atributos privados
-        private DateTime fechaHoraDesde { get; set; }
-        private DateTime fechaHoraHasta { get; set; }
-        private Estado estado { get; set; }
+        //ATRIBUTOS
+        private DateTime fechaHoraDesde;
+        private DateTime fechaHoraHasta;
+        private Estado estado;
 
-        //Get and Set publicos
-        public DateTime FechaHoraDesde
-        {
-            get { return fechaHoraDesde; }
-            set { fechaHoraDesde = value; }
-        }
-        public DateTime FechaHoraHasta
-        {
-            get { return fechaHoraHasta; }
-            set { fechaHoraHasta = value; }
-        }
-        public Estado Estado
-        {
-            get { return estado; }
-            set { estado = value; }
-        }
+        //METODOS
 
-        //Generador
+        // --> Metodo Constructor
         public CambioEstadoTurno(DateTime fechaHoraDesde, DateTime fechaHoraHasta, Estado estado)
         {
             this.fechaHoraDesde = fechaHoraDesde;
@@ -45,14 +30,30 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
 
-
-        //Si no tiene fecha de fin el estado es actual
         public bool esActual()
         {
             if (fechaHoraHasta.ToShortDateString() == "1/1/0001")
                 return true;
             else
                 return false;
+        }
+
+
+        //Getters&Setters
+        public DateTime FechaHoraDesde
+        {
+            get { return fechaHoraDesde; }
+            set { fechaHoraDesde = value; }
+        }
+        public DateTime FechaHoraHasta
+        {
+            get { return fechaHoraHasta; }
+            set { fechaHoraHasta = value; }
+        }
+        public Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
         }
     }
 }

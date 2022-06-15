@@ -1,6 +1,6 @@
 ﻿namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class Caracteristica
+    public class Caracteristica
     {
     }
 }

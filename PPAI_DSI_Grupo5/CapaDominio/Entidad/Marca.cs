@@ -1,39 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class Marca
+    public class Marca
     {
-        private string nombre { get; set; }
-        private List<Modelo> modelos { get; set; }
+        //ATRIBUTOS
+        private string nombre;
+        private List<Modelo> modelos;
 
+        //METODOS
+
+        // --> Metodo Constructor
         public Marca(string nombre, List<Modelo> modelos)
         {
             this.nombre = nombre;
             this.modelos = modelos;
         }
 
-        public Marca esDeEstaMarca(Modelo modelo)
+        // --> Devuelve si un modelo es de esta marca
+        public bool esDeEstaMarca(Modelo modelo)
         {
-            if (modelos.Contains(modelo))
-            {
-                return this;
-            }
-            return null;
+            return modelos.Contains(modelo);
         }
 
-        public string getNombre()
-        {
-            return nombre;
-        }
-
-        public Marca devolverMarca()
-        {
-            return this;
-        }
+        //Getters&Setters
+        public string getNombre() { return nombre; }
     }
 }

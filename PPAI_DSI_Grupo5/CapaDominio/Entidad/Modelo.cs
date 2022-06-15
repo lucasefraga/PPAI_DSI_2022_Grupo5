@@ -1,42 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class Modelo
+    public class Modelo
     {
-        private string nombre { get; set; }
+        //ATRIBUTOS
+        private string nombre;
 
 
-        List<Marca> marcas = new List<Marca>();
-        Marca marcaCorrespondiente = null;
+        //METODOS
 
+        // --> Metodo Constructor
         public Modelo(string nombre)
         {
             this.nombre = nombre;
         }
 
-        public void getMarca()
+        // --> Devuelve el nombre de la marca de estre producto
+        public string getNombreMarca(List<Marca> marcas)
         {
-            marcas = CapaDatos.MainDeDatos.crearMarca();
-            foreach (Marca marca in marcas)
+            foreach (var marca in marcas)
             {
-                if (marca.esDeEstaMarca(this) != null)
+                if (marca.esDeEstaMarca(this))
                 {
-                    marcaCorrespondiente = marca.esDeEstaMarca(this);
+                    return marca.getNombre();
                 }
             }
-        }
-        public string getNombreMarca()
-        {
-            getMarca();
-            return marcaCorrespondiente.getNombre();
+            return null;
         }
 
-
-        public string getNombre()
-        {
-            return this.nombre;
-        }
-
+        //Getters&Setters
+        public string getNombre() { return this.nombre; }              
     }
 }
