@@ -137,6 +137,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public void ordenarYAgruparTurnos()
         {
             //Hay que agrupar listaTurnosEstados por fecha y ordenarlos de la mas cercana a la mas tardia
+            //No se como hacer eso. No entiendo el concepto de agrupacion en OO, no se si es hacer una lista de
+            // listaTurnoEstado, o exactamente que
+            // A IMPLEMENTAR ***********
         }
 
         public void determinarDisponibilidadTurnos()
@@ -144,6 +147,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             //Falta ponerle color segun la Observacion 2, NO TENGO IDEA DE COMO HACERLO
             //Se tienen q mostrar en un calendario
             //TurnoEstado.Estado da el estadao de cada turno
+            // A IMPLEMENTAR *******
         }
 
         public void tomasSeleccionTurno(Turno turnoSelecc)
