@@ -35,15 +35,17 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             {
                 this.Close();
             }
-            gestor.tomarConfirmacionReserva(dgvTurnos.SelectedRows[0]);
+            gestor.tomarConfirmacionReserva(dgvTurnos.CurrentRow);
             string Error = "";
             StringBuilder MensajeBuilder = new StringBuilder();
             string Message = "Su turno ha sido correctamente reservado";
             MensajeBuilder.Append(Message);
-            //if (checkBoxEmail.Checked)
-            //    CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
-            //if (checkBoxWP.Checked)
-            //    CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+            if (checkBoxEmail.Checked)
+                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+            if (checkBoxWP.Checked)
+                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+
+            MessageBox.Show("Reserva efectuada exitosamente!", "Notificacion enviada.", MessageBoxButtons.OK);
         }
 
         internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar)

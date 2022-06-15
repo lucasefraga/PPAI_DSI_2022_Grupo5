@@ -81,9 +81,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         public void reservar(Estado est)
-        {
-            cambioEstadoTurno = CapaDatos.MainDeDatos.crearCambioEstadoTurnos();
-            
+        {   
             cambioEstadoTurno.Last().FechaHoraHasta = DateTime.Now;
 
             var nuevoCambioEstado = new CambioEstadoTurno(this.fechaHoraInicio, est);
@@ -91,9 +89,5 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             cambioEstadoTurno.Add(nuevoCambioEstado);
 
         }
-
-
-
     }
-
 }

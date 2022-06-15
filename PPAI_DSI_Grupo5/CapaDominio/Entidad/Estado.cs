@@ -31,10 +31,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             get { return ambito; }
             set { ambito = value; }
         }
-        public bool EsReservable
+        public bool EsReservado()
         {
-            get { return esReservable; }
-            set { esReservable = value; }
+            return nombre == "Reservado";
         }
         public bool EsCancelable
         {

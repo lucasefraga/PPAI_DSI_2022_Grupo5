@@ -32,7 +32,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             {
                 if (estado.esAmbitoTurno())
                 {
-                    if (estado.EsReservable)
+                    if (estado.EsReservado())
                     {
                         recursoTecnologicoSeleccionado.reservarTurno(turnoSeleccionado, estado, cientificoLogueado);
                     }
