@@ -1,69 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class Estado
+    public class Estado
     {
-        //Atributos privados
-        private string nombre { get; set; }
-        private string descripcion { get; set; }
-        private string ambito { get; set; }
-        private bool esReservable { get; set; }
-        private bool esCancelable { get; set; }
+        //ATRIBUTOS
+        private string nombre;
+        private string descripcion;
+        private string ambito;
 
-        //Get and set publicos
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
-        public string Descripcion
-        {
-            get { return descripcion; }
-            set { descripcion = value; }
-        }
-        public string Ambito
-        {
-            get { return ambito; }
-            set { ambito = value; }
-        }
-        public bool EsReservable
-        {
-            get { return esReservable; }
-            set { esReservable = value; }
-        }
-        public bool EsCancelable
-        {
-            get { return esCancelable; }
-            set { esCancelable = value; }
-        }
+        //METODOS
 
-        // Generador
-        public Estado(string nombre, string descripcion, string ambito, bool esReservable, bool esCancelable)
+        // --> Metodo Constructor
+        public Estado(string nombre, string descripcion, string ambito)
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.ambito = ambito;
-            this.esReservable = esReservable;
-            this.esCancelable = esCancelable;
         }
 
-        //Estos metodos de get hacen lo mismo que los get de arriba, a la espera de decidir con cual
-        //quedarse (los de arriba los saque de la documentacion de C#)
-        public bool getEsReservable()
+        // --> Devuelve si el estado es RESERVADO
+        public bool esReservado() { return nombre == "Reservado"; }
+
+        // --> Devuelve si el estado es RESERVABLE
+        internal bool esReservable() { return nombre == "Reservable"; }
+
+        // --> Devuelve si el estado es de ambito TURNO
+        public bool esAmbitoTurno() { return ambito == "Turno"; }
+
+        //Getters&Setters
+        public string getDescripcion
         {
-            return esReservable;
+            get { return descripcion; }
+            set { descripcion = value; }
         }
 
-        public string getNombre()
+        public string getAmbito
         {
-            return nombre;
+            get { return ambito; }
+            set { ambito = value; }
         }
-        
-
+        public string getNombre() { return nombre; }
     }
 }

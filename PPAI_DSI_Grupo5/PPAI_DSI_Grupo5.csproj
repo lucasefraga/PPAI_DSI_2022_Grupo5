@@ -39,11 +39,15 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="MonthCalendar">
+      <HintPath>MonthDLL\MonthCalendar.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
@@ -62,7 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapaDatos\MainDeDatos.cs" />
+    <Compile Include="CapaDatos\LoadData.cs" />
     <Compile Include="CapaDominio\Entidad\AsignacionCientificoCI.cs" />
     <Compile Include="CapaDominio\Entidad\AsignacionDirectorCI.cs" />
     <Compile Include="CapaDominio\Entidad\CambioEstadoRT.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="CapaDominio\Entidad\Turno.cs" />
     <Compile Include="CapaDominio\Entidad\Usuario.cs" />
     <Compile Include="CapaDominio\FabricacionPura\TurnoEstado.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\TurnoModel.cs" />
     <Compile Include="CapaPresentacion\ABM Turno\ABMTurno.cs">
       <SubType>Form</SubType>
     </Compile>

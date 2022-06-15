@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
-    internal class RecursoTecnologicoMuestra
+    public class RecursoTecnologicoMuestra
     {
-        private CentroDeInvestigacion centroDeInvestigacion { get; set; }
-        private int numeroInventario { get; set; }
-        private string marca { get; set; }
-        private string modelo { get; set; }
-        private string estado { get; set; }
-        private int color { get; set; } //No esta programado, pero puede ser util
+        //ATRIBUTOS
+        private CentroDeInvestigacion centroDeInvestigacion;
+        private int numeroInventario;
+        private string marca;
+        private string modelo;
+        private string estado;
+        private int color;
 
+        //METODOS
+
+        // --> Metodo Constructor
         public RecursoTecnologicoMuestra(CentroDeInvestigacion centroDeInv, int numeroInventario, string marca, string modelo, string estado)
         {
             centroDeInvestigacion = centroDeInv;
@@ -36,14 +40,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return centroDeInvestigacion;
         }
 
-        public string getEstado()
-        {
-            return estado;
-        }
 
-        public int getNumetoInventario()
-        {
-            return numeroInventario;
-        }
+        //Getters&Setters
+        public string getEstado() { return estado; }
+        public string getMarca() { return marca; }
+        public string getModelo() { return modelo; }
+        public int getNumetoInventario() { return numeroInventario; }
     }
 }

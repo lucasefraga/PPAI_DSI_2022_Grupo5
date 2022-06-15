@@ -3,15 +3,17 @@ using System.Collections.Generic;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-#pragma warning disable CS0659 // 'CambioEstadoRT' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
-    internal class CambioEstadoRT
-#pragma warning restore CS0659 // 'CambioEstadoRT' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
+    public class CambioEstadoRT
     {
 
-        private DateTime fechaHoraDesde { get; set; }
-        private DateTime fechaHoraHasta { get; set; }
-        private Estado estado { get; set; }
+        private DateTime fechaHoraDesde;
+        private DateTime fechaHoraHasta;
+        private Estado estado;
 
+
+        //METODOS
+
+        // --> Metodo Constructor
         public CambioEstadoRT(DateTime fechaHoraDesde, DateTime fechaHoraHasta, Estado estado)
         {
             this.fechaHoraDesde = fechaHoraDesde;
@@ -19,14 +21,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.estado = estado;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is CambioEstadoRT rT &&
-                   fechaHoraDesde == rT.fechaHoraDesde &&
-                   fechaHoraHasta == rT.fechaHoraHasta &&
-                   EqualityComparer<Estado>.Default.Equals(estado, rT.estado);
-        }
-
+        // --> Devuelve si es actual
         public bool esActual()
         {
             if (this.fechaHoraDesde < DateTime.Now && DateTime.Now < this.fechaHoraHasta)
@@ -36,15 +31,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return false;
         }
 
+        // --> Devuelve si el estado es RESERVABLE
         public bool esReservable()
         {
-            
-            return this.estado.getEsReservable();
+            return this.estado.esReservable();
         }
 
-        public string getNombreEstado()
-        {
-            return estado.getNombre();
-        }
+        //Getters&Setters
+        public string getNombreEstado() { return estado.getNombre(); }
     }
 }

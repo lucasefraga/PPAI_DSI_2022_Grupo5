@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-    internal class Sesion
+    public class Sesion
     {
-        private DateTime fechaFin { get; set; }
-        private DateTime fechaInicio { get; set; }
-        private Usuario usuarioActual { get; set; }
+        //ATRIBUTOS
+        private DateTime fechaFin;
+        private DateTime fechaInicio;
+        private Usuario usuarioActual;
 
+        //METODOS
+
+        // --> Metodo Constructor
         public Sesion(DateTime fechaFin, DateTime fechaInicio, Usuario usuarioActual)
         {
             this.fechaFin = fechaFin;
@@ -19,14 +19,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.usuarioActual = usuarioActual;
         }
 
-        public Usuario getNombreUsuario()
-        {
-            return this.usuarioActual.getUsuario();
-        }
-
-        public PersonalCientifico obtenerCientificoLogueado()
-        {
-            return usuarioActual.GetPersonalCientifico();
-        }
+        //--> Obtener el cientifico logueado
+        public PersonalCientifico obtenerCientificoLogueado() { return usuarioActual.getPersonalCientifico(); }
     }
 }

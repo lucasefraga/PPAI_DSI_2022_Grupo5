@@ -33,17 +33,16 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.lblFuncion = new System.Windows.Forms.Label();
             this.cmbTipoRecurso = new System.Windows.Forms.ComboBox();
             this.dgrRecursos = new System.Windows.Forms.DataGridView();
-            this.nroContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoCombo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSeleccioneRecurso = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
             this.dateTimePickerTurno = new System.Windows.Forms.DateTimePicker();
             this.btnReservar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoCombo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrRecursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,10 +50,9 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             // 
             this.lblFuncion.AutoSize = true;
             this.lblFuncion.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 14F);
-            this.lblFuncion.Location = new System.Drawing.Point(56, 144);
-            this.lblFuncion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFuncion.Location = new System.Drawing.Point(42, 117);
             this.lblFuncion.Name = "lblFuncion";
-            this.lblFuncion.Size = new System.Drawing.Size(192, 31);
+            this.lblFuncion.Size = new System.Drawing.Size(154, 25);
             this.lblFuncion.TabIndex = 29;
             this.lblFuncion.Text = "Tipo de recurso:";
             // 
@@ -62,11 +60,12 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             // 
             this.cmbTipoRecurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoRecurso.FormattingEnabled = true;
-            this.cmbTipoRecurso.Location = new System.Drawing.Point(296, 151);
-            this.cmbTipoRecurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbTipoRecurso.Location = new System.Drawing.Point(222, 123);
+            this.cmbTipoRecurso.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoRecurso.Name = "cmbTipoRecurso";
-            this.cmbTipoRecurso.Size = new System.Drawing.Size(281, 24);
+            this.cmbTipoRecurso.Size = new System.Drawing.Size(212, 21);
             this.cmbTipoRecurso.TabIndex = 28;
+            this.cmbTipoRecurso.SelectedIndexChanged += new System.EventHandler(this.cmbTipoRecurso_SelectedIndexChanged);
             // 
             // dgrRecursos
             // 
@@ -76,38 +75,66 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.dgrRecursos.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgrRecursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrRecursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nroContrato,
-            this.codigoCombo,
             this.calle,
+            this.codigoCombo,
             this.nroCalle,
             this.Modelo,
             this.Estado});
-            this.dgrRecursos.Location = new System.Drawing.Point(62, 254);
-            this.dgrRecursos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgrRecursos.Location = new System.Drawing.Point(46, 206);
             this.dgrRecursos.Name = "dgrRecursos";
             this.dgrRecursos.ReadOnly = true;
             this.dgrRecursos.RowHeadersWidth = 51;
             this.dgrRecursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrRecursos.Size = new System.Drawing.Size(1085, 437);
+            this.dgrRecursos.Size = new System.Drawing.Size(814, 355);
             this.dgrRecursos.TabIndex = 27;
             // 
-            // nroContrato
+            // lblSeleccioneRecurso
             // 
-            this.nroContrato.DataPropertyName = "nroContrato";
-            this.nroContrato.HeaderText = "Recurso";
-            this.nroContrato.MinimumWidth = 6;
-            this.nroContrato.Name = "nroContrato";
-            this.nroContrato.ReadOnly = true;
-            this.nroContrato.Width = 170;
+            this.lblSeleccioneRecurso.AutoSize = true;
+            this.lblSeleccioneRecurso.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeleccioneRecurso.Location = new System.Drawing.Point(45, 169);
+            this.lblSeleccioneRecurso.Name = "lblSeleccioneRecurso";
+            this.lblSeleccioneRecurso.Size = new System.Drawing.Size(324, 25);
+            this.lblSeleccioneRecurso.TabIndex = 26;
+            this.lblSeleccioneRecurso.Text = "Seleccióne un recursos Tecnológico:";
             // 
-            // codigoCombo
+            // lblTurno
             // 
-            this.codigoCombo.DataPropertyName = "codigoCombo";
-            this.codigoCombo.HeaderText = "Centro de Investigación";
-            this.codigoCombo.MinimumWidth = 6;
-            this.codigoCombo.Name = "codigoCombo";
-            this.codigoCombo.ReadOnly = true;
-            this.codigoCombo.Width = 220;
+            this.lblTurno.AutoSize = true;
+            this.lblTurno.Font = new System.Drawing.Font("Microsoft YaHei Light", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurno.Location = new System.Drawing.Point(40, 44);
+            this.lblTurno.Name = "lblTurno";
+            this.lblTurno.Size = new System.Drawing.Size(482, 35);
+            this.lblTurno.TabIndex = 25;
+            this.lblTurno.Text = "Reservar turno de recurso tecnológico";
+            // 
+            // dateTimePickerTurno
+            // 
+            this.dateTimePickerTurno.Location = new System.Drawing.Point(674, 77);
+            this.dateTimePickerTurno.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerTurno.Name = "dateTimePickerTurno";
+            this.dateTimePickerTurno.Size = new System.Drawing.Size(188, 20);
+            this.dateTimePickerTurno.TabIndex = 30;
+            // 
+            // btnReservar
+            // 
+            this.btnReservar.Location = new System.Drawing.Point(717, 581);
+            this.btnReservar.Name = "btnReservar";
+            this.btnReservar.Size = new System.Drawing.Size(143, 38);
+            this.btnReservar.TabIndex = 31;
+            this.btnReservar.Text = "Reservar";
+            this.btnReservar.UseVisualStyleBackColor = true;
+            this.btnReservar.Click += new System.EventHandler(this.btnReservar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(46, 581);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(143, 38);
+            this.btnCancelar.TabIndex = 32;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // calle
             // 
@@ -116,7 +143,15 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.calle.MinimumWidth = 6;
             this.calle.Name = "calle";
             this.calle.ReadOnly = true;
-            this.calle.Width = 80;
+            // 
+            // codigoCombo
+            // 
+            this.codigoCombo.DataPropertyName = "codigoCombo";
+            this.codigoCombo.HeaderText = "Centro de Investigación";
+            this.codigoCombo.MinimumWidth = 6;
+            this.codigoCombo.Name = "codigoCombo";
+            this.codigoCombo.ReadOnly = true;
+            this.codigoCombo.Width = 240;
             // 
             // nroCalle
             // 
@@ -125,7 +160,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.nroCalle.MinimumWidth = 6;
             this.nroCalle.Name = "nroCalle";
             this.nroCalle.ReadOnly = true;
-            this.nroCalle.Width = 125;
+            this.nroCalle.Width = 140;
             // 
             // Modelo
             // 
@@ -143,63 +178,12 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.Estado.ReadOnly = true;
             this.Estado.Width = 150;
             // 
-            // lblSeleccioneRecurso
-            // 
-            this.lblSeleccioneRecurso.AutoSize = true;
-            this.lblSeleccioneRecurso.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeleccioneRecurso.Location = new System.Drawing.Point(60, 208);
-            this.lblSeleccioneRecurso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSeleccioneRecurso.Name = "lblSeleccioneRecurso";
-            this.lblSeleccioneRecurso.Size = new System.Drawing.Size(410, 31);
-            this.lblSeleccioneRecurso.TabIndex = 26;
-            this.lblSeleccioneRecurso.Text = "Seleccióne un recursos Tecnológico:";
-            // 
-            // lblTurno
-            // 
-            this.lblTurno.AutoSize = true;
-            this.lblTurno.Font = new System.Drawing.Font("Microsoft YaHei Light", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTurno.Location = new System.Drawing.Point(54, 54);
-            this.lblTurno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTurno.Name = "lblTurno";
-            this.lblTurno.Size = new System.Drawing.Size(591, 43);
-            this.lblTurno.TabIndex = 25;
-            this.lblTurno.Text = "Reservar turno de recurso tecnológico";
-            // 
-            // dateTimePickerTurno
-            // 
-            this.dateTimePickerTurno.Location = new System.Drawing.Point(898, 95);
-            this.dateTimePickerTurno.Name = "dateTimePickerTurno";
-            this.dateTimePickerTurno.Size = new System.Drawing.Size(249, 22);
-            this.dateTimePickerTurno.TabIndex = 30;
-            // 
-            // btnReservar
-            // 
-            this.btnReservar.Location = new System.Drawing.Point(956, 715);
-            this.btnReservar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(191, 47);
-            this.btnReservar.TabIndex = 31;
-            this.btnReservar.Text = "Reservar";
-            this.btnReservar.UseVisualStyleBackColor = true;
-            this.btnReservar.Click += new System.EventHandler(this.btnReservar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(62, 715);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(191, 47);
-            this.btnCancelar.TabIndex = 32;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // RegistrarTurno
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1211, 794);
+            this.ClientSize = new System.Drawing.Size(908, 645);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.dateTimePickerTurno);
@@ -209,6 +193,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.Controls.Add(this.lblSeleccioneRecurso);
             this.Controls.Add(this.lblTurno);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "RegistrarTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -225,16 +210,15 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
         private System.Windows.Forms.Label lblFuncion;
         private System.Windows.Forms.ComboBox cmbTipoRecurso;
         private System.Windows.Forms.DataGridView dgrRecursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoCombo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn calle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroCalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label lblSeleccioneRecurso;
         private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.DateTimePicker dateTimePickerTurno;
         private System.Windows.Forms.Button btnReservar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn calle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoCombo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroCalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

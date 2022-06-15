@@ -5,80 +5,102 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
+using PPAI_DSI_Grupo5.Presentacion.Transacciones;
+using PPAI_DSI_Grupo5.Presentacion.ABM_Turno;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
     internal class GestorReservaDeTurno
     {
-        
-        public List<TipoRecursoTecnologico> listaTipoRTDisponibles { get; set; } //Todos los TipoRecurso Disponibles
-        public TipoRecursoTecnologico tipoRecursoTecnologicoSeleccionado { get; set; } //TipoRecurso Seleccionado por Cientifico   
-        public List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; } //Lista de RecursosTecnologicos correspondientes al TipoRecurso seleccionado
-        public List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; } //Lista con datos necesarios a mostrar de los RecursosTecnologicos
-        public RecursoTecnologico recursoTecnologicoSeleccionado { get; set;} //RecursoTecnologico seleccionado por el Cientifico
 
-        public Sesion sesionActual = CapaDatos.MainDeDatos.getSesionActual(); // Sesion del Cientifico actual
-        public PersonalCientifico cientificoLogueado { get; set; } //Personal Cientifico Logeado
-        public Turno turnoSeleccionado { get; set; }
-        public List<TurnoEstado> listaTurnosEstados { get; set; } //Lista con los turnos y sus estados para poder seleccionar
+        private List<TipoRecursoTecnologico> listaTipoRTDisponibles;
+        private List<RecursoTecnologico> listaRecursosTecnologicosValidos;
+        private List<RecursoTecnologicoMuestra> listaRecursosMuestra;
+        private RecursoTecnologico recursoTecnologicoSeleccionado;
+        private List<Estado> listaEstados;
+        private Sesion sesionActual;
+        private Dictionary<string, List<TurnoModel>> turnosOrdenados;
+        private PersonalCientifico cientificoLogueado;
+        private Turno turnoSeleccionado;
+        private List<RecursoTecnologico> listaRecursoTecnologicosDisponibles; 
+        private List<Turno> listaTurnosRTSeleccionado;
+        private RegistrarTurno ventanaRegistrarTurno;
+        private AltaTurno ventanaAltaTurno;
 
-        public bool esCientificodelCentro = false;
-
-
-
-        List<RecursoTecnologico> listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico(); //Busca Los RecursosTecnologicos
-
-        
-
-
-
-
-
-        public void obtenerTipoRecursoTecnologico()
+       
+        public GestorReservaDeTurno(RegistrarTurno registrarTurno, AltaTurno altaTurno, Sesion sesion)
         {
-            listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico(); //Busca Los Recursos Tecnologicos Disponibles
+            this.ventanaRegistrarTurno = registrarTurno;
+            this.ventanaAltaTurno = altaTurno;
+            this.sesionActual = sesion;
+            altaTurno.setGestor(this);
+
+            listaTipoRTDisponibles = LoadData.loadTiposRecursoTecnologico();
+            listaRecursoTecnologicosDisponibles = LoadData.loadRecursosTecnologicos();
+            listaEstados = LoadData.loadEstados();
+            
         }
 
-        public void tomarSeleccionTipoRecursoTecnologico(TipoRecursoTecnologico tipoRecursoSeleccionado)
+        public void nuevaReservaTurno()
         {
-            //falta la implamentacion de este metodo
-            tipoRecursoTecnologicoSeleccionado = listaTipoRTDisponibles[0]; //simplemente para testear
+            List<string> lista = obtenerRT();
+            ventanaRegistrarTurno.mostrarYSolicitarSeleccionTipoRT(lista);
         }
 
-        public void buscarRTPorTipoRTValido()
+        public List<string> obtenerRT()
+        {
+            List<string> lista = new List<string>();
+            foreach (var rt in listaTipoRTDisponibles)
+            {
+                lista.Add(rt.getNombre());
+            }
+
+            return lista;
+        }
+
+        public void tomarSeleccionTipoRecursoTecnologico(string tipoRecursoSeleccionado)
+        {
+            buscarRTPorTipoRTValido(tipoRecursoSeleccionado);
+        }
+
+        public void buscarRTPorTipoRTValido(string tipoRecursoSeleccionado)
         {
 
             listaRecursosTecnologicosValidos = new List<RecursoTecnologico>();
-            
+
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
             {
-                if (recurso.esTipoRecursoSeleccinado(tipoRecursoTecnologicoSeleccionado))
+                if (recurso.esTipoRecursoSeleccinado(tipoRecursoSeleccionado))
                 {
                     if (recurso.esReservable())
                     {
                         listaRecursosTecnologicosValidos.Add(recurso);
                     }
                 }
-                
+
             }
 
             listaRecursosMuestra = new List<RecursoTecnologicoMuestra>();
 
-            foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos) //Crea objetos con los datos a mostrar
+            foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos)
             {
-                listaRecursosMuestra.Add(recurso.buscarDatosAMostrar());
+                listaRecursosMuestra.Add(recurso.buscarDatosAMostrar(LoadData.loadMarcas()));
             }
+
+            agruparRTPorCentroInvestigacion();
+            asignarColorPorEstadoDeRT();
+
+            ventanaRegistrarTurno.MostrarYSolicitarRTAUtilizar(listaRecursosMuestra);
         }
 
         public void agruparRTPorCentroInvestigacion()
         {
-           listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   //Maybe funciona, no estoy seguro. Lo q hace es ordenarlos por CI, en la lista.
-                                                                            //Supongo que a la hora de mostrarlos va a servir 
+            listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   //Maybe funciona, no estoy seguro. Lo q hace es ordenarlos por CI, en la lista.
+                                                                             //Supongo que a la hora de mostrarlos va a servir 
         }
 
         public void asignarColorPorEstadoDeRT() //Hay que ver si esta es la mejor forma, lo dudo
@@ -103,69 +125,121 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
-        public void tomarSeleccionRTAUtilizar(RecursoTecnologicoMuestra recursoTecnologicoSelecc)
+        public void tomarSeleccionRTAUtilizar(int numeroRT)
         {
 
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
             {
-                if (recurso.getNumeroRT() == recursoTecnologicoSelecc.getNumetoInventario())
+                if (recurso.getNumeroRT() == numeroRT)
                 {
                     recursoTecnologicoSeleccionado = recurso;
                 }
             }
-            //recursoTecnologicoSeleccionado = listaRecursosTecnologicosValidos[0];
-            
+
+            listaTurnosRTSeleccionado = recursoTecnologicoSeleccionado.obtenerTurnos(verificarCIDelUsuario());
+
+            turnosOrdenados = ordenarYAgruparTurnos();
+
+            Dictionary<string, bool> disponibilidadAMostrar = determinarDisponibilidadTurnos();
+
+            ventanaAltaTurno.MostrarYSolicitarSeleccionTurnos(disponibilidadAMostrar);
         }
 
-        public void verificarCIDelUsuario()
+        public bool verificarCIDelUsuario()
         {
             cientificoLogueado = sesionActual.obtenerCientificoLogueado();
 
-            esCientificodelCentro = recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
+            return recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
         }
 
-        public void obtenerTurnos() //Ver observacion 3 y resolver lo q pide
+        public Dictionary<string, List<TurnoModel>> ordenarYAgruparTurnos()
         {
-            //Retorna una lista con todos los turnos y sus estados para mostrar
+            Dictionary<string, List<TurnoModel>> turnosOrdenados = new Dictionary<string, List<TurnoModel>>();
+            List<TurnoModel> turnos = new List<TurnoModel>();
 
-            listaTurnosEstados = new List<TurnoEstado>();
-
-            listaTurnosEstados = recursoTecnologicoSeleccionado.obtenerTurnos(esCientificodelCentro);
-                
-        }
-        
-        public void ordenarYAgruparTurnos()
-        {
-            //Hay que agrupar listaTurnosEstados por fecha y ordenarlos de la mas cercana a la mas tardia
-            //No se como hacer eso. No entiendo el concepto de agrupacion en OO, no se si es hacer una lista de
-            // listaTurnoEstado, o exactamente que
-            // A IMPLEMENTAR ***********
-        }
-
-        public void determinarDisponibilidadTurnos()
-        {
-            //Falta ponerle color segun la Observacion 2, NO TENGO IDEA DE COMO HACERLO
-            //Se tienen q mostrar en un calendario
-            //TurnoEstado.Estado da el estadao de cada turno
-            // A IMPLEMENTAR *******
-        }
-
-        public void tomasSeleccionTurno(Turno turnoSelecc)
-        {
-            turnoSeleccionado = turnoSelecc;
-        }
-
-        public void registrarReserva()
-        {
-            List<Estado> listaEstadosDisponibles = CapaDatos.MainDeDatos.crearEstados();
-            
-            foreach  (Estado estado in listaEstadosDisponibles)
+            foreach (var turno in listaTurnosRTSeleccionado)
             {
-                if (estado.Ambito == "Turno" && estado.Nombre == "Reservado")
+                TurnoModel turnoAMostrar = turno.mostrarTurno();
+
+                if (turnosOrdenados.ContainsKey(turnoAMostrar.getFechaInicio().ToShortDateString()))
                 {
-                    recursoTecnologicoSeleccionado.reservarTurno(turnoSeleccionado,estado,cientificoLogueado);
+                    turnosOrdenados[turnoAMostrar.getFechaInicio().ToShortDateString()].Add(turnoAMostrar);
                 }
-                break;
+                else
+                {
+                    List<TurnoModel> list = new List<TurnoModel>();
+                    list.Add(turnoAMostrar);
+                    turnosOrdenados.Add(turnoAMostrar.getFechaInicio().ToShortDateString(), list);
+                }
+            }
+
+            return turnosOrdenados;
+        }
+
+        public Dictionary<string, bool> determinarDisponibilidadTurnos()
+        {
+            Dictionary<string, bool> disponibilidad = new Dictionary<string, bool>();
+
+            foreach (var entry in turnosOrdenados.Keys)
+            {
+                foreach (var turno in turnosOrdenados[entry])
+                {
+                    if (turno.getEstado() == "Disponible")
+                    {
+                        disponibilidad.Add(entry, true);
+                        break;
+                    }
+
+                    disponibilidad.Add(entry, false);
+                }
+
+            }
+            return disponibilidad;
+        }
+
+        internal void tomarSeleccionTurno(DataGridViewRow dataGridViewRow)
+        {
+            foreach (var turnoDisponible in listaTurnosRTSeleccionado)
+            {
+                string fecha = dataGridViewRow.Cells[0].Value.ToString();
+                string horaInicio = dataGridViewRow.Cells[1].Value.ToString();
+                string horaFin = dataGridViewRow.Cells[2].Value.ToString();
+                string estado = dataGridViewRow.Cells[3].Value.ToString();
+
+                TurnoModel comparable = turnoDisponible.mostrarTurno();
+
+                string fechaComparable = comparable.getFechaInicio().ToShortDateString();
+                string horaInicioComparable = comparable.getFechaInicio().ToShortTimeString();
+                string horaFinComparable = comparable.getFechaFin().ToShortTimeString();
+                string estadoComparable = comparable.getEstado();
+
+                if (fecha == fechaComparable && horaInicio == horaInicioComparable && horaFin == horaFinComparable && estado == estadoComparable)
+                {
+                    turnoSeleccionado = turnoDisponible;
+                }
+            };
+        }
+
+        internal void tomarSeleccionDia(DateTime date)
+        {
+            string dateFormatted = date.ToShortDateString();
+            if (turnosOrdenados.ContainsKey(dateFormatted))
+            {
+                ventanaAltaTurno.mostrarDiaSeleccionado(turnosOrdenados[dateFormatted]);
+            }
+        }
+
+        internal void tomarConfirmacionReserva(DataGridViewRow dataGridViewRow)
+        {
+            foreach (var estado in listaEstados)
+            {
+                if (estado.esAmbitoTurno())
+                {
+                    if (estado.esReservado())
+                    {
+                        recursoTecnologicoSeleccionado.reservarTurno(turnoSeleccionado, estado, cientificoLogueado);
+                    }
+                }
             }
         }
 
@@ -211,7 +285,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
-            // cada 24hs se inhabilita whatsapp
+
+        // cada 24hs se inhabilita whatsapp
         public static void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
         {
             InfoError = "";
@@ -241,7 +316,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 MessageBox.Show(InfoError);
                 return;
             }
-            
+
         }
     }
 }

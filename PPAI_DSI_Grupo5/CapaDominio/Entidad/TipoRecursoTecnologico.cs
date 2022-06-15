@@ -1,44 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
-#pragma warning disable CS0659 // 'TipoRecursoTecnologico' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
-    internal class TipoRecursoTecnologico
-#pragma warning restore CS0659 // 'TipoRecursoTecnologico' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
+    public class TipoRecursoTecnologico
     {
-        private string nombre { get; set; }
-        private string descripcion { get; set; }
-        private List<Caracteristica> caracteristicas { get; set; }
+        //ATRIBUTOS
+        private string nombre;
+        private string descripcion;
+        private List<Caracteristica> caracteristicas;
 
+        //METODOS
+
+        // --> Metodo Constructor
         public TipoRecursoTecnologico(string nombre, string descripcion)
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
         }
 
-        public TipoRecursoTecnologico(string nombre, string descripcion, List<Caracteristica> caracteristicas)
+        // --> devuelve si el tipo pasado por parametro es igual a este objeto
+        public bool esSeleccionado(string tipo)
         {
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.caracteristicas = caracteristicas;
+            return nombre == tipo;
         }
 
-
-
-
-        public override bool Equals(object obj)
-        {
-            return obj is TipoRecursoTecnologico tecnologico &&
-                   nombre == tecnologico.nombre &&
-                   descripcion == tecnologico.descripcion &&
-                   EqualityComparer<List<Caracteristica>>.Default.Equals(caracteristicas, tecnologico.caracteristicas);
-        }
-
-
-
+        //Getters&Setters
+        public string getNombre() { return nombre; }
     }
 }

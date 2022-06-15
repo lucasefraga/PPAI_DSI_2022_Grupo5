@@ -16,29 +16,48 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
 {
     public partial class RegistrarTurno : Form
     {
-        private RecursoTecnologico recurso;
+        //ATRIBUTOS
         private GestorReservaDeTurno gestor;
+        private AltaTurno ventana;
 
+
+        //METODOS
+
+        // --> Metodo constructor
         public RegistrarTurno()
         {
             InitializeComponent();
+            Sesion sesion = LoadData.loadSesion();
+            ventana = new AltaTurno();
+            gestor = new GestorReservaDeTurno(this, ventana, sesion);
+            gestor.nuevaReservaTurno();
         }
-        private void RegistrarTurno_Load(object sender, EventArgs e)
-        {
-            RellenarCmb(gestor.obtenerTipoRecursoTecnologico(), " ");
 
-           // cmbTipoRecurso.Items.Add("Todos");
-            //cmbTipoRecurso.Items.Add("Microscopios");
-            //cmbTipoRecurso.Items.Add("Balanzas de precisión");
-            //cmbTipoRecurso.Items.Add("Resonadores magnéticos");
-            //cmbTipoRecurso.Items.Add("Equip. de Cómputo de alto rendimiento");
-            //cmbTipoRecurso.Items.Insert(0, "Seleccionar");
-            //cmbTipoRecurso.SelectedIndex = 0;
+        // --> Muestra en el ComboBox los tipos de recursos disponibles
+        internal void mostrarYSolicitarSeleccionTipoRT(List<string> lista)
+        {
+            cmbTipoRecurso.Items.AddRange(lista.ToArray());
+        }
+
+        // --> Se dispara cuando se selecciona el tipo de recurso tecnologico
+        private void cmbTipoRecurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gestor.tomarSeleccionTipoRecursoTecnologico(cmbTipoRecurso.SelectedItem.ToString());
+        }
+
+        internal void MostrarYSolicitarRTAUtilizar(List<RecursoTecnologicoMuestra> listaRecursosMuestra)
+        {
+            dgrRecursos.Rows.Clear();
+            foreach (var recurso in listaRecursosMuestra)
+            {
+                dgrRecursos.Rows.Add(recurso.getNumetoInventario(), recurso.getCentroInvestigacion().getNombre(), recurso.getMarca(), recurso.getModelo(), recurso.getEstado());
+            };
         }
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            AltaTurno ventana = new AltaTurno();
+            int selected = (int)dgrRecursos.CurrentRow.Cells[0].Value;
+            gestor.tomarSeleccionRTAUtilizar(selected);
             ventana.ShowDialog();
         }
 
@@ -49,69 +68,6 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             {
                 this.Close();
             }
-        }
-
-        public void MostrarTarifasVigentes(List<List<string>> recursos, out string Error)
-        {           
-            Error = "";
-            try
-            {
-     
-               // lblTarifas.Visible = true;
-                //dgrRecursos.Visible = true;
-                //btnTomarTarifa.Visible = true;
-                //btnTomarTarifa.Enabled = false;
-                int rowNumber = 0;
-                foreach (var recurso in recursos)
-                {
-                    dgrRecursos.Rows.Add();
-                    dgrRecursos.Rows[rowNumber].Cells[0].Value = recurso[0];
-                    dgrRecursos.Rows[rowNumber].Cells[2].Value = recurso[1];
-                    dgrRecursos.Rows[rowNumber].Cells[1].Value = recurso[2];
-                    dgrRecursos.Rows[rowNumber].Cells[3].Value = rowNumber;
-                    rowNumber += 1;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Error = "Error: " + ex.Message;
-                MessageBox.Show(Error);
-                return;
-            }           
-
-        }
-
-        //para despues
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //string cmbTipoRecurso = cmbTipoRecurso.GetItemText(cmbTipoRecurso.SelectedItem);
-
-        public void RellenarCmb(List<List<string>> recursos, out string Error)
-        {
-            Error = "";
-            try
-            {
-                // lblTarifas.Visible = true;
-                //dgrRecursos.Visible = true;
-                //btnTomarTarifa.Visible = true;
-                //btnTomarTarifa.Enabled = false;
-                //int rowNumber = 0;
-                foreach (var recurso in recursos)
-                {
-                    cmbTipoRecurso.Items.Add(recurso);
-
-                }
-                cmbTipoRecurso.Items.Insert(0, "Seleccionar");
-                cmbTipoRecurso.SelectedIndex = 0;
-
-            }
-            catch (Exception ex)
-            {
-                Error = "Error: " + ex.Message;
-                MessageBox.Show(Error);
-                return;
-            }
-
         }
     }
 }
