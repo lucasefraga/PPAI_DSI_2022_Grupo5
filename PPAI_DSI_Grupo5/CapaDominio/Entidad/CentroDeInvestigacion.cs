@@ -80,6 +80,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.directorCI = directorCI;
         }
 
+        public string getNombre()
+        {
+            return nombre;
+        }
+
         public CentroDeInvestigacion obtenerCIdeRecursoTecnologico(RecursoTecnologico recurso)
         {
             if (recursosTecnologicos.Contains(recurso))
@@ -102,7 +107,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return false;
         }
 
-
+        public int getTiempoAntelacionReserva() { return tiempoAntelacionReserva; }
         public void reservarTurnoCientifico(Turno turnocorrespondiente, PersonalCientifico cientifico)
         {
             foreach (AsignacionCientificoCI item in cientificos)

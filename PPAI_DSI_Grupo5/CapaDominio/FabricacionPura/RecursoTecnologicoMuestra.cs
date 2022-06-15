@@ -40,6 +40,14 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         {
             return estado;
         }
+        public string getMarca()
+        {
+            return marca;
+        }
+        public string getModelo()
+        {
+            return modelo;
+        }
 
         public int getNumetoInventario()
         {

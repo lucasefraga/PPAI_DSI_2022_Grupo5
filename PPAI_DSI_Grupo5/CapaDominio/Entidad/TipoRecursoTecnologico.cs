@@ -10,7 +10,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
     internal class TipoRecursoTecnologico
 #pragma warning restore CS0659 // 'TipoRecursoTecnologico' invalida Object.Equals(object o) pero no invalida Object.GetHashCode()
     {
-        private string nombre { get; set; }
+        private string nombre;
         private string descripcion { get; set; }
         private List<Caracteristica> caracteristicas { get; set; }
 
@@ -28,7 +28,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
 
-
+        public string getNombre() { return nombre; }
 
         public override bool Equals(object obj)
         {

@@ -17,7 +17,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         private int duracionManPrev { get; set; } //En dias
         private string fraccionHorarioTurnos { get; set; }
         private List<CaracteristicaRecurso> caracteristicaRecurso { get; set; }
-        private TipoRecursoTecnologico tipoRecurso { get; set; }
+        private TipoRecursoTecnologico tipoRecurso;
         private Modelo modeloDelRT { get; set; }
         private List<Mantenimiento> mantenimientos { get; set; }
         private List<HorarioRT> disponibilidad { get; set; }
@@ -63,7 +63,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         public RecursoTecnologico(int numeroRT, DateTime fechaAlta, string imagenes, 
-            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, TipoRecursoTecnologico tipoRecursoTecnologico, Modelo modelo,List<CambioEstadoRT>cambioEstadoRT)
+            int periodicidadManPrev, int duracionManPrev, string fraccionHorarioTurnos, TipoRecursoTecnologico tipoRecursoTecnologico, Modelo modelo,List<CambioEstadoRT>cambioEstadoRT, List<Turno> turnos)
         {
             this.numeroRT = numeroRT;
             this.fechaAlta = fechaAlta;
@@ -74,6 +74,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.tipoRecurso = tipoRecursoTecnologico;
             this.modeloDelRT = modelo;
             this.cambioEstadoRT = cambioEstadoRT;
+            this.turnos = turnos;
         }
 
         public int getNumeroRT()
@@ -81,9 +82,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return numeroRT;
         }
 
-        public bool esTipoRecursoSeleccinado(TipoRecursoTecnologico tipoRecurso)
+        public bool esTipoRecursoSeleccinado(string tipoRecurso)
         {
-            return this.tipoRecurso.Equals(tipoRecurso); ;
+            return tipoRecurso == this.tipoRecurso.getNombre();
         }
 
         public bool esReservable()
@@ -122,21 +123,48 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         // con todos los datos que necesitas mostrar. Fijate el ejemplo de la clase RecursoTecnologicoMuestra, que no es
         // una clase del dominio, sino q es una clase q uso para juntar datos, y que sea mas sensillo poder mostrarlas despues
         // Si no entendes, hablame por wup y despues te explico. Lucas
-        public List<TurnoEstado> obtenerTurnos()
-        {
-            //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...
-            //fechaFin y el estado en el que esta. De ahi que esto retorna una lista con esos tipos
-            List<Turno> turnos_disponibles = new List<Turno>();
-            List<TurnoEstado> mostrar_turnos = new List<TurnoEstado>();
 
-            foreach (Turno turno in turnos)
-                if (turno.validarFechaHoraInicio())
-                    turnos_disponibles.Add(turno);
+        //public List<TurnoEstado> obtenerTurnos()
+        //{
+        //    //Siguiendo el diagrama de secuencia necesita 3 datos para mostrar, fechaInicio...
+        //    //fechaFin y el estado en el que esta. De ahi que esto retorna una lista con esos tipos
+        //    List<Turno> turnos_disponibles = new List<Turno>();
+        //    List<TurnoEstado> mostrar_turnos = new List<TurnoEstado>();
 
-            foreach (Turno turno1 in turnos_disponibles)
-                mostrar_turnos.Add(turno1.mostrarTurnos());
-            return mostrar_turnos;
+        //    foreach (Turno turno in turnos)
+        //        if (turno.validarFechaHoraInicio(DateTime.Now))
+        //            turnos_disponibles.Add(turno);
+
+        //    //foreach (Turno turno1 in turnos_disponibles)
+        //    //    mostrar_turnos.Add(turno1.mostrarTurnos());
+        //    //return mostrar_turnos;
                 
+        //}
+
+        public List<TurnoModel> obtenerTurnos(bool esCientificodelCentro) //Ver observacion 3 y resolver lo q pide
+        {
+            List<TurnoModel> turnosDisponibles = new List<TurnoModel>();
+            DateTime date = DateTime.Now;
+
+            if (esCientificodelCentro)
+            {
+                foreach (Turno turno in turnos)
+                    if (turno.validarFechaHoraInicio(date))
+                    {
+                        turnosDisponibles.Add(turno.mostrarTurnos());
+                    }
+
+            }
+            else
+            {
+                foreach (Turno turno in turnos)
+                    if (turno.validarFechaHoraInicio(date.AddDays(centroInvestigacionCorrespondiente.getTiempoAntelacionReserva())))
+                    {
+                        turnosDisponibles.Add(turno.mostrarTurnos());
+                    }
+            }
+
+            return turnosDisponibles;
         }
         public RecursoTecnologicoMuestra buscarDatosAMostrar()
         {

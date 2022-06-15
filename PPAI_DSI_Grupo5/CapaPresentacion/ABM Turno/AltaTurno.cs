@@ -1,22 +1,20 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pabo.Calendar;
 
 namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 {
     public partial class AltaTurno : Form
     {
-        public AltaTurno()
+
+        internal AltaTurno()
         {
             InitializeComponent();
         }
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -38,10 +36,32 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             StringBuilder MensajeBuilder = new StringBuilder();
             string Message = "Su turno ha sido correctamente reservado";
             MensajeBuilder.Append(Message);
-            if (checkBoxEmail.Checked)
-                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
-            if (checkBoxWP.Checked)
-                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+            //if (checkBoxEmail.Checked)
+            //    CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+            //if (checkBoxWP.Checked)
+            //    CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), txtFecha.Text.Trim(), out Error);
+        }
+
+        internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar)
+        {
+            List<DateItem> lista = new List<DateItem>();
+            foreach (var dia in disponibilidadAMostrar)
+            {
+                DateItem item = new DateItem();
+                if (dia.Value)
+                {
+                    item.Date = DateTime.Parse(dia.Key);
+                    item.BackColor1 = Color.Green;
+                    lista.Add(item);
+                }
+                else
+                {
+                    item.Date = DateTime.Parse(dia.Key);
+                    item.BackColor1 = Color.Red;
+                    lista.Add(item);
+                }
+            }
+            calendar.AddDateInfo(lista.ToArray());
         }
     }
 }

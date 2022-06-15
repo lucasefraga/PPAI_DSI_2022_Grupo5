@@ -49,7 +49,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         //Si no tiene fecha de fin el estado es actual
         public bool esActual()
         {
-            if (fechaHoraHasta == null)
+            if (fechaHoraHasta.ToShortDateString() == "1/1/0001")
                 return true;
             else
                 return false;

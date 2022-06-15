@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.CapaDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         public PersonalCientifico GetPersonalCientifico()
         {
+            this.cientificos = MainDeDatos.crearPersonalCientifico();
+
             foreach (PersonalCientifico cientifico in cientificos)
             {
                 if (cientifico.getUsuario().Equals(this))

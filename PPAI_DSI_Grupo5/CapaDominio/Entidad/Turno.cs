@@ -60,9 +60,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
 
         //Simple validacion si la fechaInicio del turno es posterior a la fecha actual
-        public bool validarFechaHoraInicio()
+        public bool validarFechaHoraInicio(DateTime timeInicio)
         {
-            if (DateTime.Compare(this.fechaHoraInicio, DateTime.Now) > 0)
+            if (this.fechaHoraInicio.ToShortDateString() == timeInicio.ToShortDateString())
                 return true;
             else
                 return false;
@@ -70,17 +70,14 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             
         }
 
-        //Turno x Estado
-        public TurnoEstado mostrarTurnos()
+        public TurnoModel mostrarTurnos()
         {
             //Busca el actual, retorna lo pedido
-            foreach (CambioEstadoTurno cambioEstadoTurno in this.cambioEstadoTurno)
-                if (cambioEstadoTurno.esActual())
-                    return (new TurnoEstado(this, cambioEstadoTurno.Estado)) ;
+            foreach (var cambioEstado in cambioEstadoTurno)
+                if (cambioEstado.esActual())
+                    return new TurnoModel(fechaHoraInicio, fechaHoraFin, cambioEstado.Estado.getNombre());
 
-            //A incluir en el frontend un mensaje de error
-            throw new Exception("Error");
-
+            return null;
         }
 
         public void reservar(Estado est)

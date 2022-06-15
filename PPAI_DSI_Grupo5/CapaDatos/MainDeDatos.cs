@@ -55,6 +55,11 @@ namespace PPAI_DSI_Grupo5.CapaDatos
         public static readonly CambioEstadoRT cert3 = new CambioEstadoRT(fechaInicio, fechaFin, e3);
         public static readonly CambioEstadoRT cert4 = new CambioEstadoRT(fechaInicio, fechaFin, e4);
 
+        public static readonly Turno turn1 = new Turno(DateTime.Now, DayOfWeek.Monday, fechaInicio, fechaFin, crearCambioEstadoTurnos());
+        public static readonly Turno turn2 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now, DateTime.Now, crearCambioEstadoTurnos());
+        public static readonly Turno turn3 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now, DateTime.Now.AddHours(4), crearCambioEstadoTurnos());
+        public static readonly Turno turn4 = new Turno(DateTime.Now, DayOfWeek.Monday, fechaInicio, fechaFin, crearCambioEstadoTurnos());
+
         public static readonly Modelo mod1 = new Modelo("Modelo1");
         public static readonly Modelo mod2 = new Modelo("Modelo2");
         
@@ -64,11 +69,11 @@ namespace PPAI_DSI_Grupo5.CapaDatos
         public static readonly Marca mar1 = new Marca("Marca1", crearModelos());
 
 
-        public static readonly RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n", tr1, mod1, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt2 = new RecursoTecnologico(2, DateTime.Now, "N", 30, 10, "n", tr2, mod2, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3, mod3, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4, mod4, crearCambioEstadoRTs());
-        public static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5, mod1, crearCambioEstadoRTs());
+        public static readonly RecursoTecnologico rt1 = new RecursoTecnologico(1, DateTime.Now, "N", 30, 10, "n", tr1, mod1, crearCambioEstadoRTs(), crearListaTurnos());
+        public static readonly RecursoTecnologico rt2 = new RecursoTecnologico(2, DateTime.Now, "N", 30, 10, "n", tr2, mod2, crearCambioEstadoRTs(), crearListaTurnos());
+        public static readonly RecursoTecnologico rt3 = new RecursoTecnologico(3, DateTime.Now, "N", 30, 10, "n", tr3, mod3, crearCambioEstadoRTs(), crearListaTurnos());
+        public static readonly RecursoTecnologico rt4 = new RecursoTecnologico(4, DateTime.Now, "N", 30, 10, "n", tr4, mod4, crearCambioEstadoRTs(), crearListaTurnos());
+        public static readonly RecursoTecnologico rt5 = new RecursoTecnologico(5, DateTime.Now, "N", 30, 10, "n", tr5, mod1, crearCambioEstadoRTs(), crearListaTurnos());
 
 
         public static readonly CentroDeInvestigacion ci1 = new CentroDeInvestigacion("Centro 1","AAA","Direccion1",
@@ -115,7 +120,28 @@ namespace PPAI_DSI_Grupo5.CapaDatos
             return modList1;
         }
 
+        public static List<Turno> crearListaTurnos()
+        {
+            List<Turno> modList1 = new List<Turno>();
+            modList1.Add(turn1);
+            modList1.Add(turn2);
+            modList1.Add(turn3);
+            modList1.Add(turn4);
 
+            return modList1;
+        }
+
+        public static List<PersonalCientifico> crearPersonalCientifico()
+        {
+            List<PersonalCientifico> modList1 = new List<PersonalCientifico>();
+            modList1.Add(pc1);
+            modList1.Add(pc2);
+            modList1.Add(pc3);
+            modList1.Add(pc4);
+            modList1.Add(pc5);
+
+            return modList1;
+        }
 
         public static List<TipoRecursoTecnologico> crearTipoRecursoTecnologico()
         {
