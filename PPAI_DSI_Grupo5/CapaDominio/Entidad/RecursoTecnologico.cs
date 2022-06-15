@@ -141,9 +141,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 
         //}
 
-        public List<TurnoModel> obtenerTurnos(bool esCientificodelCentro) //Ver observacion 3 y resolver lo q pide
+        public List<Turno> obtenerTurnos(bool esCientificodelCentro) //Ver observacion 3 y resolver lo q pide
         {
-            List<TurnoModel> turnosDisponibles = new List<TurnoModel>();
+            List<Turno> turnosDisponibles = new List<Turno>();
             DateTime date = DateTime.Now;
 
             if (esCientificodelCentro)
@@ -151,7 +151,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 foreach (Turno turno in turnos)
                     if (turno.validarFechaHoraInicio(date))
                     {
-                        turnosDisponibles.Add(turno.mostrarTurnos());
+                        turnosDisponibles.Add(turno);
                     }
 
             }
@@ -160,7 +160,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 foreach (Turno turno in turnos)
                     if (turno.validarFechaHoraInicio(date.AddDays(centroInvestigacionCorrespondiente.getTiempoAntelacionReserva())))
                     {
-                        turnosDisponibles.Add(turno.mostrarTurnos());
+                        turnosDisponibles.Add(turno);
                     }
             }
 

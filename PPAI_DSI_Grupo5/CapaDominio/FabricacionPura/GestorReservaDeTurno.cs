@@ -23,6 +23,22 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public List<RecursoTecnologico> listaRecursosTecnologicosValidos { get; set; } //Lista de RecursosTecnologicos correspondientes al TipoRecurso seleccionado
         public List<RecursoTecnologicoMuestra> listaRecursosMuestra { get; set; } //Lista con datos necesarios a mostrar de los RecursosTecnologicos
         public RecursoTecnologico recursoTecnologicoSeleccionado { get; set; } //RecursoTecnologico seleccionado por el Cientifico
+        public List<Estado> listaEstados { get; set; }
+
+
+        internal void tomarConfirmacionReserva(DataGridViewRow dataGridViewRow)
+        {
+            foreach (var estado in listaEstados)
+            {
+                if (estado.esAmbitoTurno())
+                {
+                    if (estado.EsReservable)
+                    {
+                        recursoTecnologicoSeleccionado.reservarTurno(turnoSeleccionado, estado, cientificoLogueado);
+                    }
+                }
+            }
+        }
 
         public Sesion sesionActual; // Sesion del Cientifico actual
 
@@ -33,14 +49,16 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         List<RecursoTecnologico> listaRecursoTecnologicosDisponibles = CapaDatos.MainDeDatos.crearRecursoTecnologico(); //Busca Los RecursosTecnologicos
         private RegistrarTurno ventanaRegistrarTurno;
         private AltaTurno ventanaAltaTurno;
-        private List<TurnoModel> listaTurnosRTSeleccionado;
+        private List<Turno> listaTurnosRTSeleccionado;
 
         public GestorReservaDeTurno(RegistrarTurno registrarTurno, AltaTurno ventana, Sesion sesion)
         {
             this.ventanaRegistrarTurno = registrarTurno;
             this.ventanaAltaTurno = ventana;
             this.sesionActual = sesion;
+            ventana.setGestor(this);
             obtenerTipoRecursoTecnologico();
+            listaEstados = MainDeDatos.crearEstados();
         }
 
         public void nuevaReservaTurno()
@@ -64,6 +82,38 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public void obtenerTipoRecursoTecnologico()
         {
             listaTipoRTDisponibles = CapaDatos.MainDeDatos.crearTipoRecursoTecnologico(); //Busca Los Recursos Tecnologicos Disponibles
+        }
+
+        internal void tomarSeleccionTurno(DataGridViewRow dataGridViewRow)
+        {
+            foreach (var turnoDisponible in listaTurnosRTSeleccionado)
+            {
+                string fecha = dataGridViewRow.Cells[0].Value.ToString();
+                string horaInicio = dataGridViewRow.Cells[1].Value.ToString();
+                string horaFin = dataGridViewRow.Cells[2].Value.ToString();
+                string estado = dataGridViewRow.Cells[3].Value.ToString();
+
+                TurnoModel comparable = turnoDisponible.mostrarTurnos();
+
+                string fechaComparable = comparable.getFechaInicio().ToShortDateString();
+                string horaInicioComparable = comparable.getFechaInicio().ToShortTimeString();
+                string horaFinComparable = comparable.getFechaFin().ToShortTimeString();
+                string estadoComparable = comparable.getEstado();
+
+                if (fecha == fechaComparable && horaInicio == horaInicioComparable && horaFin == horaFinComparable && estado == estadoComparable)
+                {
+                    turnoSeleccionado = turnoDisponible;
+                }
+            };
+        }
+
+        internal void tomarSeleccionDia(DateTime date)
+        {
+            string dateFormatted = date.ToShortDateString();
+            if (turnosOrdenados.ContainsKey(dateFormatted))
+            {
+                ventanaAltaTurno.mostrarDiaSeleccionado(turnosOrdenados[dateFormatted]);
+            }
         }
 
         public void tomarSeleccionTipoRecursoTecnologico(string tipoRecursoSeleccionado)
@@ -161,17 +211,21 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public Dictionary<string, List<TurnoModel>> ordenarYAgruparTurnos()
         {
             Dictionary<string, List<TurnoModel>> turnosOrdenados = new Dictionary<string, List<TurnoModel>>();
+            List<TurnoModel> turnos = new List<TurnoModel>();
+
             foreach (var turno in listaTurnosRTSeleccionado)
             {
-                if (turnosOrdenados.ContainsKey(turno.getFechaInicio().ToShortDateString()))
+                TurnoModel turnoAMostrar = turno.mostrarTurnos();
+
+                if (turnosOrdenados.ContainsKey(turnoAMostrar.getFechaInicio().ToShortDateString()))
                 {
-                    turnosOrdenados[turno.getFechaInicio().ToShortDateString()].Add(turno);
+                    turnosOrdenados[turnoAMostrar.getFechaInicio().ToShortDateString()].Add(turnoAMostrar);
                 }
                 else
                 {
                     List<TurnoModel> list = new List<TurnoModel>();
-                    list.Add(turno);
-                    turnosOrdenados.Add(turno.getFechaInicio().ToShortDateString(), list);
+                    list.Add(turnoAMostrar);
+                    turnosOrdenados.Add(turnoAMostrar.getFechaInicio().ToShortDateString(), list);
                 }
             }
 
@@ -197,11 +251,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
             }
             return disponibilidad;
-        }
-
-        public void tomasSeleccionTurno(Turno turnoSelecc)
-        {
-            turnoSeleccionado = turnoSelecc;
         }
 
         public void registrarReserva()

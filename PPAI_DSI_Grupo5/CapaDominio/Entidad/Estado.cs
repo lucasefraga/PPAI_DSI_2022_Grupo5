@@ -9,11 +9,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
     internal class Estado
     {
         //Atributos privados
-        private string nombre { get; set; }
-        private string descripcion { get; set; }
-        private string ambito { get; set; }
-        private bool esReservable { get; set; }
-        private bool esCancelable { get; set; }
+        private string nombre;
+        private string descripcion;
+        private string ambito;
+        private bool esReservable;
+        private bool esCancelable;
 
         //Get and set publicos
         public string Nombre
@@ -50,6 +50,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.ambito = ambito;
             this.esReservable = esReservable;
             this.esCancelable = esCancelable;
+        }
+
+        internal bool esAmbitoTurno()
+        {
+            return this.Ambito == "Turno";
         }
 
         //Estos metodos de get hacen lo mismo que los get de arriba, a la espera de decidir con cual

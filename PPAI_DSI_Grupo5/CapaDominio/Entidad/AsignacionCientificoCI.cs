@@ -18,6 +18,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.fechaDesde = fechaDesde;
             this.fechaHasta = fechaHasta;
             this.personalCientifico = personalCientifico;
+            this.turnos = new List<Turno>();
         }
 
         public AsignacionCientificoCI(DateTime fechaDesde, DateTime fechaHasta, PersonalCientifico personalCientifico, List<Turno> turnos) : this(fechaDesde, fechaHasta, personalCientifico)
@@ -34,7 +35,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return false;
         }
 
-
+        public bool esCientificoActivo(PersonalCientifico cientifico) { return this.personalCientifico==cientifico; }
 
         public PersonalCientifico getPersonalCientifico()
         {

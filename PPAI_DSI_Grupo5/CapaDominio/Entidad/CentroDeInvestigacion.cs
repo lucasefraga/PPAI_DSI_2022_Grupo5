@@ -110,11 +110,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         public int getTiempoAntelacionReserva() { return tiempoAntelacionReserva; }
         public void reservarTurnoCientifico(Turno turnocorrespondiente, PersonalCientifico cientifico)
         {
-            foreach (AsignacionCientificoCI item in cientificos)
+            foreach (AsignacionCientificoCI cientificoIter in cientificos)
             {
-                if (item.getPersonalCientifico().Equals(cientifico))
+                if (cientificoIter.esCientificoActivo(cientifico))
                 {
-                    item.addTurno(turnocorrespondiente);
+                    cientificoIter.addTurno(turnocorrespondiente);
                 }
             }
         }

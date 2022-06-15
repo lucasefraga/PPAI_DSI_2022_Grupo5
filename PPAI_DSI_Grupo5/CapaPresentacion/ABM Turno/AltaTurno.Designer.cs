@@ -53,16 +53,23 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.checkBoxWP = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.calendar = new Pabo.Calendar.MonthCalendar();
+            this.calendario = new Pabo.Calendar.MonthCalendar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvTurnos = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTurno
             // 
             this.lblTurno.AutoSize = true;
             this.lblTurno.Font = new System.Drawing.Font("Microsoft YaHei Light", 22F, System.Drawing.FontStyle.Italic);
-            this.lblTurno.Location = new System.Drawing.Point(100, 22);
+            this.lblTurno.Location = new System.Drawing.Point(25, 22);
             this.lblTurno.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTurno.Name = "lblTurno";
             this.lblTurno.Size = new System.Drawing.Size(195, 39);
@@ -92,7 +99,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // btnAlta
             // 
             this.btnAlta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAlta.Location = new System.Drawing.Point(538, 628);
+            this.btnAlta.Location = new System.Drawing.Point(1104, 628);
             this.btnAlta.Margin = new System.Windows.Forms.Padding(6);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(191, 47);
@@ -103,7 +110,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(88, 628);
+            this.btnCancelar.Location = new System.Drawing.Point(775, 628);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(191, 47);
@@ -176,7 +183,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             this.lblFechaIngresoEmp.AutoSize = true;
             this.lblFechaIngresoEmp.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaIngresoEmp.Location = new System.Drawing.Point(87, 418);
+            this.lblFechaIngresoEmp.Location = new System.Drawing.Point(87, 394);
             this.lblFechaIngresoEmp.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFechaIngresoEmp.Name = "lblFechaIngresoEmp";
             this.lblFechaIngresoEmp.Size = new System.Drawing.Size(155, 20);
@@ -247,7 +254,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             this.panel2.Controls.Add(this.checkBoxEmail);
             this.panel2.Controls.Add(this.checkBoxWP);
-            this.panel2.Location = new System.Drawing.Point(331, 580);
+            this.panel2.Location = new System.Drawing.Point(331, 586);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(389, 33);
             this.panel2.TabIndex = 31;
@@ -276,7 +283,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(85, 585);
+            this.label3.Location = new System.Drawing.Point(85, 591);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 20);
@@ -286,7 +293,9 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.calendar);
+            this.panel1.Controls.Add(this.calendario);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.dgvTurnos);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
@@ -307,39 +316,97 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel1.Controls.Add(this.lblTipoRecurso);
             this.panel1.Controls.Add(this.txtTipoRecurso);
             this.panel1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(108, 67);
+            this.panel1.Location = new System.Drawing.Point(33, 67);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 703);
+            this.panel1.Size = new System.Drawing.Size(1321, 703);
             this.panel1.TabIndex = 20;
             // 
-            // calendar
+            // calendario
             // 
-            this.calendar.ActiveMonth.Month = 6;
-            this.calendar.ActiveMonth.Year = 2022;
-            this.calendar.Culture = new System.Globalization.CultureInfo("en-US");
-            this.calendar.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.calendar.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.calendar.Header.TextColor = System.Drawing.Color.White;
-            this.calendar.ImageList = null;
-            this.calendar.Location = new System.Drawing.Point(332, 394);
-            this.calendar.MaxDate = new System.DateTime(2032, 6, 15, 3, 17, 19, 372);
-            this.calendar.MinDate = new System.DateTime(2012, 6, 15, 3, 17, 19, 372);
-            this.calendar.Month.BackgroundImage = null;
-            this.calendar.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendar.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendar.Name = "calendar";
-            this.calendar.Size = new System.Drawing.Size(251, 173);
-            this.calendar.TabIndex = 34;
-            this.calendar.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendar.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.ActiveMonth.Month = 6;
+            this.calendario.ActiveMonth.Year = 2022;
+            this.calendario.Culture = new System.Globalization.CultureInfo("en-US");
+            this.calendario.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.calendario.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.calendario.Header.TextColor = System.Drawing.Color.White;
+            this.calendario.ImageList = null;
+            this.calendario.Location = new System.Drawing.Point(332, 383);
+            this.calendario.MaxDate = new System.DateTime(2032, 6, 15, 10, 45, 41, 105);
+            this.calendario.MinDate = new System.DateTime(2012, 6, 15, 10, 45, 41, 105);
+            this.calendario.Month.BackgroundImage = null;
+            this.calendario.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.Name = "calendario";
+            this.calendario.Size = new System.Drawing.Size(276, 184);
+            this.calendario.TabIndex = 37;
+            this.calendario.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.DayClick += new Pabo.Calendar.DayClickEventHandler(this.calendar_DayClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(771, 47);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 20);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Turnos Disponibles:";
+            // 
+            // dgvTurnos
+            // 
+            this.dgvTurnos.AllowUserToAddRows = false;
+            this.dgvTurnos.AllowUserToDeleteRows = false;
+            this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTurnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha,
+            this.HoraInicio,
+            this.HoraFin,
+            this.Estado});
+            this.dgvTurnos.Location = new System.Drawing.Point(775, 80);
+            this.dgvTurnos.Name = "dgvTurnos";
+            this.dgvTurnos.ReadOnly = true;
+            this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTurnos.Size = new System.Drawing.Size(520, 487);
+            this.dgvTurnos.TabIndex = 35;
+            this.dgvTurnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellClick);
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 120;
+            // 
+            // HoraInicio
+            // 
+            this.HoraInicio.HeaderText = "Hora Inicio";
+            this.HoraInicio.Name = "HoraInicio";
+            this.HoraInicio.ReadOnly = true;
+            this.HoraInicio.Width = 110;
+            // 
+            // HoraFin
+            // 
+            this.HoraFin.HeaderText = "Hora Fin";
+            this.HoraFin.Name = "HoraFin";
+            this.HoraFin.ReadOnly = true;
+            this.HoraFin.Width = 110;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 130;
             // 
             // AltaTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1027, 800);
+            this.ClientSize = new System.Drawing.Size(1388, 800);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTurno);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -352,6 +419,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +449,12 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
         private System.Windows.Forms.CheckBox checkBoxWP;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private Pabo.Calendar.MonthCalendar calendar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgvTurnos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private Pabo.Calendar.MonthCalendar calendario;
     }
 }

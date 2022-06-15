@@ -10,11 +10,14 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 {
     public partial class AltaTurno : Form
     {
+        private GestorReservaDeTurno gestor;
 
         internal AltaTurno()
         {
             InitializeComponent();
         }
+
+        internal void setGestor(GestorReservaDeTurno gestor) { this.gestor = gestor; }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -32,6 +35,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             {
                 this.Close();
             }
+            gestor.tomarConfirmacionReserva(dgvTurnos.SelectedRows[0]);
             string Error = "";
             StringBuilder MensajeBuilder = new StringBuilder();
             string Message = "Su turno ha sido correctamente reservado";
@@ -44,7 +48,6 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 
         internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar)
         {
-            List<DateItem> lista = new List<DateItem>();
             foreach (var dia in disponibilidadAMostrar)
             {
                 DateItem item = new DateItem();
@@ -52,16 +55,39 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                 {
                     item.Date = DateTime.Parse(dia.Key);
                     item.BackColor1 = Color.Green;
-                    lista.Add(item);
+                    calendario.AddDateInfo(item);
                 }
                 else
                 {
                     item.Date = DateTime.Parse(dia.Key);
                     item.BackColor1 = Color.Red;
-                    lista.Add(item);
+                    calendario.AddDateInfo(item);
                 }
             }
-            calendar.AddDateInfo(lista.ToArray());
+        }
+
+        private void calendar_DayClick(object sender, DayClickEventArgs e)
+        {
+            dgvTurnos.Rows.Clear();
+
+            if (calendario.SelectedDates.Count > 0)
+            {
+                DateTime date = calendario.SelectedDates[0].Date;
+                gestor.tomarSeleccionDia(date);
+            }
+        }
+
+        internal void mostrarDiaSeleccionado(List<TurnoModel> turnoModels)
+        {
+            foreach (var turno in turnoModels)
+            {
+                dgvTurnos.Rows.Add(turno.getFechaInicio().ToShortDateString(), turno.getFechaInicio().ToShortTimeString(), turno.getFechaFin().ToShortTimeString(), turno.getEstado());
+            }
+        }
+
+        private void dgvTurnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gestor.tomarSeleccionTurno(dgvTurnos.CurrentRow);
         }
     }
 }
