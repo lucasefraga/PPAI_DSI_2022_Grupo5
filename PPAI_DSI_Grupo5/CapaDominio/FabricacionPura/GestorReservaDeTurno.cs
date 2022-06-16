@@ -256,7 +256,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return mailCient;
         }
 
-        public static void EnviarMail(StringBuilder Mensaje, string Recurso, string Fecha, out string Error)
+        public  void EnviarMail(StringBuilder Mensaje, string Recurso, string Fecha, out string Error)
         {
             Error = "";
             try
@@ -291,7 +291,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
 
         // cada 24hs se inhabilita whatsapp
-        public static void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
+        public  void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
         {
             InfoError = "";
             try

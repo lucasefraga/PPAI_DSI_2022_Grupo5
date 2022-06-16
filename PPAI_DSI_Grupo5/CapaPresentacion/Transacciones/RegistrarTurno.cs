@@ -56,8 +56,16 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            gestor.tomarSeleccionRTAUtilizar(dgrRecursos.CurrentRow);
-            ventana.ShowDialog();
+            if (dgrRecursos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un Tipo de recurso", "Reserva de truno");
+            }
+            else
+            {
+                gestor.tomarSeleccionRTAUtilizar(dgrRecursos.CurrentRow);
+                ventana.ShowDialog();
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

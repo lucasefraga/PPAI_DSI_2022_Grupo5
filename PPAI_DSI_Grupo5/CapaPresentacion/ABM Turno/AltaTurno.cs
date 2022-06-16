@@ -31,24 +31,42 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Está seguro que desea reservar este turno?", "Reserva de truno", MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.No)
+            if (dgvTurnos.CurrentRow == null || dgvTurnos.CurrentRow.Cells[3].Value.ToString() == "Reservado" || (checkBoxEmail.Checked == false && checkBoxWP.Checked == false) == true)
             {
-                this.Close();
+                if (dgvTurnos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un turno", "Reserva de truno");
+                }
+                else if (dgvTurnos.CurrentRow.Cells[3].Value.ToString() == "Reservado")
+                {
+                    MessageBox.Show("Seleccione un turno Disponible", "Reserva de truno");
+                }
+                else if ((checkBoxEmail.Checked == false && checkBoxWP.Checked == false) == true)
+                {
+                    MessageBox.Show("Seleccione una forma de Notificacion", "Reserva de truno");
+                }
             }
-            gestor.tomarConfirmacionReserva(dgvTurnos.CurrentRow);
-            string Error = "";
-            StringBuilder MensajeBuilder = new StringBuilder();
-            string Message = "Su turno ha sido correctamente reservado";
-            MensajeBuilder.Append(Message);
-            if (checkBoxEmail.Checked)
-                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarMail(MensajeBuilder, txtRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
-            if (checkBoxWP.Checked)
-                CapaDominio.FabricacionPura.GestorReservaDeTurno.EnviarWP(MensajeBuilder, txtRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+            else
+            {
+                DialogResult resultado = MessageBox.Show("¿Está seguro que desea reservar este turno?", "Reserva de truno", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    gestor.tomarConfirmacionReserva(dgvTurnos.CurrentRow);
+                    string Error = "";
+                    StringBuilder MensajeBuilder = new StringBuilder();
+                    string Message = "Su turno ha sido correctamente reservado";
+                    MensajeBuilder.Append(Message);
 
-            MessageBox.Show("Reserva efectuada exitosamente!", "Notificacion enviada.", MessageBoxButtons.OK);
+                    if (checkBoxEmail.Checked)
+                        gestor.EnviarMail(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+                    if (checkBoxWP.Checked)
+                        gestor.EnviarWP(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
 
-            gestor.finCU();
+                    MessageBox.Show("Reserva efectuada exitosamente!", "Notificacion enviada.", MessageBoxButtons.OK);
+
+                    gestor.finCU();
+                }
+            }
         }
 
         internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar, RecursoTecnologico recurso)
@@ -100,6 +118,11 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
         private void dgvTurnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             gestor.tomarSeleccionTurno(dgvTurnos.CurrentRow);
+        }
+
+        private void lblRecurso_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

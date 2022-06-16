@@ -81,7 +81,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtTipoRecurso.Location = new System.Drawing.Point(322, 47);
             this.txtTipoRecurso.Margin = new System.Windows.Forms.Padding(6);
             this.txtTipoRecurso.Name = "txtTipoRecurso";
-            this.txtTipoRecurso.Size = new System.Drawing.Size(397, 25);
+            this.txtTipoRecurso.Size = new System.Drawing.Size(331, 25);
             this.txtTipoRecurso.TabIndex = 1;
             // 
             // lblTipoRecurso
@@ -127,7 +127,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtRecurso.Location = new System.Drawing.Point(322, 97);
             this.txtRecurso.Margin = new System.Windows.Forms.Padding(6);
             this.txtRecurso.Name = "txtRecurso";
-            this.txtRecurso.Size = new System.Drawing.Size(397, 25);
+            this.txtRecurso.Size = new System.Drawing.Size(331, 25);
             this.txtRecurso.TabIndex = 2;
             // 
             // lblRecurso
@@ -137,9 +137,10 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.lblRecurso.Location = new System.Drawing.Point(77, 97);
             this.lblRecurso.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRecurso.Name = "lblRecurso";
-            this.lblRecurso.Size = new System.Drawing.Size(72, 20);
+            this.lblRecurso.Size = new System.Drawing.Size(136, 20);
             this.lblRecurso.TabIndex = 11;
-            this.lblRecurso.Text = "Recurso:";
+            this.lblRecurso.Text = "Numero Recurso:";
+            this.lblRecurso.Click += new System.EventHandler(this.lblRecurso_Click);
             // 
             // txtCentro
             // 
@@ -148,7 +149,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtCentro.Location = new System.Drawing.Point(322, 152);
             this.txtCentro.Margin = new System.Windows.Forms.Padding(6);
             this.txtCentro.Name = "txtCentro";
-            this.txtCentro.Size = new System.Drawing.Size(397, 25);
+            this.txtCentro.Size = new System.Drawing.Size(331, 25);
             this.txtCentro.TabIndex = 3;
             // 
             // lblCentroPertenencia
@@ -169,7 +170,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtMarca.Location = new System.Drawing.Point(322, 208);
             this.txtMarca.Margin = new System.Windows.Forms.Padding(6);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(397, 25);
+            this.txtMarca.Size = new System.Drawing.Size(331, 25);
             this.txtMarca.TabIndex = 6;
             // 
             // lblNroDoc
@@ -201,7 +202,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtModelo.Location = new System.Drawing.Point(322, 264);
             this.txtModelo.Margin = new System.Windows.Forms.Padding(6);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(397, 25);
+            this.txtModelo.Size = new System.Drawing.Size(331, 25);
             this.txtModelo.TabIndex = 25;
             // 
             // label1
@@ -222,7 +223,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.txtEstado.Location = new System.Drawing.Point(322, 317);
             this.txtEstado.Margin = new System.Windows.Forms.Padding(6);
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(397, 25);
+            this.txtEstado.Size = new System.Drawing.Size(331, 25);
             this.txtEstado.TabIndex = 27;
             // 
             // label2
@@ -242,13 +243,13 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.panel2.Controls.Add(this.checkBoxWP);
             this.panel2.Location = new System.Drawing.Point(322, 566);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(389, 33);
+            this.panel2.Size = new System.Drawing.Size(331, 33);
             this.panel2.TabIndex = 31;
             // 
             // checkBoxEmail
             // 
             this.checkBoxEmail.AutoSize = true;
-            this.checkBoxEmail.Location = new System.Drawing.Point(15, 6);
+            this.checkBoxEmail.Location = new System.Drawing.Point(36, 6);
             this.checkBoxEmail.Name = "checkBoxEmail";
             this.checkBoxEmail.Size = new System.Drawing.Size(52, 20);
             this.checkBoxEmail.TabIndex = 29;
@@ -258,7 +259,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // checkBoxWP
             // 
             this.checkBoxWP.AutoSize = true;
-            this.checkBoxWP.Location = new System.Drawing.Point(181, 5);
+            this.checkBoxWP.Location = new System.Drawing.Point(219, 6);
             this.checkBoxWP.Name = "checkBoxWP";
             this.checkBoxWP.Size = new System.Drawing.Size(81, 20);
             this.checkBoxWP.TabIndex = 30;
@@ -322,7 +323,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.calendario.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Name = "calendario";
-            this.calendario.Size = new System.Drawing.Size(276, 184);
+            this.calendario.Size = new System.Drawing.Size(331, 184);
             this.calendario.TabIndex = 37;
             this.calendario.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -343,6 +344,8 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             this.dgvTurnos.AllowUserToAddRows = false;
             this.dgvTurnos.AllowUserToDeleteRows = false;
+            this.dgvTurnos.AllowUserToResizeColumns = false;
+            this.dgvTurnos.AllowUserToResizeRows = false;
             this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTurnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fecha,
@@ -352,6 +355,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.dgvTurnos.Location = new System.Drawing.Point(759, 82);
             this.dgvTurnos.Name = "dgvTurnos";
             this.dgvTurnos.ReadOnly = true;
+            this.dgvTurnos.RowHeadersVisible = false;
             this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTurnos.Size = new System.Drawing.Size(520, 487);
             this.dgvTurnos.TabIndex = 35;
@@ -359,10 +363,10 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             // 
             // Fecha
             // 
+            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 120;
             // 
             // HoraInicio
             // 
@@ -433,10 +437,10 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvTurnos;
+        private Pabo.Calendar.MonthCalendar calendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Pabo.Calendar.MonthCalendar calendario;
     }
 }

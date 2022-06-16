@@ -75,3 +75,28 @@ C:\Users\Tomas\OneDrive - frc.utn.edu.ar\Documents\GitHub\PPAI_DSI_2022_Grupo5\P
 C:\Users\Tomas\OneDrive - frc.utn.edu.ar\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
 C:\Users\Tomas\OneDrive - frc.utn.edu.ar\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb
 C:\Users\Tomas\OneDrive - frc.utn.edu.ar\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\MonthCalendar.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe.config
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.pdb
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\MonthCalendar.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.dll
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.xml
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.xml
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.AssemblyReference.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.SuggestedBindingRedirects.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.ABMTurno.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.AltaTurno.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Menú.MenuPrincipal.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Transacciones.RegistrarTurno.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Properties.Resources.resources
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.GenerateResource.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CoreCompileInputs.cache
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CopyComplete
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
+D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb

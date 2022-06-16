@@ -71,7 +71,8 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             // 
             this.dgrRecursos.AllowUserToAddRows = false;
             this.dgrRecursos.AllowUserToDeleteRows = false;
-            this.dgrRecursos.AllowUserToOrderColumns = true;
+            this.dgrRecursos.AllowUserToResizeColumns = false;
+            this.dgrRecursos.AllowUserToResizeRows = false;
             this.dgrRecursos.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgrRecursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrRecursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -83,6 +84,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             this.dgrRecursos.Location = new System.Drawing.Point(46, 206);
             this.dgrRecursos.Name = "dgrRecursos";
             this.dgrRecursos.ReadOnly = true;
+            this.dgrRecursos.RowHeadersVisible = false;
             this.dgrRecursos.RowHeadersWidth = 51;
             this.dgrRecursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrRecursos.Size = new System.Drawing.Size(814, 355);
@@ -110,10 +112,11 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             // 
             // dateTimePickerTurno
             // 
-            this.dateTimePickerTurno.Location = new System.Drawing.Point(674, 77);
+            this.dateTimePickerTurno.Enabled = false;
+            this.dateTimePickerTurno.Location = new System.Drawing.Point(659, 77);
             this.dateTimePickerTurno.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTurno.Name = "dateTimePickerTurno";
-            this.dateTimePickerTurno.Size = new System.Drawing.Size(188, 20);
+            this.dateTimePickerTurno.Size = new System.Drawing.Size(201, 20);
             this.dateTimePickerTurno.TabIndex = 30;
             // 
             // btnReservar
@@ -138,6 +141,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             // 
             // calle
             // 
+            this.calle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.calle.DataPropertyName = "calle";
             this.calle.HeaderText = "Núm. Inventario";
             this.calle.MinimumWidth = 6;
