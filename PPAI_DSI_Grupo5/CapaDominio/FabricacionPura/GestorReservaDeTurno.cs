@@ -30,8 +30,11 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         private List<Turno> listaTurnosRTSeleccionado;
         private RegistrarTurno ventanaRegistrarTurno;
         private AltaTurno ventanaAltaTurno;
+        private InterfazEmailReserva interfazNotificacion;
+        private AsignacionCientificoCI asignCientificoCI;
 
-       
+
+
         public GestorReservaDeTurno(RegistrarTurno registrarTurno, AltaTurno altaTurno, Sesion sesion)
         {
             this.ventanaRegistrarTurno = registrarTurno;
@@ -105,11 +108,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
         public void agruparRTPorCentroInvestigacion()
         {
-            listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   //Maybe funciona, no estoy seguro. Lo q hace es ordenarlos por CI, en la lista.
-                                                                             //Supongo que a la hora de mostrarlos va a servir 
+            listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   
         }
 
-        public void asignarColorPorEstadoDeRT() //Hay que ver si esta es la mejor forma, lo dudo
+        public void asignarColorPorEstadoDeRT()
         {
             foreach (RecursoTecnologicoMuestra recurso in listaRecursosMuestra)
             {
@@ -125,7 +127,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                         recurso.setColor(3);
                         break;
                     default:
-                        recurso.setColor(0);//No color Blanco
+                        recurso.setColor(0);//No color -> Blanco
                         break;
                 }
             }
@@ -247,80 +249,20 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
-        // ver si  va el static
-        //No, no va el static, despues hay q corregir un par de cosas de los metodos de los Form, porque al ser statc estos metodos de afectaron ahi
-        public static string obtenerMailCientifico()
-        {
-            string mailCient = "";
-            //falta implementar
-            return mailCient;
+        
+        internal string obtenerMailCientifico()
+        {          
+            return cientificoLogueado.getCorreoPersonal();
+            
         }
 
-        public  void EnviarMail(StringBuilder Mensaje, string Recurso, string Fecha, out string Error)
+        internal void EnviarMail(StringBuilder mensaje, string recurso, string fechaTurno)
         {
-            Error = "";
-            try
-            {
-                Mensaje.Append(Environment.NewLine);
-                Mensaje.Append(string.Format("Recurso reservado: ", Recurso, "Fecha Reserva: {0:dd/MM/yyyy}", Fecha, "Horario: {0:HH:mm:ss} Hrs", Fecha));
-                Mensaje.Append(Environment.NewLine);
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("SecretariaCienciaYTecnica@gmail.com");
-                string para = obtenerMailCientifico();
-                mail.To.Add(para);
-                mail.Subject = "Confirmación de Reserva de Turno";
-                mail.Body = Mensaje.ToString();
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("SecretariaCienciaYTecnica@gmail.com", "DSI2022TPI");
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-                Error = "Éxito";
-                MessageBox.Show(Error);
-
-
-            }
-            catch (Exception ex)
-            {
-                Error = "Error: " + ex.Message;
-                MessageBox.Show(Error);
-                return;
-            }
+            interfazNotificacion = new InterfazEmailReserva();
+            string email = obtenerMailCientifico();
+            string error = "Gmail: acceso denegado.";
+            interfazNotificacion.EnviarMail( mensaje, email,  recurso, fechaTurno, out error);
         }
 
-
-        // cada 24hs se inhabilita whatsapp
-        public  void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
-        {
-            InfoError = "";
-            try
-            {
-                MensajeWP.Append(Environment.NewLine);
-                MensajeWP.Append(string.Format("Recurso reservado: ", NomRecurso, "Fecha Reserva: {0:dd/MM/yyyy}", FechaTurno, "Horario: {0:HH:mm:ss} Hrs", FechaTurno));
-                MensajeWP.Append(Environment.NewLine);
-                var accountSid = "AC8418c64ec3f6446ede7c9a33fb0cd6ba";
-                var authToken = "[AuthToken]";
-                TwilioClient.Init(accountSid, authToken);
-
-                var messageOptions = new CreateMessageOptions(
-                    new PhoneNumber("whatsapp:+5493516216060"));
-                messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
-                messageOptions.Body = MensajeWP.ToString();
-                //messageOptions.Body = "Recurso reservado: "+ NomRecurso+ "Fecha Reserva: {0:dd/MM/yyyy}" + FechaTurno + "Horario: {0:HH:mm:ss} Hrs" + FechaTurno;
-
-                var message = MessageResource.Create(messageOptions);
-                Console.WriteLine(message.Body);
-                InfoError = "Éxito";
-                MessageBox.Show(InfoError);
-            }
-            catch (Exception ex)
-            {
-                InfoError = "Error: " + ex.Message;
-                MessageBox.Show(InfoError);
-                return;
-            }
-
-        }
     }
 }

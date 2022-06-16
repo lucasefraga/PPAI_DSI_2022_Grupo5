@@ -30,5 +30,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         // --> Añade un turno a la lista de turnos asignados a el cientifico
         public void addTurno(Turno turnoCorrespondiente) { turnos.Add(turnoCorrespondiente); }
+
+        public string obtenerMail(  PersonalCientifico cientifico )
+        {
+            return cientifico.getCorreoPersonal();
+        }
     }
 }

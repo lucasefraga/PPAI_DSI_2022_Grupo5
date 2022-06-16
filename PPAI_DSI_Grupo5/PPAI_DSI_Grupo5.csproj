@@ -83,7 +83,7 @@
     <Compile Include="CapaDominio\Entidad\Modelo.cs" />
     <Compile Include="CapaDominio\Entidad\PersonalCientifico.cs" />
     <Compile Include="CapaDominio\Entidad\RecursoTecnologico.cs" />
-    <Compile Include="CapaDominio\FabricacionPura\PantallaReservaDeTurno.cs" />
+    <Compile Include="CapaDominio\FabricacionPura\InterfazEmailReserva.cs" />
     <Compile Include="CapaDominio\FabricacionPura\RecursoTecnologicoMuestra.cs" />
     <Compile Include="CapaDominio\Entidad\Sesion.cs" />
     <Compile Include="CapaDominio\Entidad\TipoRecursoTecnologico.cs" />

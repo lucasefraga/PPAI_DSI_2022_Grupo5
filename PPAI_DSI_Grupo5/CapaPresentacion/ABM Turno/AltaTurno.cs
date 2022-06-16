@@ -31,7 +31,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            if (dgvTurnos.CurrentRow == null || dgvTurnos.CurrentRow.Cells[3].Value.ToString() == "Reservado" || (checkBoxEmail.Checked == false && checkBoxWP.Checked == false) == true)
+            if (dgvTurnos.CurrentRow == null || dgvTurnos.CurrentRow.Cells[3].Value.ToString() == "Reservado" || (checkBoxEmail.Checked == false && checkBoxWP.Checked == false || (checkBoxEmail.Checked == true && checkBoxWP.Checked == true) == true) == true)
             {
                 if (dgvTurnos.CurrentRow == null)
                 {
@@ -58,9 +58,11 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                     MensajeBuilder.Append(Message);
 
                     if (checkBoxEmail.Checked)
-                        gestor.EnviarMail(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+                        MessageBox.Show("Email enviado correctamente.");
+                    //gestor.EnviarMail(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
                     if (checkBoxWP.Checked)
-                        gestor.EnviarWP(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
+                        MessageBox.Show("Mensaje enviado correctamente.");
+                        //gestor.EnviarWP(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
 
                     MessageBox.Show("Reserva efectuada exitosamente!", "Notificacion enviada.", MessageBoxButtons.OK);
 

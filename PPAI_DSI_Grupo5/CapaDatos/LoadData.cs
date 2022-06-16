@@ -24,10 +24,12 @@ namespace PPAI_DSI_Grupo5.CapaDatos
 
         //Tipos de recursos en el sistema
         public static TipoRecursoTecnologico tipoRecurso1 = new TipoRecursoTecnologico("Microscopio", "Descripcion");
-        public static TipoRecursoTecnologico tipoRecurso2 = new TipoRecursoTecnologico("Balanza", "Descripcion");
+        public static TipoRecursoTecnologico tipoRecurso2 = new TipoRecursoTecnologico("Balanza de precision ", "Descripcion");
         public static TipoRecursoTecnologico tipoRecurso3 = new TipoRecursoTecnologico("Centrifugador", "Descripcion");
         public static TipoRecursoTecnologico tipoRecurso4 = new TipoRecursoTecnologico("Mixer", "Descripcion");
         public static TipoRecursoTecnologico tipoRecurso5 = new TipoRecursoTecnologico("Horno", "Descripcion");
+        public static TipoRecursoTecnologico tipoRecurso6 = new TipoRecursoTecnologico("Resonador magnético", "Descripcion");
+        public static TipoRecursoTecnologico tipoRecurso7 = new TipoRecursoTecnologico("Equipamiento de cómputo de datos de alto rendimiento", "Descripcion");
 
         //Modelos en el sistema
         public static Modelo modelo = new Modelo("XZ3343");
@@ -37,6 +39,14 @@ namespace PPAI_DSI_Grupo5.CapaDatos
         public static Modelo modelo4 = new Modelo("CVGT677");
         public static Modelo modelo5 = new Modelo("AGH7676");
         public static Modelo modelo6 = new Modelo("AGGF5677");
+        public static Modelo modelo7 = new Modelo("X2000");
+        public static Modelo modelo8 = new Modelo("BM345");
+        public static Modelo modelo9 = new Modelo("X2001");
+        public static Modelo modelo10 = new Modelo("MP354");
+        public static Modelo modelo11 = new Modelo("P350");
+        public static Modelo modelo12 = new Modelo("KAII34");
+        public static Modelo modelo13 = new Modelo("HYS68");
+        public static Modelo modelo14 = new Modelo("SFS667");
 
         //Estados Recurso Tecnologico
         public static Estado estadoRT1 = new Estado("En mantenimiento", "Descripcion", "Recurso");
@@ -62,14 +72,42 @@ namespace PPAI_DSI_Grupo5.CapaDatos
         public static Marca marca1 = new Marca("Nikon", new List<Modelo> { modelo, modelo1});
         public static Marca marca2 = new Marca("Okrus", new List<Modelo> { modelo2, modelo3 });
         public static Marca marca3 = new Marca("Jano", new List<Modelo> { modelo4, modelo5, modelo6 });
+        public static Marca marca4 = new Marca("Leica", new List<Modelo> { modelo7, modelo9});
+        public static Marca marca5 = new Marca("General Electric", new List<Modelo> { modelo9 });
+        public static Marca marca6 = new Marca("Picker", new List<Modelo> { modelo10, modelo14 });
+        public static Marca marca7 = new Marca("Fugaku ", new List<Modelo> { modelo11, modelo12, modelo13 });
 
         //Turnos en el sistema
         public static Turno turn1 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(1).AddHours(2), DateTime.Now.AddDays(1).AddHours(3), crearCambioEstadoTurnosReservado());
-        public static Turno turn2 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(1).AddHours(2), DateTime.Now.AddDays(1).AddHours(3), crearCambioEstadoTurnosDisponible());
+        public static Turno turn2 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(1).AddHours(3), DateTime.Now.AddDays(1).AddHours(5), crearCambioEstadoTurnosDisponible());
         public static Turno turn3 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(1), crearCambioEstadoTurnosReservado());
-        public static Turno turn6 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(5), DateTime.Now.AddDays(5).AddHours(1), crearCambioEstadoTurnosDisponible());
-        public static Turno turn5 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(2), DateTime.Now.AddDays(2).AddHours(1), crearCambioEstadoTurnosReservado());
         public static Turno turn4 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(1), crearCambioEstadoTurnosDisponible());
+        public static Turno turn5 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(2), DateTime.Now.AddDays(2).AddHours(1), crearCambioEstadoTurnosReservado());
+        public static Turno turn6 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(5), DateTime.Now.AddDays(5).AddHours(1), crearCambioEstadoTurnosDisponible());
+        public static Turno turn7 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(1), DateTime.Now.AddDays(4).AddHours(2), crearCambioEstadoTurnosDisponible());
+        public static Turno turn8 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(2), DateTime.Now.AddDays(4).AddHours(4), crearCambioEstadoTurnosDisponible());
+        public static Turno turn9 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(4), DateTime.Now.AddDays(4).AddHours(6), crearCambioEstadoTurnosDisponible());
+        public static Turno turn10 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(6), DateTime.Now.AddDays(4).AddHours(8), crearCambioEstadoTurnosDisponible());
+        public static Turno turn11 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(8), DateTime.Now.AddDays(4).AddHours(10), crearCambioEstadoTurnosDisponible());
+        public static Turno turn12 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(4).AddHours(10), DateTime.Now.AddDays(4).AddHours(11), crearCambioEstadoTurnosDisponible());
+        public static Turno turn13 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(1), DateTime.Now.AddDays(6).AddHours(2), crearCambioEstadoTurnosDisponible());
+        public static Turno turn14 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(2), DateTime.Now.AddDays(6).AddHours(4), crearCambioEstadoTurnosDisponible());
+        public static Turno turn15 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(4), DateTime.Now.AddDays(6).AddHours(6), crearCambioEstadoTurnosDisponible());
+        public static Turno turn16 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(6), DateTime.Now.AddDays(6).AddHours(8), crearCambioEstadoTurnosDisponible());
+        public static Turno turn17 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(8), DateTime.Now.AddDays(6).AddHours(10), crearCambioEstadoTurnosDisponible());
+        public static Turno turn18 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(6).AddHours(10), DateTime.Now.AddDays(6).AddHours(11), crearCambioEstadoTurnosDisponible());
+        public static Turno turn19 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(1), DateTime.Now.AddDays(3).AddHours(2), crearCambioEstadoTurnosDisponible());
+        public static Turno turn20 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(2), DateTime.Now.AddDays(3).AddHours(4), crearCambioEstadoTurnosDisponible());
+        public static Turno turn21 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(4), DateTime.Now.AddDays(3).AddHours(6), crearCambioEstadoTurnosDisponible());
+        public static Turno turn22 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(6), DateTime.Now.AddDays(3).AddHours(8), crearCambioEstadoTurnosDisponible());
+        public static Turno turn23 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(8), DateTime.Now.AddDays(3).AddHours(10), crearCambioEstadoTurnosDisponible());
+        public static Turno turn24 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(3).AddHours(10), DateTime.Now.AddDays(3).AddHours(11), crearCambioEstadoTurnosDisponible());
+        public static Turno turn25 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(1), DateTime.Now.AddDays(7).AddHours(2), crearCambioEstadoTurnosDisponible());
+        public static Turno turn26 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(2), DateTime.Now.AddDays(7).AddHours(4), crearCambioEstadoTurnosDisponible());
+        public static Turno turn27 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(4), DateTime.Now.AddDays(7).AddHours(6), crearCambioEstadoTurnosDisponible());
+        public static Turno turn28 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(6), DateTime.Now.AddDays(7).AddHours(8), crearCambioEstadoTurnosDisponible());
+        public static Turno turn29 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(8), DateTime.Now.AddDays(7).AddHours(10), crearCambioEstadoTurnosDisponible());
+        public static Turno turn30 = new Turno(DateTime.Now, DayOfWeek.Monday, DateTime.Now.AddDays(7).AddHours(10), DateTime.Now.AddDays(7).AddHours(11), crearCambioEstadoTurnosDisponible());
 
         //Asignacion de Cientificos
         public static readonly AsignacionCientificoCI acci1 = new AsignacionCientificoCI(fechaInicio, fechaFin, cientifico1);
@@ -107,6 +145,30 @@ namespace PPAI_DSI_Grupo5.CapaDatos
             modList1.Add(turn4);
             modList1.Add(turn5);
             modList1.Add(turn6);
+            modList1.Add(turn7);
+            modList1.Add(turn8);
+            modList1.Add(turn9);
+            modList1.Add(turn10);
+            modList1.Add(turn11);
+            modList1.Add(turn12);
+            modList1.Add(turn13);
+            modList1.Add(turn14);
+            modList1.Add(turn15);
+            modList1.Add(turn16);
+            modList1.Add(turn17);
+            modList1.Add(turn18);
+            modList1.Add(turn19);
+            modList1.Add(turn20);
+            modList1.Add(turn21);
+            modList1.Add(turn22);
+            modList1.Add(turn23);
+            modList1.Add(turn24);
+            modList1.Add(turn25);
+            modList1.Add(turn26);
+            modList1.Add(turn27);
+            modList1.Add(turn28);
+            modList1.Add(turn29);
+            modList1.Add(turn30);
 
             return modList1;
         }
@@ -129,6 +191,9 @@ namespace PPAI_DSI_Grupo5.CapaDatos
             listaTipoRecursos.Add(tipoRecurso3);
             listaTipoRecursos.Add(tipoRecurso4);
             listaTipoRecursos.Add(tipoRecurso5);
+            listaTipoRecursos.Add(tipoRecurso6);
+            listaTipoRecursos.Add(tipoRecurso7);
+
 
             return listaTipoRecursos;
         }
