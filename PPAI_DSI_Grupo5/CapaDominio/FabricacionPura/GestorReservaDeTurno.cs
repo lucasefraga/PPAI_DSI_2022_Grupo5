@@ -85,6 +85,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             {
                 if (recurso.esTipoRecursoSeleccinado(tipoRecursoSeleccionado))
                 {
+                    //listaRecursosTecnologicosValidos.Add(recurso); --> MOSTRAR RT QUE NO ESTAN DISPONIBLES - COLORES
+
                     if (recurso.esReservable())
                     {
                         listaRecursosTecnologicosValidos.Add(recurso);

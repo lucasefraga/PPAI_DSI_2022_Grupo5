@@ -46,5 +46,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         public string getMarca() { return marca; }
         public string getModelo() { return modelo; }
         public int getNumetoInventario() { return numeroInventario; }
+
+        internal int getColor()
+        {
+            return color;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         public bool esReservado() { return nombre == "Reservado"; }
 
         // --> Devuelve si el estado es RESERVABLE
-        internal bool esReservable() { return nombre == "Reservable"; }
+        internal bool esReservable() { return nombre == "Disponible"; }
 
         // --> Devuelve si el estado es de ambito TURNO
         public bool esAmbitoTurno() { return ambito == "Turno"; }

@@ -52,6 +52,38 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             {
                 dgrRecursos.Rows.Add(recurso.getNumetoInventario(), recurso.getCentroInvestigacion().getNombre(), recurso.getMarca(), recurso.getModelo(), recurso.getEstado());
             };
+            for (int i = 0; i < dgrRecursos.Rows.Count; i++)
+            {
+                colorear(i, listaRecursosMuestra[i].getColor());
+            }
+        }
+
+        private void colorear(int fila, int color)
+        {
+            switch (color)
+            {
+                case 1:
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Blue;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Blue;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Blue;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Blue;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Blue;
+                    break;           
+                case 2:              
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Green;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Green;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Green;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Green;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Green;
+                    break;           
+                case 3:              
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Gray;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Gray;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Gray;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Gray;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Gray;
+                    break;
+            }
         }
 
         private void btnReservar_Click(object sender, EventArgs e)
