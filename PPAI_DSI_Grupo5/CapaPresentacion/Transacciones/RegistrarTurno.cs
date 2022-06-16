@@ -56,8 +56,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            int selected = (int)dgrRecursos.CurrentRow.Cells[0].Value;
-            gestor.tomarSeleccionRTAUtilizar(selected);
+            gestor.tomarSeleccionRTAUtilizar(dgrRecursos.CurrentRow);
             ventana.ShowDialog();
         }
 

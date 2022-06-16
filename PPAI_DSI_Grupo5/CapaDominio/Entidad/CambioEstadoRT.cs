@@ -5,7 +5,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     public class CambioEstadoRT
     {
-
+        //ATRIBUTOS
         private DateTime fechaHoraDesde;
         private DateTime fechaHoraHasta;
         private Estado estado;

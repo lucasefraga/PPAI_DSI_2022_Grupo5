@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Pabo.Calendar;
+using PPAI_DSI_Grupo5.CapaDominio.Entidad;
 
 namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 {
@@ -50,7 +51,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             gestor.finCU();
         }
 
-        internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar)
+        internal void MostrarYSolicitarSeleccionTurnos(Dictionary<string, bool> disponibilidadAMostrar, RecursoTecnologico recurso)
         {
             foreach (var dia in disponibilidadAMostrar)
             {
@@ -68,6 +69,13 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                     calendario.AddDateInfo(item);
                 }
             }
+
+            txtTipoRecurso.Text = recurso.getTipoRecurso();
+            txtEstado.Text = recurso.getEstadoRT();
+            txtCentro.Text = recurso.getCentro();
+            txtMarca.Text = recurso.getMarca();
+            txtModelo.Text = recurso.getModelo();
+            txtRecurso.Text = recurso.getNumeroRT().ToString();
         }
 
         private void calendar_DayClick(object sender, DayClickEventArgs e)

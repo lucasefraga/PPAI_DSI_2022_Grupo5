@@ -131,12 +131,12 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
-        public void tomarSeleccionRTAUtilizar(int numeroRT)
+        public void tomarSeleccionRTAUtilizar(DataGridViewRow dataGridViewRow)
         {
 
             foreach (RecursoTecnologico recurso in listaRecursoTecnologicosDisponibles)
             {
-                if (recurso.getNumeroRT() == numeroRT)
+                if (recurso.getNumeroRT() == (int)dataGridViewRow.Cells[0].Value)
                 {
                     recursoTecnologicoSeleccionado = recurso;
                 }
@@ -148,7 +148,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
             Dictionary<string, bool> disponibilidadAMostrar = determinarDisponibilidadTurnos();
 
-            ventanaAltaTurno.MostrarYSolicitarSeleccionTurnos(disponibilidadAMostrar);
+            ventanaAltaTurno.MostrarYSolicitarSeleccionTurnos(disponibilidadAMostrar, recursoTecnologicoSeleccionado);
         }
 
         public bool verificarCIDelUsuario()

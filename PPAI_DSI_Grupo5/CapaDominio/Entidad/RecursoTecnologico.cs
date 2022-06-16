@@ -1,4 +1,5 @@
-﻿using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
+﻿using PPAI_DSI_Grupo5.CapaDatos;
+using PPAI_DSI_Grupo5.CapaDominio.FabricacionPura;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,6 +95,15 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         //Getters&Setters
         public int getNumeroRT() { return numeroRT; }
+        public string getEstadoRT() { return cambioEstadoRT.Last<CambioEstadoRT>().getNombreEstado(); }
+
+        public string getTipoRecurso() { return tipoRecurso.getNombre(); }
+
+        public string getCentro() { return centroInvestigacion.getNombre(); }
+
+        public string getModelo() { return modeloDelRT.getNombre(); }
+
+        public string getMarca() { return modeloDelRT.getNombreMarca(LoadData.loadMarcas()); }
 
     }
 }
