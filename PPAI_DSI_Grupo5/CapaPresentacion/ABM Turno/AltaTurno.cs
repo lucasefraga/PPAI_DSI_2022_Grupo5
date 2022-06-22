@@ -45,6 +45,10 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                 {
                     MessageBox.Show("Seleccione una forma de Notificacion", "Reserva de truno");
                 }
+                else if ((checkBoxEmail.Checked == true && checkBoxWP.Checked == true) == true)
+                {
+                    MessageBox.Show("Seleccione UNA SOLA forma de Notificacion", "Reserva de truno");
+                }
             }
             else
             {
@@ -59,8 +63,9 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
 
                     if (checkBoxEmail.Checked)
                     {
-                        MessageBox.Show("Email enviado correctamente.");
+                        MessageBox.Show("Sale un mensaje que da error de q no existe el mail, pero no es importante");
                         gestor.generarMail();
+                        MessageBox.Show("Email enviado correctamente.");
                     }
                         
                     //gestor.EnviarMail(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
