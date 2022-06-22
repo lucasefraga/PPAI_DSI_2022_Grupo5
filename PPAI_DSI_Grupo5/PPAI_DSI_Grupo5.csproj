@@ -89,7 +89,6 @@
     <Compile Include="CapaDominio\Entidad\TipoRecursoTecnologico.cs" />
     <Compile Include="CapaDominio\Entidad\Turno.cs" />
     <Compile Include="CapaDominio\Entidad\Usuario.cs" />
-    <Compile Include="CapaDominio\FabricacionPura\TurnoEstado.cs" />
     <Compile Include="CapaDominio\FabricacionPura\TurnoModel.cs" />
     <Compile Include="CapaPresentacion\ABM Turno\ABMTurno.cs">
       <SubType>Form</SubType>

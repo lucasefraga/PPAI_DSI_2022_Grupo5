@@ -50,6 +50,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return null;
         }
 
+        
+
         public bool esCientificoActivo(PersonalCientifico cientifico)
         {
             foreach (AsignacionCientificoCI asignado in cientificos)
@@ -72,12 +74,17 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             {
                 if (cientificoIter.esCientificoActivo(cientifico))
                 {
-                    cientificoIter.addTurno(turnocorrespondiente);
+                    cientificoIter.setTurno(turnocorrespondiente);
                 }
             }
         }
 
         //Getters&Setters
         public string getNombre() { return nombre; }
+
+        public void setRecursosTecnologicos(List<RecursoTecnologico> recursos)
+        {
+            recursosTecnologicos = recursos;
+        }
     }
 }

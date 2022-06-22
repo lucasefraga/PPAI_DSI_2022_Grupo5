@@ -22,21 +22,24 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         private List<HorarioRT> disponibilidad;
         private List<CambioEstadoRT> cambioEstadoRT;
         private List<Turno> turnos;
+        
+        
         private CentroDeInvestigacion centroInvestigacion;
 
 
         //METODOS
 
         // --> Metodo Constructor
-        public RecursoTecnologico(int numeroRT, TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos, CentroDeInvestigacion centro)
+        public RecursoTecnologico(int numeroRT, TipoRecursoTecnologico tipoRecurso, Modelo modeloDelRT, List<CambioEstadoRT> cambioEstadoRT, List<Turno> turnos)
         {
             this.numeroRT = numeroRT;
             this.tipoRecurso = tipoRecurso;
             this.modeloDelRT = modeloDelRT;
             this.cambioEstadoRT = cambioEstadoRT;
             this.turnos = turnos;
-            this.centroInvestigacion = centro;
+            
         }
+
 
         public bool esTipoRecursoSeleccinado(string tipoRecurso)
         {
@@ -48,22 +51,59 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable();
         }
 
-        public bool esCientificoDeMiCentro(PersonalCientifico cientifico)
+        public RecursoTecnologicoMuestra mostrarDatosDeRT(List<Marca> marcas)
+        {
+            int nroInv = this.getNumeroRT();
+            mostrarCentroDeInvest();
+            List<String> modeloYMarca = mostrarMarcaYModelo();
+            string nombreEstado = getEstadoRT();
+
+            return new RecursoTecnologicoMuestra(centroInvestigacion, nroInv, modeloYMarca[1], modeloYMarca[0], nombreEstado);
+        }
+
+        public void mostrarCentroDeInvest()
+        {
+            //Esto se realiza porque los datos estan Harcodeados
+            List<CentroDeInvestigacion> centrosInvestigacion = LoadData.listarCentros();
+            centrosInvestigacion[0].setRecursosTecnologicos(LoadData.loadRecursosTecnologicosC1());
+            centrosInvestigacion[1].setRecursosTecnologicos(LoadData.loadRecursosTecnologicosC2());
+            centrosInvestigacion[2].setRecursosTecnologicos(LoadData.loadRecursosTecnologicosC3());
+
+            foreach (CentroDeInvestigacion centro in centrosInvestigacion)
+            {
+                if (centro.obtenerCIdeRecursoTecnologico(this) != null)
+                {
+                    centroInvestigacion = centro.obtenerCIdeRecursoTecnologico(this);
+                }
+
+            }
+        }
+
+        public List<String> mostrarMarcaYModelo()
+        {
+            List<String> modeloYMarca = this.modeloDelRT.obtenerModeloYMarca();
+            return modeloYMarca;
+        }
+
+        public string getEstadoRT() { return cambioEstadoRT.Last<CambioEstadoRT>().getNombreEstado(); }
+
+        public bool esCientificoDeMiCI(PersonalCientifico cientifico)
         {
             return centroInvestigacion.esCientificoActivo(cientifico);
         }
 
         // Obtencion de lista de turnos, diferenciando los turnos disponibles si es cientifico de centro o no
-        public List<Turno> obtenerTurnos(bool esCientificodelCentro) 
+        public List<Turno> obtenerTurnos(bool esCientificodelCentro, DateTime date) 
         {
             List<Turno> turnosDisponibles = new List<Turno>();
-            DateTime date = DateTime.Now;
+            
 
             if (esCientificodelCentro)
             {
                 foreach (Turno turno in turnos)
                     if (turno.validarFechaHoraInicio(date))
                     {
+
                         turnosDisponibles.Add(turno);
                     }
 
@@ -80,14 +120,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
             return turnosDisponibles;
         }
-        public RecursoTecnologicoMuestra buscarDatosAMostrar(List<Marca> marcas)
-        {
-            string marca = this.modeloDelRT.getNombreMarca(marcas);
-            string modelo = this.modeloDelRT.getNombre();
-            string nombreEstado = this.cambioEstadoRT.Last().getNombreEstado();
-
-            return new RecursoTecnologicoMuestra(centroInvestigacion, numeroRT, marca, modelo, nombreEstado);
-        }
+        
 
         public void reservarTurno(Turno turnoSelecc, Estado est, PersonalCientifico cientifico)
         {
@@ -97,15 +130,12 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         //Getters&Setters
         public int getNumeroRT() { return numeroRT; }
-        public string getEstadoRT() { return cambioEstadoRT.Last<CambioEstadoRT>().getNombreEstado(); }
+        
 
         public string getTipoRecurso() { return tipoRecurso.getNombre(); }
 
         public string getCentro() { return centroInvestigacion.getNombre(); }
 
-        public string getModelo() { return modeloDelRT.getNombre(); }
-
-        public string getMarca() { return modeloDelRT.getNombreMarca(LoadData.loadMarcas()); }
 
     }
 }

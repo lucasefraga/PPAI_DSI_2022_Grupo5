@@ -45,5 +45,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             cambioEstadoTurno.Add(nuevoCambioEstado);
 
         }
+
+        public DateTime getfechaTurno()
+        {
+            return fechaHoraInicio;
+        }
     }
 }

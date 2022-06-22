@@ -20,6 +20,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         //--> Obtener el cientifico logueado
-        public PersonalCientifico obtenerCientificoLogueado() { return usuarioActual.getPersonalCientifico(); }
+        public PersonalCientifico verificarCientificoLogueado() { return usuarioActual.obtenerCientifico(); }
     }
 }

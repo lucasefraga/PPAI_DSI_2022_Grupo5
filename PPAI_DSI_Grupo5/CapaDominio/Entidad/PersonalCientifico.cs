@@ -27,7 +27,7 @@
         }
 
         //Getters&Setters
-        public string getCorreoPersonal() { return correoPersonal; }
+        public string getMail() { return correoPersonal; }
         public int getLegajo() { return legajo; }
         public string getNombre() { return nombre; }
         public string getApellido() { return apellido; }

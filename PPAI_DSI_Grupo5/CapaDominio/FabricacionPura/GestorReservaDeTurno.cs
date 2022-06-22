@@ -32,6 +32,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         private AltaTurno ventanaAltaTurno;
         private InterfazEmailReserva interfazNotificacion;
         private AsignacionCientificoCI asignCientificoCI;
+        private DateTime fechaHoraActual;
 
 
 
@@ -65,12 +66,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return lista;
         }
 
-        internal void finCU()
-        {
-            ventanaAltaTurno.Close();
-            ventanaRegistrarTurno.Close();
-        }
-
         public void tomarSeleccionTipoRecursoTecnologico(string tipoRecursoSeleccionado)
         {
             buscarRTPorTipoRTValido(tipoRecursoSeleccionado);
@@ -99,7 +94,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
             foreach (RecursoTecnologico recurso in listaRecursosTecnologicosValidos)
             {
-                listaRecursosMuestra.Add(recurso.buscarDatosAMostrar(LoadData.loadMarcas()));
+                listaRecursosMuestra.Add(recurso.mostrarDatosDeRT(LoadData.loadMarcas()));
             }
 
             agruparRTPorCentroInvestigacion();
@@ -145,8 +140,21 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                     recursoTecnologicoSeleccionado = recurso;
                 }
             }
+            obtenerTurnosReservables();
+        }
 
-            listaTurnosRTSeleccionado = recursoTecnologicoSeleccionado.obtenerTurnos(verificarCIDelUsuario());
+        public bool verificarCIDelUsuario()
+        {
+            cientificoLogueado = sesionActual.verificarCientificoLogueado();
+
+            return recursoTecnologicoSeleccionado.esCientificoDeMiCI(cientificoLogueado);
+        }
+
+        public void obtenerTurnosReservables()
+        {
+            obtenerFechaYHoraAcual();
+
+            listaTurnosRTSeleccionado = recursoTecnologicoSeleccionado.obtenerTurnos(verificarCIDelUsuario(), fechaHoraActual);
 
             turnosOrdenados = ordenarYAgruparTurnos();
 
@@ -155,11 +163,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             ventanaAltaTurno.MostrarYSolicitarSeleccionTurnos(disponibilidadAMostrar, recursoTecnologicoSeleccionado);
         }
 
-        public bool verificarCIDelUsuario()
+        public void obtenerFechaYHoraAcual()
         {
-            cientificoLogueado = sesionActual.obtenerCientificoLogueado();
-
-            return recursoTecnologicoSeleccionado.esCientificoDeMiCentro(cientificoLogueado);
+            fechaHoraActual = DateTime.Now;
         }
 
         public Dictionary<string, List<TurnoModel>> ordenarYAgruparTurnos()
@@ -205,7 +211,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return disponibilidad;
         }
 
-        internal void tomarSeleccionTurno(DataGridViewRow dataGridViewRow)
+        public void tomarSeleccionTurno(DataGridViewRow dataGridViewRow)
         {
             foreach (var turnoDisponible in listaTurnosRTSeleccionado)
             {
@@ -228,16 +234,24 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             };
         }
 
-        internal void tomarSeleccionDia(DateTime date)
+        public void tomarSeleccionDia(DateTime date)
         {
             string dateFormatted = date.ToShortDateString();
             if (turnosOrdenados.ContainsKey(dateFormatted))
             {
                 ventanaAltaTurno.mostrarDiaSeleccionado(turnosOrdenados[dateFormatted]);
             }
+        }//Falta agregar en el Diagrama
+
+        public void tomarConfirmacionReserva(bool confirmacion)
+        {
+            if (confirmacion)
+            {
+                registrarReserva();
+            }
         }
 
-        internal void tomarConfirmacionReserva(DataGridViewRow dataGridViewRow)
+        public void registrarReserva()
         {
             foreach (var estado in listaEstados)
             {
@@ -250,21 +264,28 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 }
             }
         }
-
         
-        internal string obtenerMailCientifico()
+        public string obtenerMailCientifico()
         {          
-            return cientificoLogueado.getCorreoPersonal();
+            return cientificoLogueado.getMail();
             
         }
 
-        internal void EnviarMail(StringBuilder mensaje, string recurso, string fechaTurno)
+        public void generarMail()
         {
             interfazNotificacion = new InterfazEmailReserva();
             string email = obtenerMailCientifico();
             string error = "Gmail: acceso denegado.";
-            interfazNotificacion.EnviarMail( mensaje, email,  recurso, fechaTurno, out error);
+            var mensaje = new StringBuilder("Se registro el turno del Recurso");
+            interfazNotificacion.enviarMail(mensaje,email,recursoTecnologicoSeleccionado.getNumeroRT().ToString(),turnoSeleccionado.getfechaTurno().ToString(),out error);
         }
+
+        public void finCU()
+        {
+            ventanaAltaTurno.Close();
+            ventanaRegistrarTurno.Close();
+        }
+
 
     }
 }

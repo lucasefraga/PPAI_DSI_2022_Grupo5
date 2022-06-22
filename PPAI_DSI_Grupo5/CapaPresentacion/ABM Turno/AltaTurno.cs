@@ -51,14 +51,18 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                 DialogResult resultado = MessageBox.Show("¿Está seguro que desea reservar este turno?", "Reserva de truno", MessageBoxButtons.YesNo);
                 if (resultado == DialogResult.Yes)
                 {
-                    gestor.tomarConfirmacionReserva(dgvTurnos.CurrentRow);
+                    gestor.tomarConfirmacionReserva(true);
                     string Error = "";
                     StringBuilder MensajeBuilder = new StringBuilder();
                     string Message = "Su turno ha sido correctamente reservado";
                     MensajeBuilder.Append(Message);
 
                     if (checkBoxEmail.Checked)
+                    {
                         MessageBox.Show("Email enviado correctamente.");
+                        gestor.generarMail();
+                    }
+                        
                     //gestor.EnviarMail(MensajeBuilder, txtTipoRecurso.Text.Trim(), calendario.SelectedDates[0].ToString().Trim(), out Error);
                     if (checkBoxWP.Checked)
                         MessageBox.Show("Mensaje enviado correctamente.");
@@ -89,12 +93,12 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
                     calendario.AddDateInfo(item);
                 }
             }
-
+            List<String> marcaYModelo = recurso.mostrarMarcaYModelo();
             txtTipoRecurso.Text = recurso.getTipoRecurso();
             txtEstado.Text = recurso.getEstadoRT();
             txtCentro.Text = recurso.getCentro();
-            txtMarca.Text = recurso.getMarca();
-            txtModelo.Text = recurso.getModelo();
+            txtMarca.Text = marcaYModelo[1];
+            txtModelo.Text = marcaYModelo[0];
             txtRecurso.Text = recurso.getNumeroRT().ToString();
         }
 

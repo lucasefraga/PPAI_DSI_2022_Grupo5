@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_DSI_Grupo5.CapaDatos;
+using System;
 using System.Collections.Generic;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
@@ -18,16 +19,23 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         // --> Devuelve el nombre de la marca de estre producto
-        public string getNombreMarca(List<Marca> marcas)
+        public List<String> obtenerModeloYMarca()
         {
+            //Primero modelo y despues marca
+            var modeloYMarca = new List<String>();
+            modeloYMarca.Add(nombre);
+            var marcas = LoadData.loadMarcas();
             foreach (var marca in marcas)
             {
                 if (marca.esDeEstaMarca(this))
                 {
-                    return marca.getNombre();
+                    modeloYMarca.Add(marca.getNombre());
+
                 }
             }
-            return null;
+
+
+            return modeloYMarca;
         }
 
         //Getters&Setters

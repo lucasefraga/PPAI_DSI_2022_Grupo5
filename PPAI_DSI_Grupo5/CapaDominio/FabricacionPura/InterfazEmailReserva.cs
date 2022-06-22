@@ -18,7 +18,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
         }
 
-        public void EnviarMail(StringBuilder Mensaje, string emailPara, string NombreRecurso, string FechaReserva, out string Error)
+        public void enviarMail(StringBuilder Mensaje, string emailPara, string NombreRecurso, string FechaReserva, out string Error)
         {
             Error = "";
             try
@@ -53,35 +53,36 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 
 
         // cada 24hs se inhabilita whatsapp
-        public void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
-        {
-            InfoError = "";
-            try
-            {
-                MensajeWP.Append(Environment.NewLine);
-                MensajeWP.Append(string.Format("Recurso reservado: ", NomRecurso, "Fecha Reserva: {0:dd/MM/yyyy}", FechaTurno, "Horario: {0:HH:mm:ss} Hrs", FechaTurno));
-                MensajeWP.Append(Environment.NewLine);
-                var accountSid = "AC8418c64ec3f6446ede7c9a33fb0cd6ba";
-                var authToken = "[AuthToken]";
-                TwilioClient.Init(accountSid, authToken);
 
-                var messageOptions = new CreateMessageOptions(
-                    new PhoneNumber("whatsapp:+5493516216060"));
-                messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
-                messageOptions.Body = MensajeWP.ToString();
-                //messageOptions.Body = "Recurso reservado: "+ NomRecurso+ "Fecha Reserva: {0:dd/MM/yyyy}" + FechaTurno + "Horario: {0:HH:mm:ss} Hrs" + FechaTurno;
+        //public void EnviarWP(StringBuilder MensajeWP, string NomRecurso, string FechaTurno, out string InfoError)
+        //{
+        //    InfoError = "";
+        //    try
+        //    {
+        //        MensajeWP.Append(Environment.NewLine);
+        //        MensajeWP.Append(string.Format("Recurso reservado: ", NomRecurso, "Fecha Reserva: {0:dd/MM/yyyy}", FechaTurno, "Horario: {0:HH:mm:ss} Hrs", FechaTurno));
+        //        MensajeWP.Append(Environment.NewLine);
+        //        var accountSid = "AC8418c64ec3f6446ede7c9a33fb0cd6ba";
+        //        var authToken = "[AuthToken]";
+        //        TwilioClient.Init(accountSid, authToken);
 
-                var message = MessageResource.Create(messageOptions);
-                Console.WriteLine(message.Body);
-                InfoError = "Éxito";
-                MessageBox.Show(InfoError);
-            }
-            catch (Exception ex)
-            {
-                InfoError = "Error: " + ex.Message;
-                MessageBox.Show(InfoError);
-                return;
-            }
+        //        var messageOptions = new CreateMessageOptions(
+        //            new PhoneNumber("whatsapp:+5493516216060"));
+        //        messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
+        //        messageOptions.Body = MensajeWP.ToString();
+        //        //messageOptions.Body = "Recurso reservado: "+ NomRecurso+ "Fecha Reserva: {0:dd/MM/yyyy}" + FechaTurno + "Horario: {0:HH:mm:ss} Hrs" + FechaTurno;
+
+        //        var message = MessageResource.Create(messageOptions);
+        //        Console.WriteLine(message.Body);
+        //        InfoError = "Éxito";
+        //        MessageBox.Show(InfoError);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        InfoError = "Error: " + ex.Message;
+        //        MessageBox.Show(InfoError);
+        //        return;
+        //    }
 
         }
     }
