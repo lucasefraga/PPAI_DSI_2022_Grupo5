@@ -40,6 +40,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cientificos = cientificos;
         }
 
+        // Para saber si un recurso es de este centro se revisan todos los recursos de este centro
         public CentroDeInvestigacion obtenerCIdeRecursoTecnologico(RecursoTecnologico recurso)
         {
             if (recursosTecnologicos.Contains(recurso))
@@ -63,6 +64,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         public int getTiempoAntelacionReserva() { return tiempoAntelacionReserva; }
+
+        // Agrega el turnocorrespondiente a la lista de turnos 
         public void reservarTurnoCientifico(Turno turnocorrespondiente, PersonalCientifico cientifico)
         {
             foreach (AsignacionCientificoCI cientificoIter in cientificos)

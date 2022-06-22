@@ -53,7 +53,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return centroInvestigacion.esCientificoActivo(cientifico);
         }
 
-        public List<Turno> obtenerTurnos(bool esCientificodelCentro) //Ver observacion 3 y resolver lo q pide
+        // Obtencion de lista de turnos, diferenciando los turnos disponibles si es cientifico de centro o no
+        public List<Turno> obtenerTurnos(bool esCientificodelCentro) 
         {
             List<Turno> turnosDisponibles = new List<Turno>();
             DateTime date = DateTime.Now;
@@ -70,6 +71,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             else
             {
                 foreach (Turno turno in turnos)
+                    // Se agrega el tiempo de antelacion de reserva
                     if (turno.validarFechaHoraInicio(date.AddDays(centroInvestigacion.getTiempoAntelacionReserva())))
                     {
                         turnosDisponibles.Add(turno);

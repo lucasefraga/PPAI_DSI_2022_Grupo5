@@ -63,25 +63,25 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             switch (color)
             {
                 case 1:
-                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Blue;
-                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Blue;
-                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Blue;
-                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Blue;
-                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Blue;
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.LightBlue;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.LightBlue;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.LightBlue;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.LightBlue;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.LightBlue;
                     break;           
                 case 2:              
-                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Green;
-                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Green;
-                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Green;
-                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Green;
-                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Green;
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.LightSeaGreen;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.LightSeaGreen;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.LightSeaGreen;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.LightSeaGreen;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.LightSeaGreen;
                     break;           
                 case 3:              
-                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.Gray;
-                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.Gray;
-                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.Gray;
-                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.Gray;
-                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.Gray;
+                    dgrRecursos.Rows[fila].Cells[0].Style.BackColor = Color.LightGray;
+                    dgrRecursos.Rows[fila].Cells[1].Style.BackColor = Color.LightGray;
+                    dgrRecursos.Rows[fila].Cells[2].Style.BackColor = Color.LightGray;
+                    dgrRecursos.Rows[fila].Cells[3].Style.BackColor = Color.LightGray;
+                    dgrRecursos.Rows[fila].Cells[4].Style.BackColor = Color.LightGray;
                     break;
             }
         }

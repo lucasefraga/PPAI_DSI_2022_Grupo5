@@ -45,27 +45,5 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             cambioEstadoTurno.Add(nuevoCambioEstado);
 
         }
-
-        //Getters&Setters
-        public DateTime FechaGeneracion
-        {
-            get { return fechaGeneracion; }
-            set { fechaGeneracion = value; }
-        }
-        public DateTime FechaHoraInicio
-        {
-            get { return fechaHoraInicio; }
-            set { fechaHoraInicio = value; }
-        }
-        public DayOfWeek DiaSemana
-        {
-            get { return diaSemana; }
-            set { diaSemana = value; }
-        }
-        public DateTime FechaHoraFin
-        {
-            get { return fechaHoraFin; }
-            set { fechaHoraFin = value; }
-        }
     }
 }

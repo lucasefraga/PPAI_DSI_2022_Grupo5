@@ -30,8 +30,10 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
 
+        // Corroboracion si es actual
         public bool esActual()
         {
+            // Si se instancia sin generar fechaHoraHasta toma por default minValue
             if (fechaHoraHasta.ToShortDateString() == "1/1/0001")
                 return true;
             else

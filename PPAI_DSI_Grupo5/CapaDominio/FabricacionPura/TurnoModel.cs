@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
+    // Clase de fabricacion pura para los datos necesarios al obtener los Turnos
     public class TurnoModel
     {
         //ATRIBUTOS
