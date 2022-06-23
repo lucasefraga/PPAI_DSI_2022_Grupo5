@@ -124,6 +124,34 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             {
                 dgvTurnos.Rows.Add(turno.getFechaInicio().ToShortDateString(), turno.getFechaInicio().ToShortTimeString(), turno.getFechaFin().ToShortTimeString(), turno.getEstado());
             }
+            for (int i = 0; i < dgvTurnos.Rows.Count; i++)
+            {
+                colorear(i, turnoModels[i].getEstado());
+            }
+        }
+        private void colorear(int fila, string estado)
+        {
+            switch (estado)
+            {
+                case "Disponible":
+                    dgvTurnos.Rows[fila].Cells[0].Style.BackColor = Color.LightBlue;
+                    dgvTurnos.Rows[fila].Cells[1].Style.BackColor = Color.LightBlue;
+                    dgvTurnos.Rows[fila].Cells[2].Style.BackColor = Color.LightBlue;
+                    dgvTurnos.Rows[fila].Cells[3].Style.BackColor = Color.LightBlue;
+                    break;
+                case "Pendiente":
+                    dgvTurnos.Rows[fila].Cells[0].Style.BackColor = Color.LightSeaGreen;
+                    dgvTurnos.Rows[fila].Cells[1].Style.BackColor = Color.LightSeaGreen;
+                    dgvTurnos.Rows[fila].Cells[2].Style.BackColor = Color.LightSeaGreen;
+                    dgvTurnos.Rows[fila].Cells[3].Style.BackColor = Color.LightSeaGreen;
+                    break;
+                case "Reservado":
+                    dgvTurnos.Rows[fila].Cells[0].Style.BackColor = Color.LightSalmon;
+                    dgvTurnos.Rows[fila].Cells[1].Style.BackColor = Color.LightSalmon;
+                    dgvTurnos.Rows[fila].Cells[2].Style.BackColor = Color.LightSalmon;
+                    dgvTurnos.Rows[fila].Cells[3].Style.BackColor = Color.LightSalmon;
+                    break;
+            }
         }
 
         private void dgvTurnos_CellClick(object sender, DataGridViewCellEventArgs e)
