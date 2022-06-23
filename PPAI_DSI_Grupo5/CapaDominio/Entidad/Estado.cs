@@ -8,6 +8,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         private string nombre;
         private string descripcion;
         private string ambito;
+        private string esCancelable;
+        private string es_Reservable;
+
 
         //METODOS
 

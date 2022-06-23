@@ -101,3 +101,28 @@ D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Ent
 D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
 D:\OneDrive - frc.utn.edu.ar\Facultad\3. Tercer Año\DSI\2022\PPAI\1. Primer Entrega\Nueva carpeta\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb
 C:\Users\Marina Constanza\Documents\GitHub\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\MonthCalendar.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe.config
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.exe
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\PPAI_DSI_Grupo5.pdb
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\MonthCalendar.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.dll
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\bin\Debug\Twilio.xml
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.AssemblyReference.cache
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.SuggestedBindingRedirects.cache
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.ABMTurno.resources
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.ABM_Turno.AltaTurno.resources
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Menú.MenuPrincipal.resources
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Presentacion.Transacciones.RegistrarTurno.resources
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.Properties.Resources.resources
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.GenerateResource.cache
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CoreCompileInputs.cache
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.csproj.CopyComplete
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.exe
+C:\Users\Federico\Desktop\PPAI_DSI_2022_Grupo5\PPAI_DSI_Grupo5\obj\Debug\PPAI_DSI_Grupo5.pdb
