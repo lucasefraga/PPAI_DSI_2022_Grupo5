@@ -8,11 +8,15 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class Facultad
     {
+        //ATRIBUTOS
         private string nombre { get; set; }
         private string domicilio { get; set; }
         private PersonalCientifico responsableCyT { get; set; }
         private List<CentroDeInvestigacion> centrosDeInvestigacion { get; set; }
 
+        //METODOS
+
+        // --> Metodo Constructor
         public Facultad(string nombre, string domicilio, PersonalCientifico responsableCyT, List<CentroDeInvestigacion> centrosDeInvestigacion)
         {
             this.nombre = nombre;

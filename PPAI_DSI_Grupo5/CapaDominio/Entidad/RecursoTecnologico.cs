@@ -22,8 +22,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         private List<HorarioRT> disponibilidad;
         private List<CambioEstadoRT> cambioEstadoRT;
         private List<Turno> turnos;
-        
-        
         private CentroDeInvestigacion centroInvestigacion;
 
 
@@ -40,17 +38,19 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             
         }
 
-
+        // --> Retorna True si el tipoRecurso pasado como parametro coincide con el tipoRecurso de este Recurso
         public bool esTipoRecursoSeleccinado(string tipoRecurso)
         {
             return this.tipoRecurso.esSeleccionado(tipoRecurso);
         }
 
+        // --> Retorna True si el estado actual del recurso admite reserva
         public bool esReservable()
         {
             return this.cambioEstadoRT.Last().esActual() && this.cambioEstadoRT.Last().esReservable();
         }
 
+        // --> Retorna clase de fabricacion pura para los datos necesarios
         public RecursoTecnologicoMuestra mostrarDatosDeRT(List<Marca> marcas)
         {
             int nroInv = this.getNumeroRT();
@@ -75,29 +75,27 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 {
                     centroInvestigacion = centro.obtenerCIdeRecursoTecnologico(this);
                 }
-
             }
         }
 
+        // --> Retorna el modelo y la marca
         public List<String> mostrarMarcaYModelo()
         {
             List<String> modeloYMarca = this.modeloDelRT.obtenerModeloYMarca();
             return modeloYMarca;
         }
 
-        public string getEstadoRT() { return cambioEstadoRT.Last<CambioEstadoRT>().getNombreEstado(); }
-
+        // --> Retorna True si esta asignado y es activo
         public bool esCientificoDeMiCI(PersonalCientifico cientifico)
         {
             return centroInvestigacion.esCientificoActivo(cientifico);
         }
 
-        // Obtencion de lista de turnos, diferenciando los turnos disponibles si es cientifico de centro o no
+        // --> Obtencion de lista de turnos, diferenciando los turnos disponibles si es cientifico del centro o no
         public List<Turno> obtenerTurnos(bool esCientificodelCentro, DateTime date) 
         {
             List<Turno> turnosDisponibles = new List<Turno>();
             
-
             if (esCientificodelCentro)
             {
                 foreach (Turno turno in turnos)
@@ -106,8 +104,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
                         turnosDisponibles.Add(turno);
                     }
-
             }
+
             else
             {
                 foreach (Turno turno in turnos)
@@ -120,22 +118,20 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
             return turnosDisponibles;
         }
-        
 
+        
+        // --> Reserva un turno para un cientifico en un estado
         public void reservarTurno(Turno turnoSelecc, Estado est, PersonalCientifico cientifico)
         {
             turnoSelecc.reservar(est);
             centroInvestigacion.reservarTurnoCientifico(turnoSelecc, cientifico);
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public int getNumeroRT() { return numeroRT; }
-        
-
         public string getTipoRecurso() { return tipoRecurso.getNombre(); }
-
         public string getCentro() { return centroInvestigacion.getNombre(); }
-
+        public string getEstadoRT() { return cambioEstadoRT.Last<CambioEstadoRT>().getNombreEstado(); }
 
     }
 }

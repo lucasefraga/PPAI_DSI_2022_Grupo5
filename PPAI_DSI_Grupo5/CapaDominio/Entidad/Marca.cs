@@ -23,7 +23,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return modelos.Contains(modelo);
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getNombre() { return nombre; }
     }
 }

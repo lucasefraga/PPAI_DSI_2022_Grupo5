@@ -30,15 +30,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
                 if (marca.esDeEstaMarca(this))
                 {
                     modeloYMarca.Add(marca.getNombre());
-
                 }
             }
-
 
             return modeloYMarca;
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getNombre() { return this.nombre; }              
     }
 }

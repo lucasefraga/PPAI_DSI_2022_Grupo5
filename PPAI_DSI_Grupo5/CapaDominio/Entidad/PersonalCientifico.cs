@@ -26,14 +26,8 @@
             this.telefono = telefono;
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getMail() { return correoPersonal; }
-        public int getLegajo() { return legajo; }
-        public string getNombre() { return nombre; }
-        public string getApellido() { return apellido; }
-        public double getDocumento() { return documento; }
-        public string getCorreoInstitucional() { return correoInstitucional; }
-        public double getTelefono() { return telefono; }
 
     }
 }

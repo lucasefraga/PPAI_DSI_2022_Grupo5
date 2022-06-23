@@ -1,8 +1,23 @@
-﻿namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
+﻿using System;
+namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 {
     internal class Mantenimiento
     {
+        //ATRIBUTOS
+        private DateTime fechaFin;
+        private DateTime fechaInicio;
+        private DateTime fechaInicioPrevista;
+        private string motivoMantenimiento;
 
-        // Sin uso?
+        //METODOS
+
+        // --> Metodo Constructor
+        public Mantenimiento(DateTime fechaFin, DateTime fechaInicio, DateTime fechaInicioPrevista, string motivoMantenimiento)
+        {
+            this.fechaFin = fechaFin;
+            this.fechaInicio = fechaInicio;
+            this.fechaInicioPrevista = fechaInicioPrevista;
+            this.motivoMantenimiento = motivoMantenimiento;
+        }
     }
 }

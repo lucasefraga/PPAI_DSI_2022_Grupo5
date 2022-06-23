@@ -11,6 +11,7 @@ using Twilio.Types;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
+    // BOUNDARY
     internal class InterfazEmailReserva
     {
         public InterfazEmailReserva()
@@ -40,7 +41,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 smtp.Send(mail);
                 Error = "Éxito";
                 MessageBox.Show(Error);
-
 
             }
             catch (Exception ex)

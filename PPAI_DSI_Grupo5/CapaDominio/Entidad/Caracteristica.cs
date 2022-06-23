@@ -2,9 +2,13 @@
 {
     public class Caracteristica
     {
+        //ATRIBUTOS
         private string nombre;
         private string descripcion;
 
+        //METODOS
+        
+        // --> Metodo Constructor
         public Caracteristica(string nombre, string descripcion)
         {
             this.nombre = nombre;

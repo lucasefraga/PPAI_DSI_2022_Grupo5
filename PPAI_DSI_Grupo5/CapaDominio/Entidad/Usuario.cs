@@ -35,7 +35,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
         //Getters&Setters
-        public Usuario getUsuario() { return this; }
         public PersonalCientifico obtenerCientifico() { return cientifico; }
     }
 }

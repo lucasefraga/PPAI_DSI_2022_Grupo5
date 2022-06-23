@@ -24,7 +24,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             this.estado = v;
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public DateTime getFechaInicio() { return fechaHoraInicio; }
         public DateTime getFechaFin() { return fechaHoraFin; }
         public string getEstado() { return estado; }

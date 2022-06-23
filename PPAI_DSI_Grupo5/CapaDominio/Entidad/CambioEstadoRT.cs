@@ -37,7 +37,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return this.estado.esReservable();
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getNombreEstado() { return estado.getNombre(); }
     }
 }

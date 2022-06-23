@@ -28,18 +28,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         // --> Devuelve si el estado es de ambito TURNO
         public bool esAmbitoTurno() { return ambito == "Turno"; }
 
-        //Getters&Setters
-        public string getDescripcion
-        {
-            get { return descripcion; }
-            set { descripcion = value; }
-        }
-
-        public string getAmbito
-        {
-            get { return ambito; }
-            set { ambito = value; }
-        }
+        //-- > Getters&Setters
         public string getNombre() { return nombre; }
     }
 }

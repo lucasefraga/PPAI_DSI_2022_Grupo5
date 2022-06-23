@@ -14,9 +14,10 @@ using PPAI_DSI_Grupo5.Presentacion.ABM_Turno;
 
 namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
 {
+    // CONTROLLER
     internal class GestorReservaDeTurno
     {
-
+        //ATRIBUTOS
         private List<TipoRecursoTecnologico> listaTipoRTDisponibles;
         private List<RecursoTecnologico> listaRecursosTecnologicosValidos;
         private List<RecursoTecnologicoMuestra> listaRecursosMuestra;
@@ -34,8 +35,9 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
         private AsignacionCientificoCI asignCientificoCI;
         private DateTime fechaHoraActual;
 
+        //METODOS
 
-
+        // --> Metodo Constructor
         public GestorReservaDeTurno(RegistrarTurno registrarTurno, AltaTurno altaTurno, Sesion sesion)
         {
             this.ventanaRegistrarTurno = registrarTurno;
@@ -46,15 +48,16 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             listaTipoRTDisponibles = LoadData.loadTiposRecursoTecnologico();
             listaRecursoTecnologicosDisponibles = LoadData.loadRecursosTecnologicos();
             listaEstados = LoadData.loadEstados();
-            
         }
 
+        // --> Nueva Reserva de Turno, llamada a boundary
         public void nuevaReservaTurno()
         {
             List<string> lista = obtenerRT();
             ventanaRegistrarTurno.mostrarYSolicitarSeleccionTipoRT(lista);
         }
 
+        // --> Retorna lista con los tipos de RT disponibles
         public List<string> obtenerRT()
         {
             List<string> lista = new List<string>();
@@ -66,11 +69,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return lista;
         }
 
+        // --> Toma seleccion de Tipo, y busca por Tipo
         public void tomarSeleccionTipoRecursoTecnologico(string tipoRecursoSeleccionado)
         {
             buscarRTPorTipoRTValido(tipoRecursoSeleccionado);
         }
 
+        // --> Busca por Tipo de RT, conecta con Boundary
         public void buscarRTPorTipoRTValido(string tipoRecursoSeleccionado)
         {
 
@@ -87,7 +92,6 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                         listaRecursosTecnologicosValidos.Add(recurso);
                     }
                 }
-
             }
 
             listaRecursosMuestra = new List<RecursoTecnologicoMuestra>();
@@ -103,11 +107,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             ventanaRegistrarTurno.MostrarYSolicitarRTAUtilizar(listaRecursosMuestra);
         }
 
+        // --> Ordena la lista por CI
         public void agruparRTPorCentroInvestigacion()
         {
             listaRecursosMuestra.OrderBy(x => x.getCentroInvestigacion());   
         }
 
+        // --> Asignacion de colores
         public void asignarColorPorEstadoDeRT()
         {
             foreach (RecursoTecnologicoMuestra recurso in listaRecursosMuestra)
@@ -130,6 +136,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
+        // --> Toma el RT seleccionado y obtiene los turnos para ese RT
         public void tomarSeleccionRTAUtilizar(DataGridViewRow dataGridViewRow)
         {
 
@@ -143,6 +150,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             obtenerTurnosReservables();
         }
 
+        // --> Retorna True si el cientificoLogeado pertenece al CI del RT seleccionado
         public bool verificarCIDelUsuario()
         {
             cientificoLogueado = sesionActual.verificarCientificoLogueado();
@@ -150,6 +158,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return recursoTecnologicoSeleccionado.esCientificoDeMiCI(cientificoLogueado);
         }
 
+        // --> Obtencion de turnos
         public void obtenerTurnosReservables()
         {
             obtenerFechaYHoraAcual();
@@ -163,11 +172,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             ventanaAltaTurno.MostrarYSolicitarSeleccionTurnos(disponibilidadAMostrar, recursoTecnologicoSeleccionado);
         }
 
+        // --> Fecha y hora actual.......
         public void obtenerFechaYHoraAcual()
         {
             fechaHoraActual = DateTime.Now;
         }
 
+        // --> Ordena y Agrupa TurnoModel
         public Dictionary<string, List<TurnoModel>> ordenarYAgruparTurnos()
         {
             Dictionary<string, List<TurnoModel>> turnosOrdenados = new Dictionary<string, List<TurnoModel>>();
@@ -192,6 +203,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return turnosOrdenados;
         }
 
+        // --> Retorna la disponibilidad de cada turno
         public Dictionary<string, bool> determinarDisponibilidadTurnos()
         {
             Dictionary<string, bool> disponibilidad = new Dictionary<string, bool>();
@@ -211,6 +223,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             return disponibilidad;
         }
 
+        // --> Toma seleccion de Turno
         public void tomarSeleccionTurno(DataGridViewRow dataGridViewRow)
         {
             foreach (var turnoDisponible in listaTurnosRTSeleccionado)
@@ -234,6 +247,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             };
         }
 
+        // Toma seleccion de Dia
         public void tomarSeleccionDia(DateTime date)
         {
             string dateFormatted = date.ToShortDateString();
@@ -243,6 +257,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }//Falta agregar en el Diagrama
 
+        // -->  Registra la reserva si la confirmacion es positiva
         public void tomarConfirmacionReserva(bool confirmacion)
         {
             if (confirmacion)
@@ -251,6 +266,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             }
         }
 
+        // --> Registra la reserva de un turnoSeleccionado, en un estado para un cientifico
         public void registrarReserva()
         {
             foreach (var estado in listaEstados)
@@ -264,13 +280,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
                 }
             }
         }
-        
-        public string obtenerMailCientifico()
-        {          
-            return cientificoLogueado.getMail();
-            
-        }
 
+        // --> Generacion de mail
         public void generarMail()
         {
             interfazNotificacion = new InterfazEmailReserva();
@@ -280,12 +291,18 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             interfazNotificacion.enviarMail(mensaje,email,recursoTecnologicoSeleccionado.getNumeroRT().ToString(),turnoSeleccionado.getfechaTurno().ToString(),out error);
         }
 
+        // -> Finaliza Boundary
         public void finCU()
         {
             ventanaAltaTurno.Close();
             ventanaRegistrarTurno.Close();
         }
 
+        // --> Getters&Setters
+        public string obtenerMailCientifico()
+        {
+            return cientificoLogueado.getMail();
 
+        }
     }
 }

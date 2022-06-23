@@ -2,18 +2,20 @@
 {
     internal class CaracteristicaRecurso
     {
-        // Atributos
+        //ATRIBUTOS
         private string valor;
         private Caracteristica caracteristica;
 
-        // Constructor
+        //METODOS
+
+        // --> Metodo Constructor
         public CaracteristicaRecurso(string valor, Caracteristica caracteristica)
         {
             this.valor = valor;
             this.caracteristica = caracteristica;
         }
 
-        // Get and Set
+        // --> Getters&Setters
         public string Valor
         {
             get { return valor; }

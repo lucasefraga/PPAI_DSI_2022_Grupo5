@@ -18,13 +18,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.descripcion = descripcion;
         }
 
-        // --> devuelve si el tipo pasado por parametro es igual a este objeto
+        // --> Retorna True si el tipo pasado como parametro coincide con el TipoRecursoTecnologico
         public bool esSeleccionado(string tipo)
         {
             return nombre == tipo;
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getNombre() { return nombre; }
     }
 }

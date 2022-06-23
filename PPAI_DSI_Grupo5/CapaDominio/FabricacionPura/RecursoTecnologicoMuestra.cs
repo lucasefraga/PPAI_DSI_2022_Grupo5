@@ -30,26 +30,17 @@ namespace PPAI_DSI_Grupo5.CapaDominio.FabricacionPura
             this.estado = estado;
         }
 
+        // --> Getters&Setters
+        public string getEstado() { return estado; }
+        public string getMarca() { return marca; }
+        public string getModelo() { return modelo; }
+        public int getNumetoInventario() { return numeroInventario; }
+        internal int getColor() { return color; }
+        public CentroDeInvestigacion getCentroInvestigacion() { return centroDeInvestigacion; }
         public void setColor(int nroColor)
         {
             this.color = nroColor;
         }
 
-        public CentroDeInvestigacion getCentroInvestigacion()
-        {
-            return centroDeInvestigacion;
-        }
-
-
-        //Getters&Setters
-        public string getEstado() { return estado; }
-        public string getMarca() { return marca; }
-        public string getModelo() { return modelo; }
-        public int getNumetoInventario() { return numeroInventario; }
-
-        internal int getColor()
-        {
-            return color;
-        }
     }
 }

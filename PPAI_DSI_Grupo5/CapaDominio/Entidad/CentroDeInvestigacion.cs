@@ -40,7 +40,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cientificos = cientificos;
         }
 
-        // Para saber si un recurso es de este centro se revisan todos los recursos de este centro
+        // --> Retorna el CI del recurso o null de no encontrarse
         public CentroDeInvestigacion obtenerCIdeRecursoTecnologico(RecursoTecnologico recurso)
         {
             if (recursosTecnologicos.Contains(recurso))
@@ -49,9 +49,8 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             }
             return null;
         }
-
         
-
+        // --> Retorna True si el cientifico esta asignado y activo
         public bool esCientificoActivo(PersonalCientifico cientifico)
         {
             foreach (AsignacionCientificoCI asignado in cientificos)
@@ -65,9 +64,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             return false;
         }
 
-        public int getTiempoAntelacionReserva() { return tiempoAntelacionReserva; }
-
-        // Agrega el turnocorrespondiente a la lista de turnos 
+        // --> Agrega el turnocorrespondiente a la lista de turnos asignados al cientifico
         public void reservarTurnoCientifico(Turno turnocorrespondiente, PersonalCientifico cientifico)
         {
             foreach (AsignacionCientificoCI cientificoIter in cientificos)
@@ -79,12 +76,15 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             }
         }
 
-        //Getters&Setters
+        // --> Getters&Setters
         public string getNombre() { return nombre; }
 
         public void setRecursosTecnologicos(List<RecursoTecnologico> recursos)
         {
             recursosTecnologicos = recursos;
         }
+
+        public int getTiempoAntelacionReserva() { return tiempoAntelacionReserva; }
     }
+
 }

@@ -23,6 +23,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.estado = estado;
         }
 
+        // --> Metodo Constructor sin incluir fechaHoraHasta, toma default
         public CambioEstadoTurno(DateTime fechaHoraDesde, Estado estado)
         {
             this.fechaHoraDesde = fechaHoraDesde;
@@ -41,7 +42,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
         }
 
 
-        //Getters&Setters
+        // --> Getters&Setters
         public DateTime FechaHoraDesde
         {
             get { return fechaHoraDesde; }

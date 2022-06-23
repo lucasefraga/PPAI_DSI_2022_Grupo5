@@ -23,13 +23,13 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
             this.cambioEstadoTurno = cambioEstadoTurno;
         }
 
-        //--> Validacion de si la fechaInicio del turno es posterior a la fecha actual
+        //--> Validacion de si la fechaInicio del turno es posterior a la fecha pasada como parametro
         public bool validarFechaHoraInicio(DateTime timeInicio)
         {
             return this.fechaHoraInicio >= timeInicio;
         }
 
-        //--> Devuelve un modelo del turno para mostrar por pantalla
+        //--> Retorna un modelo del turno para mostrar por pantalla
         public TurnoModel mostrarTurno()
         {
             return new TurnoModel(fechaHoraInicio, fechaHoraFin, cambioEstadoTurno.Last<CambioEstadoTurno>().Estado.getNombre());
@@ -46,6 +46,7 @@ namespace PPAI_DSI_Grupo5.CapaDominio.Entidad
 
         }
 
+        // --> Getters&Setters
         public DateTime getfechaTurno()
         {
             return fechaHoraInicio;
