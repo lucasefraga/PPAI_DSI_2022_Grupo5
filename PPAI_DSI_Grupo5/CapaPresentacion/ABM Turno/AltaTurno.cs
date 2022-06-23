@@ -128,6 +128,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             {
                 colorear(i, turnoModels[i].getEstado());
             }
+            dgvTurnos.ClearSelection();
         }
         private void colorear(int fila, string estado)
         {

@@ -56,6 +56,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.Transacciones
             {
                 colorear(i, listaRecursosMuestra[i].getColor());
             }
+            dgrRecursos.ClearSelection();
         }
 
         private void colorear(int fila, int color)

@@ -323,6 +323,7 @@ namespace PPAI_DSI_Grupo5.Presentacion.ABM_Turno
             this.calendario.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Name = "calendario";
+            this.calendario.SelectionMode = Pabo.Calendar.mcSelectionMode.One;
             this.calendario.Size = new System.Drawing.Size(331, 184);
             this.calendario.TabIndex = 37;
             this.calendario.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
